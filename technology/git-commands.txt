@@ -1,0 +1,52 @@
+Git commands
+
+git help -a
+git help
+
+git status
+git push
+git pull
+git fetch
+git commit
+git add
+git diff
+
+git merge Release_Apricot
+
+
+/** list all branches from local **/ 
+git branch
+git branch list
+
+/** list all remote branches **/
+git ls-remote --heads origin/master
+
+
+/** create a new branch **/
+git branch create <branch>
+git checkout <branch>
+git push --set-upstream origin <branch>
+
+
+/** delete a branch from local & remote **/
+ git branch -d/D <branch>
+ git push origin --delete <branch>
+
+
+git push -u orgin/master Release_Apricot_Spark2.2
+git push --set-upstream origin Release_Apricot_Spark2.2
+
+/** reset a particular file/dir **/
+git checkout <branch>
+git checkout -b Release_Apricot_Spark2.2
+git checkout <file>
+
+git remote show origin | grep -i spark
+
+git reset .metadata/
+
+120  git checkout HEAD .metadata/
+  121  git checkout HEAD -- .metadata/
+  122  git reset HEAD .metadata/
+
+  126  git checkout .metadata/
