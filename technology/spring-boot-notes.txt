@@ -1,5 +1,8 @@
 Source: https://www.youtube.com/playlist?list=PLqq-6Pq4lTTbx8p2oCgcAQGQyqN8XeA1x
 
+https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+
+
 1. what is Spring boot?
  Spring boot makes it easy to create stand-alone, production-grade Spring based Appplciations that can "just run".
 
@@ -35,7 +38,6 @@ Source: https://www.youtube.com/playlist?list=PLqq-6Pq4lTTbx8p2oCgcAQGQyqN8XeA1x
     - Production ready
 
 
-
 5. Starting Spring Boot
     - Sets up default configuration
     - Stars Spring application context
@@ -43,7 +45,47 @@ Source: https://www.youtube.com/playlist?list=PLqq-6Pq4lTTbx8p2oCgcAQGQyqN8XeA1x
     - Starts tomcat server
 
 
-6. 
+6. What's happening here.
+  - Bill of materials
+  - Embedded Tomcat Server
+      - convenience
+      - Servlet container config is now application config
+      - Standalone application
+      - Useful for microservices architecture
+
+
+7. Spring MVC Controller
+  - Image - video 15
+
+  Resources:
+    Topic, Course, Lesson
+    A topic can have multiple courses and a course can consist of multiple lessons
+
+      Topics:
+        GET      /topics      Gets all topics
+        GET      /topics/id   Get the topic
+        POST     /topics      Create new topic
+        PUT      /topics/id   Updates the topic
+        DELETE   /topics/id   Deletes the topic
+
+  Business Services:
+    TopicService
+
+8. Starting a Spring Boot App
+  - Spring Initalizr
+  - Spring Boot CLI
+  - STS IDE
+
+9. Configuration
+    - configure the port (default 8080) of servlet container
+
+10. Sring Data JPA: The Data Tier
+    - JPA -> Java Persistence API
+              - ORM - let's u to map entity classes tables
+                  - Relational Database ..jdbc..named queries..  
+
+    - Spring Data JPA
+        - is more than just a general JPA
 
 
 
