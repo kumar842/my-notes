@@ -14,11 +14,11 @@ https://docs.spring.io/spring-boot/docs/current/reference/html/common-applicatio
 
 2. What is Spring?
    - Whole Application framework
- 	  - not just dependency injection
- 	  - let's build entriprise java apps by providing the templates..
+ 	    - not just dependency injection
+ 	    - let's you build entriprise Java apps by providing the templates..
  
    - Programming and configuration model
- 	  - u ll focus on building business services and u will let spring to handle the common concerns.. like db connection, running queries, handling http request, mvc layer... 
+ 	    - u ll focus on building business services and u will let spring to handle the common concerns.. like database connection, running queries, handling http requests, mvc layer etc.
  
    - Infrastructure support
 
@@ -30,6 +30,7 @@ https://docs.spring.io/spring-boot/docs/current/reference/html/common-applicatio
    - Multiple bulid and deploy steps
  
  Can we abstract these steps?
+
 
 4. Enter Spring Boot
     - Opinionated
@@ -81,7 +82,7 @@ https://docs.spring.io/spring-boot/docs/current/reference/html/common-applicatio
 
 10. Sring Data JPA: The Data Tier
     - JPA -> Java Persistence API
-              - ORM - let's u to map entity classes tables
+              - ORM - let's u to map entity classes to database tables
                   - Relational Database ..jdbc..named queries..  
 
     - Spring Data JPA
