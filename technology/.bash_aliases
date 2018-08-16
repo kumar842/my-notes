@@ -22,11 +22,11 @@ alias ga="git add"
 alias gs="git status"
 alias gd="git diff"
 alias gb="git branch"
+alias gpush='git push'
+alias gpull='git pull'
 alias gl='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
-alias gp='git push'
 
 #apt-get related
-
 
 # moving easily with in the filesystem
 alias ..="cd .."
@@ -35,6 +35,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 alias mn='cd ~/workspace/my-notes'
+alias mnt='mn ; cd technology'
 alias is='cd ~/workspace/iscope-x'
 alias isp='is ; cd iscope-parser'
 alias iso='is ; cd iscope-orchestrator'
