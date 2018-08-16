@@ -1,0 +1,41 @@
+---------------------------------------------------------------------------
+sudo vi /etc/hosts
+
+# custom
+115  helios.isc.inn
+245  themis.isc.inn
+116  hyperion.isc.inn
+5    draco.isc.inn
+---------------------------------------------------------------------------
+.bash_aliases
+.vimrc
+-------------------------------------------------------------------------------
+sudo apt-get install vim
+sudo apt-get install git
+sudo apt-get install scala
+sudo apt-get install openvpn
+sudo apt-get install sublime-text
+sudo apt-get install chromium-browser
+sudo apt-get install maven
+sudo apt install sshpass
+
+sudo apt-get install oracle-java8-installer
+sudo apt-get install ppa-purge
+-------------------------------------------------------------------------------
+sudo rm /usr/bin/vi
+sudo ln -s  /etc/alternatives/vim vi
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+.vimrc
+-------------------------------------------------------------------------------
+vi .bashrc
+
+export VISUAL=vim
+export EDITOR="$VISUAL"
+-----------------------------------------------------------------------------
+cd
+mkdir workspace Softwares Softwares/archieve Downloads/archieve
+cd workspace
+git clone http://themis.isc.inn/isc/isc-x.git
+git clone https://github.com/kumar842/my-notes.git
+-------------------------------------------------------------------------------
