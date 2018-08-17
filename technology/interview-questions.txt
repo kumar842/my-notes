@@ -1,0 +1,24 @@
+==========  Couchbase interview questions   ============
+ - Project overview, where did you use Couchbase, Why? What other sever side & UI side technologies.
+ - What kind of a database is Couchbase?
+ - How you do size a cluster given a scenario of 10k users(2k concurrent users) with the data base size record size of 10Billion.
+ - How to optimize a Couchbase cluster?
+ - What is 
+ 	- XDCR
+	- Data Manager, Cluster Manager
+	- Bucketing
+	- Rebalancing
+	- N1QL
+	- Spatial Views
+	- Indexing
+		- why should we go for indexing?
+		- Covered Index
+		- Composite key/Index
+		- Global Secondary Index
+		- Full text Index
+	
+ - How you add records to Couchbase? What APIs have you used? How did you integrate those APIs into your Application?
+ - How do you perform full text search on Couchbase data? [Expecting an answer in the context of NLP like stemming, lemmatization]
+ - Are you comfortable in building a POT/POC on Couchbase with ReactJS?
+
+
