@@ -27,6 +27,7 @@ alias gpull='git pull'
 alias gl='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
 
 #apt-get related
+#TODO:
 
 # moving easily with in the filesystem
 alias ..="cd .."
@@ -36,15 +37,21 @@ alias .....="cd ../../../.."
 
 alias mn='cd ~/workspace/my-notes'
 alias mnt='mn ; cd technology'
-alias is='cd ~/workspace/iscope-x'
-alias isp='is ; cd iscope-parser'
-alias iso='is ; cd iscope-orchestrator'
-alias ism='is ; cd iscope-metadata'
-alias isdp='is ; cd iscope-dataprep'
-alias isdm='is ; cd iscope-data-mining'
-alias isa='is ; cd iscope-analytics-2.2'
-alias isc='is ; cd iscope-crawler'
+alias is='cd ~/workspace/isc-x'
+alias isp='is ; cd isc-parser'
+alias isps='isp ; cd isc-parser-service'
+alias iso='is ; cd isc-orchestrator'
+alias ism='is ; cd isc-metadata'
+alias isdp='is ; cd isc-dataprep'
+alias isdm='is ; cd isc-data-mining'
+alias isa='is ; cd isc-analytics-2.2'
+alias isc='is ; cd isc-crawler'
 
-
+alias ispt='isp ; cd target'
+alias ispst='isps ; cd target'
+alias isot='iso ; cd target'
+alias ismt='ism ; cd target'
+alias isat='isa ; cd target'
+alias isct='isc ; cd target'
 
 
