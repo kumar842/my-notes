@@ -12,6 +12,7 @@
  - HA of Namenode, How it works internally? What is the role of Zookeeper there. Is zookeeper alone sufficient or some other component is needed to achieve HA
  - YARN architecture
  - What are containers in Hadoop2. Can multiple mappers/reducers run in single container. Can a reducer run within the same container as mapper is running.
+ - Name space in Name node
 
 
 ==========  Hive  ==========
@@ -24,6 +25,9 @@
  - How to read Hbase data using Hive and why we need it
  - Partitioning and Bucketing in Hive
  - Difference between tez, MR, and spark. 
+ - Thrift server in Hive
+ - Hive metastore
+ - Hive Architecture
 
 
 ==========  Pig  ==========
@@ -35,6 +39,7 @@
 
 ==========  Spark  ==========
  - Spark sql functions.
+ - Thrift server in Spark
 
 
 ==========  Hbase  ==========
@@ -58,6 +63,9 @@
  - Sqoop connectors 
  - Specify Sqoop command
  - what is -m in sqoop command?
+ - Sqoop tuning
+ - Boundary querying in Sqoop
+ - Connecting to Teradata from Sqoop
 
 
 ==========  Kafka  ==========
@@ -71,6 +79,10 @@
 ==========  Flume  ==========
  - What is Flume and its Components?
  - Flume architecture
+ - Fan in and fan out in Flume
+ - Flume interceptors
+ - Flume architecture
+ - Difference b/w Kafka and Flume
 
 
 ==========  Zookeeper  ==========
@@ -161,4 +173,5 @@
  - Why Spark used in this Project?
  - What are the file sizes? 
  - How frequently files will load?
+
 
