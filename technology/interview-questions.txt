@@ -1,4 +1,95 @@
-==========  Couchbase interview questions   ============
+==========  Hadoop  ==========
+ - What happens when namenode goes to Safemode.
+ - How to deal when few data nodes goes down in cluster and steps to make it available.
+ - HA in namenodes.
+ - Replication process in Hdfs 
+ - Replication factor in present cluseter. 
+ - Block size in cluster. 
+ - Role of Resource Manager. 
+ - Is High availability on name node implemented on u cluster. 
+ - Difference b/w HDFS version 1 & 2
+ - Role of Resource manager, Node manager, Application Master
+ - HA of Namenode, How it works internally? What is the role of Zookeeper there. Is zookeeper alone sufficient or some other component is needed to achieve HA
+ - YARN architecture
+ - What are containers in Hadoop2. Can multiple mappers/reducers run in single container. Can a reducer run within the same container as mapper is running.
+
+
+==========  Hive  ==========
+ - Hive partitions, bucketing.
+ - Hive Property to change hive metastore database.
+ - Difference between Mapreduce, Tez and Spark
+ - Explain about dynamic Partitioning in Hive
+ - What is Bloom Filter?
+ - How can we achieve ACID properties in Hive
+ - How to read Hbase data using Hive and why we need it
+ - Partitioning and Bucketing in Hive
+ - Difference between tez, MR, and spark. 
+
+
+==========  Pig  ==========
+ - PIG Join scenrios
+ - How to read columns without schema
+ - How to tune Pig scripts
+ - If you have a JSON data, how do you process it using Pig
+
+
+==========  Spark  ==========
+ - Spark sql functions.
+
+
+==========  Hbase  ==========
+ - Hbase architecture.
+ - Delete process in hbase.
+ - Compaction  in hbase.
+ - Does hbase support ACID.
+ - What are regions in hbase
+ - Explain  HBase Read?
+ - How record will search in a  in HBase?
+ - Hbase Version and replication scenarios
+ - Hbase Delete row scenario, what exactly happens
+ - Hbase Bloom filter
+ - Can sqoop can be used to import/export data from hbase.
+ - Different componenets of hbase. 
+ - Do we need to specify the data type of column in hbase. 
+ - Can hbase use different file system in place of HDFS
+
+
+==========  Sqoop  ==========
+ - Sqoop connectors 
+ - Specify Sqoop command
+ - what is -m in sqoop command?
+
+
+==========  Kafka  ==========
+ - Kafka- Use of partitioning in Kafka. And Kafka Architecture
+ - How to install/Setup Kafka
+ - Kafka architecture
+ - Can you query kafka streaming data.. using spark sql. And How?
+ - What are the different levels of delivaries possible in kafka. 
+
+
+==========  Flume  ==========
+ - What is Flume and its Components?
+ - Flume architecture
+
+
+==========  Zookeeper  ==========
+ - Zookeer quorum and zkFailerOverController
+ - Use of zookeeper. 
+ - Is Zookeeper must on hadoop cluste. 
+
+
+==========  Hcatalog  ==========
+ - How do you achieve security in HDFS/Hive. How do you encrypt data in HDFS.
+ - What is Hcatalog. What are the uses of it.
+
+
+==========  Cassandra  ==========
+ - Cassandra database model
+ - Explain Cassandra Family
+
+
+==========  Couchbase   ============
  - Project overview, where did you use Couchbase, Why? What other sever side & UI side technologies.
  - What kind of a database is Couchbase?
  - How you do size a cluster given a scenario of 10k users(2k concurrent users) with the data base size record size of 10Billion.
@@ -21,4 +112,53 @@
  - How do you perform full text search on Couchbase data? [Expecting an answer in the context of NLP like stemming, lemmatization]
  - Are you comfortable in building a POT/POC on Couchbase with ReactJS?
 
+
+==========  Data structures  ==========
+ - DFS, BFS 
+
+
+==========  Data science  ==========
+ - SVMs vs Random forest..
+ - What is the difference between ARIMA and ARIMAX?
+ - What are different dimensionality reduction techniques you applied?
+ - How to do normality test?
+ - How to deal with  skewed data? Any transformation technique is helpful to transform it to normal distributed data?
+ - What is VIF? Where it is applied?
+ - Which correlation is helpful between categorical and continuous variables?
+ - What is the difference between ANOVA and ANCOVA, Variance and Co-variance?
+ - Diff b/w Decision Tree Regression & Random Forest Regression. When you have huge amount of data, which one will you prefer and why? How do you analyse a Decision Tree Model.
+ - What is the Probability Density Function?
+ - What all different unsupervised algorithms you have worked?
+ - What is A-priori algorithm and associative learning.
+
+ case study1:
+	I am a business person. I am dealing with airtravel companies for reporting flight distruptions. How can I predict the flight disruptions?
+		- As a data scientist, how do you deal with this problem?
+		- Is it classification problem? How to model it?
+		- How do you treat outliers?
+		- Do not you do exploratory data analysis?
+		- Which techniques are helpful for multi-classification problems?
+		- What are measures you took?
+		- How to explain these performance measures to a kid.
+
+ case study2:
+	I am implementing a project for gaming company.  One participant is computer and other is human. I want to program the computer. Of these two cases, which are better for deep learning: 
+		I) data and rules    2)only rules are as inputs.
+	If deep learning is applied, which models serve the requirement better?
+
+
+==========  Miscellanious  ==========
+ - Architectural difference between Hadoop and spark.
+ - CAP theorem
+ - How do you write a UDF in Java & Scala. Why writing in scala is easier compared to Java.
+ - Have you contributed any R package?
+ - In python, what are the packages you worked with?
+
+
+==========  Project Related  ==========
+ - Explain your recent project.. and it’s architecture and your role in it.
+ - Introduction to present project.
+ - Why Spark used in this Project?
+ - What are the file sizes? 
+ - How frequently files will load?
 
