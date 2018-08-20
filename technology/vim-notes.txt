@@ -1,0 +1,151 @@
+Modes:
+1. Normal mode
+2. Insert mode (i) 
+3. Visual model (v)
+
+.  - repeat
+<n> <cmd> <txt obj/motion obj>
+
+Operators/Commands/Verbs:
+1. d - delete 
+2. c - change
+3. y - yank
+4. u - undo the previous change
+5. g~ - swap case
+6. gu - make lowercase
+7. gU - make UPPERCASE
+8. > - shift right/indent
+9. < - shift left/indent
+10. = auto indent
+11. ! - Filter {motion} lines through an external program
+12. Char level
+        • x - delete
+        • r - replace
+12. Line level
+       • dd - delete
+       • cc - change
+       • yy - yank
+       • o, O - open a new line in insert mode
+       • U - undo all changes in the given line
+
+
+Motions/Movement:
+1. character level
+      * h   j   k   l
+2. word level: 
+     * b - beginning of the word
+     * e - ending of the word
+     * w - next word/beginning of the next word
+
+3.  within the line:
+       •  0 ...^........................g_.... $ - 
+       •  0i ...^i........................g_i.... $i
+       • 0i ...^i........................g_a.... ($a)A 
+
+4. sentence level - (   )
+5. paragraph level - {   }
+6. File level
+                   ............ gg
+                   ............
+                   ............         nG, ngg, :n
+                   ............  G
+7. Pattern matching
+       • f, F - move forward to that char c
+       • t, T - 
+       • *, # - next/previous occurrence of the word
+       • %  - matching tags (.....),    [......],   {.......} etc.
+       • /<pattern>   n, N
+       • ?<pattern>    n, N
+
+8. Screen level movements
+      • H - Top
+      • M - Middle
+      • L - Bottom
+
+
+Nouns in VIM/Text Objects:
+1. w - word
+2. s - sentence
+3. p - paragraph
+4. t - tag
+5. "  '  (  {  [  i   r  <  ....
+6. i - inner --> iw,  is,  ip,  it,  i",  ii,  ir,  i<  etc...
+7. a - a        --> aw,  as,  ap, at,  a",  ai,  ar, a< etc...
+8.
+
+
+set
+Indention Options
+ * set autoindent: New lines inherit the indentation of previous lines.
+ * set expandtab: Convert tabs to spaces.
+ * set filetype indent on: Enable indentation rules that are file-type specific.
+ * set shiftround: When shifting lines, round the indentation to the nearest multiple of “shiftwidth.”
+ * set shiftwidth=4: When shifting, indent using four spaces.
+ * set smarttab: Insert “tabstop” number of spaces when the “tab” key is pressed.
+ * set tabstop=4: Indent using four spaces.
+
+Search Options
+ * set hlsearch: Enable search highlighting.
+ * set ignorecase: Ignore case when searching.
+ * set incsearch: Incremental search that shows partial matches.
+ * set smartcase: Automatically switch search to case-sensitive when search query contains an uppercase letter.
+
+Performance Options
+ * set complete-=i: Limit the files searched for auto-completes.
+ * set lazyredraw: Don’t update screen during macro and script execution.
+
+Text Rendering Options
+ * set display+=lastline: Always try to show a paragraph’s last line.
+ * set encoding=utf-8: Use an encoding that supports unicode.
+ * set linebreak: Avoid wrapping a line in the middle of a word.
+ * set scrolloff=1: The number of screen lines to keep above and below the cursor.
+ * set sidescrolloff=5: The number of screen columns to keep to the left and right of the cursor.
+ * syntax enable: Enable syntax highlighting.
+ * set wrap: Enable line wrapping.
+
+User Interface Options
+ * set laststatus=2: Always display the status bar.
+ * set ruler: Always show cursor position.
+ * set wildmenu: Display command line’s tab complete options as a menu.
+ * set tabpagemax=50: Maximum number of tab pages that can be opened from the command line.
+ * set colorscheme wombat256mod: Change color scheme.
+ * set cursorline: Highlight the line currently under cursor.
+ * set number: Show line numbers on the sidebar.
+ * set relativenumber: Show line number on the current line and relative numbers on all other lines.
+ * set noerrorbells: Disable beep on errors.
+ * set visualbell: Flash the screen instead of beeping on errors.
+ * set mouse=a: Enable mouse for scrolling and resizing.
+ * set title: Set the window’s title, reflecting the file currently being edited.
+ * set background=dark: Use colors that suit a dark background.
+
+Code Folding Options
+ * set foldmethod=indent: Fold based on indention levels.
+ * set foldnestmax=3: Only fold up to three nested levels.
+ * set nofoldenable: Disable folding by default.
+
+Miscellaneous Options
+ * set autoread: Automatically re-read files if unmodified inside Vim.
+ * set backspace=indent,eol,start: Allow backspacing over indention, line breaks and insertion start.
+ * set backupdir=~/.cache/vim: Directory to store backup files.
+ * set confirm: Display a confirmation dialog when closing an unsaved file.
+ * set dir=~/.cache/vim: Directory to store swap files.
+ * set formatoptions+=j: Delete comment characters when joining lines.
+ * set hidden: Hide files in the background instead of closing them.
+ * set history=1000: Increase the undo limit.
+ * set nomodeline: Ignore file’s mode lines; use vimrc configurations instead.
+ * set noswapfile: Disable swap files.
+ * set nrformats-=octal: Interpret octal as decimal when incrementing numbers.
+ * set shell: The shell used to execute commands.
+ * set spell: Enable spellchecking.
+ * set wildignore+=.pyc,.swp: Ignore files matching these patterns when opening files based on a glob pattern.
+
+
+Notes:
+  • Try to use text objects than motion objects, as they are more repeatable
+  • i, a, A - insert mode
+  • every command/operation you learn can act on any target, every motion object/text object you learn makes every command more powerful
+  • Motion Object commands  vs Text Object commands
+       •  Motion Object command - depends on the cursor position
+       • Text Object command   - independent of cursor position
+
+
