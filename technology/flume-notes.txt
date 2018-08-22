@@ -1,0 +1,157 @@
+Apache Flume is a distributed, reliable, and available service for efficiently collecting, aggregating, and moving large amounts of log data. Its main goal is to deliver data from applications to Apache Hadoop's HDFS. It has a simple and flexible architecture based on streaming data flows. It is robust and fault tolerant with tunable reliability mechanisms and many failover and recovery mechanisms. It uses a simple extensible data model that allows for online analytic applications. 
+
+Flume NG & Flume OG
+	- significantly simpler, smaller, and easier to deploy
+
+Differences:
+	- source & sink - they are now connected by channels
+	- channels are pluggable & dictate durability:
+      - in-memory channel for fast, but non-durable event delivery
+      - file-based channel for durable event delivery
+	- There's no more logical or physical nodes. We call all physical nodes agents and agents can run zero or more sources and sinks.
+	- There's no master and no ZooKeeper dependency anymore. At this time, Flume runs with a simple file-based configuration system.
+	- Just about everything is a plugin, some end user facing, some for tool and system developers. Pluggable components include channels, sources, sinks, interceptors, sink processors, and event serializers.
+
+
+Configuration: 
+	- Java propery file kind of format
+	- specify conf file by -f <file>
+
+  Ex:
+  # Define a memory channel called ch1 on agent1
+  agent1.channels.ch1.type = memory
+ 
+  # Define an Avro source called avro-source1 on agent1 and tell it
+  # to bind to 0.0.0.0:41414. Connect it to channel ch1.
+  agent1.sources.avro-source1.type = avro
+  agent1.sources.avro-source1.bind = 0.0.0.0
+  agent1.sources.avro-source1.port = 41414
+  agent1.sources.avro-source1.channels = ch1
+ 
+  # Define a logger sink that simply logs all events it receives
+  # and connect it to the other end of the same channel.
+  agent1.sinks.log-sink1.type = logger
+  agent1.sinks.log-sink1.channel = ch1
+ 
+  # Finally, now that we've defined all of our components, tell
+  # agent1 which ones we want to activate.
+  agent1.channels = ch1
+  agent1.sources = avro-source1
+  agent1.sinks = log-sink1
+
+For full details, please see the javadoc for the org.apache.flume.conf.properties.PropertiesFileConfigurationProvider class.
+	- Channel: memory, file, jdbc, recoverablememory, PseudoTxnMemoryChaneel, custom_type as FQCN
+	- Source: avro, exec, netcat, seq, StressSource, syslogtcp, syslogudp, AvroLegacySource, ThriftLegacySource, ScribeSource, custom_type as FQCN
+	- Sink: hdfs, HbaseSink, AsyncHbaseSink, logger, avro, file_roll, irc, null, custom_type as FQCN
+	- ChannelSelector: replcating, multiplexing, custom_type FQCN
+	- SinkProcessor: default, failover, load_balance, custom_type as FQCN
+	- Interceptor$Builder: host, timestamp, static, regex_filter, custom_type as FQCN
+	- EventSerializer$Builder: text, avro_event
+	- EventSerializer: SimpleHbaseEventSerializer, SimpleAsyncHbaseEventSerializer, RegexHbaseEventSerializer
+	- HbaseEventSerializer: custom_type for HbaseSink
+	- AsyncHbaseEventSerializer: AsyncHbaseSink
+	- EventSerializer$Builder: other custom_types
+
+
+To start the flume server using the flume.conf above:
+	bin/flume-ng agent --conf ./conf/ -f conf/flume.conf -Dflume.root.logger=DEBUG,console -n agent1
+
+
+flume-ng global options:
+	--conf,-c <conf>     = Use configs in <conf> directory
+	--classpath,-C <cp>  = Append to the classpath
+	--dryrun,-d          = Do not actually start Flume, just print the command 
+	-Dproperty=value     = Sets a JDK system property value 
+
+
+flume-ng agent options:
+	--conf-file,-f <file> = configuration file (required)
+	--name,-n <agentname> = name of agent (required)
+
+Architecture:
+	Data flow model: 
+		Flume event: a unit of data flow having a byte payload and an optional set of string attributes.
+		Flume Agent: JVM process that hosts the components through which events flow from an external source to next destination.
+		A Flume source consumes events delivered to it by an external source like a web server. When a Flume source receives an event, it stores it into one or more channels. The channel is a passive store that keeps the event until it’s consumed by a Flume sink. The source and sink within the given agent run asynchronously with the events staged in the channel.
+    
+	Complex flows:
+		Flume allows a user to build multi-hop flows where events travel through multiple agents before reaching the final destination. It also allows fan-in and fan-out flows, contextual routing and backup routes (fail-over) for failed hops.
+
+	Reliability:   
+		- The events are removed from a channel only after they are stored in the channel of next agent or in the terminal repository.
+		- Flume uses a transactional approach to guarantee the reliable delivery of the events. The sources and sinks encapsulate in a transaction the storage/retrieval, respectively, of the events placed in or provided by a transaction provided by the channel.
+
+	Recoverability:
+		- durable file channel backed by the local file system
+		- in-memory channel, faster but events are not recoverable when an agent process dies
+
+
+============================================================
+https://www.youtube.com/watch?v=d5yFqqjnjQk
+
+1. Source 
+	- reads the feed
+	- can send data to multiple channels
+	- many sources available
+	- Tailsource - removed
+	- exec source
+	- org.apache.flume.source.AbstractSource
+
+2. Sink
+	- many sinks available 
+	- hdfs
+	- mongodb
+	- casandra
+	- org.apache.flume.sink.AbstractSink
+
+3. Channel
+	- Durable
+	- Non-durable
+	- if source feed rate is significantly highger(100/sec) than sink processing rate(10/sec), then the no. of events waiting in the channel will keep increasing. so better to have durabel channel here. you can never catch up with the source speed.
+	- accordingly you have to set -Xmx, -Xms 
+	- channel capacity, trasactionCapacity
+	- which one to choose?
+		- trade off.
+		- Risc taking capability
+
+4. Interceptors 
+	- resides b/w source & channel/ channel & sink
+	- could be multiple interceptors
+	- inspects or filters the events on the fly
+	- Interceptor is a java class with inspect(Event e) method
+	- agent.sources.s1.interceptors=i1,i2,i3
+	- Timestamp: i1.type=timestamp - adds timestamp
+	                    =host - adds host address
+	                    =static<key,value> add k-v pairs like <userid, user123>
+	                    =regex based
+
+5. Channel selectors
+	- b/w source & channel
+	- decides to which channel(s) a particular events has to go
+	- types:
+		- Replicating channel selctor(default)
+		- Multiplexing channel selector(based on the header info) like events coming from diff. data centers India, US & China. So we can have multiple sinks, and the channel selector will send the event to different channels depending on the header info.
+
+6. Agent 
+	- daemon process in which source, sink & channel are run inside it
+	- multiple channels, multiple sources, multiple sinks
+
+7. Sink processor
+	- configure Failover, load balance
+	- 
+
+8. Flume event
+	- each data point {header(0 or more), payload}
+	- headers is a set of key-value pairs(host, timestamp) .. this info is used for routing
+	- payload - byte array
+
+
+File Rotation:
+	- 30sec - rollInterval
+	- 10k events - rollCount
+
+Compression Code:
+	- agent.sink.hdfs_sink.codec=gzip
+
+source -> channel
+keep-alive ..

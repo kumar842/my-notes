@@ -81,7 +81,6 @@
  - Flume architecture
  - Fan in and fan out in Flume
  - Flume interceptors
- - Flume architecture
  - Difference b/w Kafka and Flume
 
 
