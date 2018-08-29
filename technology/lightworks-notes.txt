@@ -1,0 +1,37 @@
+1. 
+reel id.. numbering
+choosing clips u need..
+i <--> o
+
+give a name to sequence..
+add clips them.. to edit..
+
+
+a .. previous video
+s .. next video
+..add special effect.(in vfx).. dissolve..
+
+2.
+adding space/empty gaps b/w clips.. say u wanna add a title..
+moving multiple clips at a time on the go...
+removing the gaps..
+c - cutting the clip
+freeze frame...
+
+
+3. Adding title & overlays
+- text.. gradient effect..
+- by default.. it will last the whole clip..unfold the text.. new FX1 will be there in timeline.. disable video n other audios.. adjust the text..
+- Add Fadein of 2sec.. and faster fadeout of 1sec.
+- Title on a black space
+- insert blank space without distrubring the audio..
+
+4. Working with Audio
+- Add only video.. no audio.. disable audio.. 2 ways..
+- prefer wav audio files over mp3 (for lightworks)
+- cut the audio..delete it first cut.. adjust..
+- sound looks as if it suddenly started.. so go to audio tab.. u will levels.. level should never reach 0.. should be -6 to -4..   -12mark...
+- stero type.. i.e left n right..
+- markers.. sel all.. right click.. rrset track levels..
+- make the sound starts slowly... mark1.. m2..m3 and drage to 0.. fading of audio...
+- end audio >> video.. slowly fadeout..
