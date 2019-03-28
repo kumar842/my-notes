@@ -1,0 +1,71 @@
+NodeJs
+
+ - Ryan Dahl
+ - Module - Maintainability, Reusability, and Namespacing of Code
+ - V8 Engine - V8 is Google’s open source high-performance JavaScript engine, written in C++ and used in Google Chrome, the open source browser from Google, and in Node.js, among others. It implements ECMAScript as specified in ECMA-262, and runs on Windows 7 or later, macOS 10.5+, and Linux systems that use IA-32, ARM, or MIPS processors. V8 can run standalone or can be embedded into any C++ application.
+ - Node Js is single threaded to perform asynchronous processing. Doing async processing on a single thread could provide more performance and scalability under typical web loads than the typical thread-based implementation.
+ - What are events ?
+ 	- An event is an action or occurrence recognized by software/app that is handled by event handler by writing a code that will be executed when the event fired.
+ 	- Mouse move, Click, file copied or deleted are some examples of events.
+	- In Node Js there are two types of events.
+		1)System Events: The event that comes from the C++ side.
+		2)Custom Events: Custom events are user-defined events.
+
+ - 
+
+What is ~?
+ - is a Javascript runtime built on Chrome's V8 Javascript engine.
+ - event-driven & non-blocking model .. lightweight & efficient
+ - which allows us to run Javascript on a computer/server
+ - read, delete & updates files
+ - communicates with database
+
+Why ~?
+ - It uses Javascript
+ - very fast(runs on v8 engine & uses non-blocking engine)
+ - Huge ecosystem of opensource packages(npm)
+ - Great for real-time services(chats)
+
+Section1: Inner workings of ~
+   - v8 engine
+   - modules
+   - event emitter
+   - the file system
+
+Section2: creating a webserver
+   - Routing
+   - Express
+   - Templating
+
+Section3: Make a NodeJs Application(todo app)
+
+Machine Code -> Assembly launage -> C++ --> Javascript
+Machine Code -> C++ + NodeJS + v8 --> Javascript
+- writtnen in c++
+
+
+In Javascript - the global object is Window
+In Node.Js - It's Global
+	setTimeout
+	timer = setInterval
+	clearInterval(timer)
+
+
+
+JavaScript is single-threaded, and the way Node emulates an asynchronous environment in a single-threaded environment is via an event loop, with associated callback functions that are called once a specific event has been triggered. In Example 1-1, when a web request is received, the callback function is called.
+
+
+the following are some of the ES6 features supported in Node, straight out of the can:
+• Classes
+• Promises
+• Symbols
+• Arrow functions
+• Generators
+• Collections
+• let
+• The spread operator
+
+global objects: global, buffer, process
+its event-driven asynchronous nature. 
+
+

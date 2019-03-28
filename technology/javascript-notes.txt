@@ -1,0 +1,167 @@
+~~~~~~~   Javascript basics   ~~~~~~~ 
+var
+const
+let
+
+literal
+
+typeof - both operator & function
+
+Number - Number(undefined) -> NaN, Number('  ') -> 0
+String
+prompt, confirm
+console.log
+alert
+use strict ??
+
+
+operators:
+	Assignment: = as in a = 2.
+	Math: + - * / %
+	Compound Assignment: +=, -=, *=, and /=
+	Increment/Decrement: ++, --
+	Object Property Access: . as in console.log().
+
+	Objects are values that hold other values at specific named locations called properties. obj.a means an object value called obj with a property of the name a. Properties can alternatively be accessed as obj["a"]. See Chapter 2.
+
+	Equality: == (loose-equals), === (strict-equals), != (loose not-equals), !== (strict not-equals)
+	Comparison: <, >, <=, >=
+	Logical && ||
+		var a = {}
+		var b = a.id || 100. //100	
+
+data types: number, string, boolean, function, object
+	- number: 1, 2.0, Infinity, -Infinity, NaN
+	- string: "", ''
+	- boolean: true, false 
+	- object: {}, [], [1,2], Math
+	- function: isEven, Number, alert, 
+	- undefined: typeof(undefined) -> undefined
+	- Symbol for unique identifiers.
+	- null - reference to a non-existing object - typeof(null) -> object
+			The result of typeof null is "object". That’s wrong. It is an officially recognized error in typeof, kept for compatibility. Of course, null is not an object. It is a special value with a separate type of its own. So, again, this is an error in the language.
+
+Type Conversions:
+	- Number('') -> 0, Number('  ') -> 0, Number(undefined) -> NaN, Number(null) -> 0, 
+		- ''        = 0
+		- '  '      = 0
+		- undefined = NaN
+		- true, false = 1, 0
+		- non-empty string = NaN
+		- + short form of Number()
+			- +true -> 1, +"". -> 0	
+			- -"12" -> -12.  -''  -> 0
+
+
+	- String
+		- 123 ->"123"
+		- 2.2 -> "2.2"
+		- null -> "null"
+		- undefined -> "undefined"
+		- isEven -> "(n) => n %2 === 0"
+
+	- Boolean
+		- 0, null, undefined, NaN, '' -> false
+		- any other value = true
+
+
+Evaluation: 
+1 + 2 + '3'    -> "33"
+'1' + 2 + 3    -> "123"
+"" + 1 + 0     -> "10"
+"" - 1 + 0     -> -1
+true + false   -> 1
+6 / "3"        -> 2
+"2" * "3"      -> 6
+4 + 5 + "px"   -> "9px"
+"$" + 4 + 5    -> "$45"
+"4" - 2        -> 2
+"4px" - 2      -> NaN
+7 / 0          -> Infinity
+"  -9  " + 5   -> "  -9  5"
+"  -9  " - 5   -> -14
+null + 1       -> 1
+undefined + 1  -> NaN
+
+
+215.9784
+amount.toFixed( 2 )  -> 215.98
+
+
+~~~~~~~     ES6 Features. ~~~~~~~ 
+1. Declearing Variables in ES6
+	- const
+	- let
+	- Template Strings
+	- Default parameters
+
+2. Arrow Functions
+3. Transpiling ES6 to ES5
+	- Babel - one of the popular tools
+	- Transpiling is not compiling: our code isn’t compiled to binary. Instead, it’s transpiled into syntax that can be interpreted by a wider range of browsers. 
+-------------------------------------------------
+const add = (x=5, y=10) => console.log(x+y);
+
+"use strict";
+var add = function add() {
+	var x = arguments.length <= 0 || arguments[0] === undefined ? 5 : arguments[0];
+	var y = arguments.length <= 1 || arguments[1] === undefined ? 10 : arguments[1];
+	return console.log(x + y);
+};
+-------------------------------------------------
+//Transpiling in the Browser:
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.js">
+</script>
+<script src="script.js" type="text/babel"> </script>
+-------------------------------------------------
+This approach means that the browser does the transpiling at run‐ time. This is not a good idea for production because it will slow your application down a lot. In Chapter 5, we’ll go over how to do this in production. For now, the CDN link will allow us to discover and use ES6 features.
+
+
+4. ES6 Objects & Arrays
+	- Destructuring Assignment
+	- Object Literal Enhancement
+	- The Spread Operator
+	- Promises
+	- Classes
+	- ES6 Modules
+	- CommonJS
+
+
+The reverse function has actually alters or mutates the array
+
+
+~~~~~~~  Functional Programming with JavaScript ~~~~~~~ 
+- map, reduce
+- React, Flux & Redux
+- Functions can be sent to functions as arguments or returned from functions as results.
+- 17th century - lambda calculus, or λ-calculus
+- 1930s - Alonzo Church was at Princeton experimenting with these higher-order functions when he invented lambda calculus.
+
+- 1950 - John McCarthy - a new programming language called Lisp
+- Functions as first-class members/citizens
+- A function is considered a first-class member when it can be declared as a variable, sent to functions as an argument and can even be returned from functions.
+
+- In JavaScript, functions can represent data in your application.
+
+var log = function(message) { console.log(message) };
+const log = message => console.log(message)
+log('.......')
+
+// In JavaScript, functions are variables
+// They can be added to objects like variables
+// They can be inserted into arrays like variables
+// They can be sent to other functions as arguments
+// FUNCTIONS CAN BE RETURNED FROM OTHER FUNCTIONS!!!
+
+
+
+
+
+
+
+
+
+
+
+
+

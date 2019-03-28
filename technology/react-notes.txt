@@ -1,0 +1,334 @@
+React
+ - Js library by Facebook
+ - Netflix, Instagram...
+ - Js driven dynamic webapps
+ - compared to Angular & vue
+
+Redux
+ - layer on top of react
+ - Helps with state management of our app
+ 	- data in the app
+ 	- UI state in the app
+
+What will be learn:
+ - React Basic
+ 	- components
+ 	- events
+ 	- templates
+ 	- props & forms
+ - React Router
+ 	- routes
+ 	- route params
+ 	- redirect
+ - Redux
+ 	- Stores
+ 	- actions
+ 	- reducers
+
+
+componentsx 
+ - Navbar, search box, footer..
+ - DOM. .. Virtual DOM
+ - looks like HTML templates(actually JSX)
+ - They can contain 'state'(date or UI state)
+ - They can contain Js for functionality
+
+React CDN
+	- JSX limitation - only one root element and u can have as many as nested elements
+	- className instead of class
+	- 
+
+
+Components state:
+ - Js object
+ - describe the current state of the component
+ 	- data, UI state
+ - The stage of component can be updated over time
+ 	- a modal could close
+ 	- the data we output could change
+
+ 	... similar to a data property on a view
+
+
+shopping cart component
+{
+	items: [
+		{name: '', price: 123},
+		{name: '', price: 12},
+		{name: '', price: 13}
+	]
+}
+
+Popup component:
+{
+	showPopup: true
+}
+
+{
+	showPopup: false
+}
+
+Create React App:
+ - A command line tool to create React apps
+ 	- Developemen server
+ 	- use ES6 features which are not normally supported
+ 	- Keep our code modular
+ 	- Use build tools to create optimized code
+
+
+Single Page Applications
+ - React apps are typically SPA's
+ - Only ever one HTML page served to the browser
+ - React then controls what a user sees on that page
+
+
+/index    index.html  <---> | Server |
+/contact  contact.html <---> | Server |
+
+
+/index    index.html  <---> | Server |
+/contact  index.html <---> | Server |
+contact component
+
+
+Nesting Components:
+      App.js[Root Component]
+      /         \
+[Navbar.js]    [ContactForm.js]
+
+
+Props are a way to pass the data from parent component to child component
+
+Types of components:
+Container components
+ 	- Contain state
+ 	- Contain lifecycle hooks
+ 	- Not concerned with UI
+ 	- Use classes to create
+UI componnets
+ 	- Don't contain state
+ 	- Receive data from props
+ 	- Only concerned with UI
+ 	- Use functions to create
+ 	
+
+                 ----------- root component  
+                |  App.js   |
+                | Container |
+                 -----------                
+                /    |    \
+               /     |     \
+              /      |      \
+             /       |       \
+            /        |        \
+           /         |         \
+          /          |          \
+         /
+| Navbar.js |   | Ninjas.js |   | ContactForm.js  |
+|   UI c.   |   |   UI c.   |   |    Container c. |
+
+
+UI/Functional components
+
+      App.js(Container)
+        /         \
+       /           \
+      /deleteNinja  \addNinja
+     / ninjas        \
+    /                 \
+ninjas.js            addNinja.js
+
+
+
+
+
+
+https://www.youtube.com/watch?v=DLX62G4lc44
+
+⌨️ (0:00:00) Course Introduction & Philosophy
+--------------------------------------------------------------
+Components: Core building blocks for making reusable pieces of html.
+JSX: react's proprietary wrapper around js
+Styling: 
+Props: 
+State: 
+Event handling:
+Lifecycle methods:
+Integrating with APIs
+Forms
+Virtual DOM?
+
+
+⌨️ (0:05:22) What we'll be building
+--------------------------------------------------------------
+- TODO App
+- Meme Generator
+
+
+⌨️ (0:06:24) Why React?
+--------------------------------------------------------------
+- Very fast.. due to Virtual DOM than Vanilla JS
+- Reusable( & clearer) Web components
+- Maintained by Facebook(lot of open source contributors)
+- Hirable
+
+⌨️ (0:09:25) ReactDOM & JSX
+--------------------------------------------------------------
+- index.js, index.html, sytle.css
+- It's not exactly html, it's JSX
+- JSX expressions must have only one parent element or component
+- var output = <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+- ReactDOM.render(output, document.getElementById('root'));
+
+- clssName: ppl will say class is reserved keyword, that's why className instead of class.. but the truth is.. JSX just using the novice javascript dom API
+- document.getElementById('').className = ''
+- document.getElementById('').classList = ''
+- className use it for react elements, if u use it for react components it does something different..
+
+
+⌨️ (0:20:34) Functional Components
+--------------------------------------------------------------
+- function MyApp() { return (JSX Element)}
+- ReactDOM.render(<MyApp />, document.getElementById('root'));
+
+
+⌨️ (0:35:07) Parent/Child Components
+--------------------------------------------------------------
+- react Components vs react elements 
+- Component follows MyCamelCase style compared to element, which is always lowercase
+- App -> MyInfo        -> div
+    -> AwesomeHeader -> Logo -> img
+                    -> MyNavbar -> nav
+    -> AwesomeFooter -> footer
+
+
+⌨️ (0:48:12) Todo App - Phase 1
+--------------------------------------------------------------
+- tree heirarchy flexbox or css grid
+- flex container vs flex elment
+- when you inspect elements.. you will get header element under div element directly..  otherwise you will end up in getting React components, which may be difficult for debugging..
+- style.. expects not a string but a javascript object..
+- background-color is not allowed without quotes.. because now it's inside curly braces that means it's a javascript code.. backgroundColor
+- <h3 style={styles}>Hello {firstName} {lastName},
+            Good {timeOfDay()}!
+        </h3>
+- const styles = {
+    color: "red",
+    backgroundColor: "yellow",
+    fontSize: "24px"
+}
+- two types: inline Styling/css Styling
+
+
+⌨️ (0:58:12) JSX to JavaScript and Back
+--------------------------------------------------------------
+- use javascript in JSX as {firstName}
+- <h3>My name is {firstName} {lastName}</h3>
+- <h3>My name is {`${firstName} ${lastName}`} </h3>
+
+
+⌨️ (1:17:29) Props in React
+--------------------------------------------------------------
+- props is an object that has properties of that object
+- <h3 style={{display: joke.question? 'block' : 'none'}}>Question: {joke.question}</h3>
+- <h3 style={{display: !joke.question && 'none'}}>Question: {joke.question}</h3>
+- Each child in a list should have a unique "key" prop.
+
+
+⌨️ (1:58:16) Class-based Components
+-------------------------------------------------------------
+- funtional components & class  based components
+- function App(){}
+- class App extends React.Component {
+    render(
+        <div>...</div> //1JSX Element
+    )
+}
+
+
+⌨️ (2:07:11) State
+--------------------------------------------------------------
+- props are immutable
+- state is the data that component maintains, it can't change it's value
+- props is a way to pass the information from one component to another component
+- the component needs to a class based component
+- For a component to have state... first thing it should have an constuctor
+
+⌨️ (2:22:05) Handling Events in React
+--------------------------------------------------------------
+- onClick
+- onMouseOver
+- create a function and bind it
+
+
+⌨️ (2:27:11) Changing State
+--------------------------------------------------------------
+- don't modify the state directly.. use setState..
+- Everytime there props or some value is passed to child component, when ever there is a change in the state, It will automatically render the child component.
+
+
+⌨️ (2:47:14) Lifecycle Methods Part 1
+--------------------------------------------------------------
+- render()
+- componentDidMount() - the very first time it's shows on the screen
+    - whever a component loads for the first time perform some operation like fetch the data from server etc.
+- shouldComponnetUpdate(nextProps, nextState)
+    - decide when to update the component
+    - return true/false
+- componentWillUnmount()
+    - teardown or cleanup code before component disappears
+    - remove event listenrs
+- UNSAFE_componentWillReceiveProps(nextProps) - everytime it receives props from a parent component.
+    - deprecated in v_16, will be removed in v_17
+- componentWillMount() - deprecated
+- componentWillUpdate() - deprecated
+- static getDeriveStateFromProps(props, state)
+    - returns the new, updated state based upon the props
+- getSnapshotBeforeUpdate()
+    - create a backup of the current way things are 
+
+
+⌨️ (3:00:07) Conditional Rendering
+--------------------------------------------------------------
+- && 
+- true && false --> return the second one
+- false && .... -> return firstone
+
+
+⌨️ (3:25:34) Fetching data from an API
+--------------------------------------------------------------
+- fetch()
+
+⌨️ (3:36:34) Forms
+--------------------------------------------------------------
+- react's synthetic event
+
+--------------------------------------------------------------
+⌨️ (4:24:29) Container/Component Architecture
+- UI/Rendering logic vs Business logic(to have state & logic to update the state)
+- Presentational Component vs Smart/Business Component
+- App.. better to have only table of contents..
+- App --> Form Container
+- form dir/FormContainer.js & index.js
+- FormComponent.js & FormContainer.js
+
+--------------------------------------------------------------
+⌨️ (4:35:53) Meme Generator Capstone Project
+--------------------------------------------------------------
+⌨️ (4:56:11) Writing Modern React Apps
+--------------------------------------------------------------
+⌨️ (5:02:17) Project Ideas for Practicing
+--------------------------------------------------------------
+⌨️ (5:03:06) Conclusion
+--------------------------------------------------------------
+
+
+
+
+
+
+
