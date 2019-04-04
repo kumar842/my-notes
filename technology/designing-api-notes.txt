@@ -31,13 +31,29 @@ source: https://blogs.mulesoft.com/dev/api-dev/api-best-practices-series-plan/
     /users/id/1
     /messages
 
+    POST
+    GET
+    PUT
+    DELETE
+
  3.2. Use JSON (when possible)
+        - JSON provides a compact format for accessing data, minimalizing the data transfer required while also offering broader language support than XML.
  3.3. Use the Content-Type Header
+        XML, JSON, YAML ...
 
 4. Hypermedia
- 4.1. 
-
-
-Summary
-
+ 4.1.  What is Hypermedia
+        Hypermedia, in its most basic sense is an extension of hypertext – something you may recognize from HTML.
+ 4.2. The HATEOAS Debate
+        Hypermedia as the Engine of the Application’s State, or implementing HATEOAS.
+        building APIs now include hypermedia specs such as HAL, JSON-LD, JSON API, Siren, or Collection+JSON,
+ 4.3. The Claims For and Against Hypermedia
+        - Hypermedia creates more work
+        - Hypermedia will require more Data-Transfer
+        - You are creating an API for a client that doesn’t exist
+        - Nobody knows how to use Hypermedia
+        - Hypermedia makes your API MORE Flexible
+        - Hypermedia prevents APIs from breaking
+        - Hypermedia replaces Documentation
+        - Hypermedia is a Best Practice
 
