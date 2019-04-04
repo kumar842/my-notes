@@ -1,0 +1,74 @@
+MongoDB
+- Document Oriented NoSQL Database
+- Schema-free, Based on BSON i.e. Binary JSON
+- Organizes in group of documents -> Collections
+- Auto-Sharding in order to scale horizontally
+- Simple query language, Rich, documnet based queries
+- Opne source
+
+MongoDB vs RDBMS
+- Collection vs Table
+- Document vs row
+- Field vs Column
+- Collection isn't strict about what goes into it(It's schema-less)
+
+--------  Installation  -------- 
+download tar & untar it
+
+vi .bash_profile
+   export MONGODB_HOME="/Users/rregunta/Downloads/mongodb-osx-x86_64-4.0.8"
+   export PATH="$MONGODB_HOME/bin:$PATH"
+
+source .bash_profile
+
+
+sudo mkdir /data/db
+sudo chmod -R 777 /data/db
+
+--------  Querying  --------
+show dsb //list of databases
+//It shows only databases, which has at least one document
+db  //present working Database
+
+
+//Database
+use abc  //It creates abc if it's not there
+db.dropDatabase()  //drops database
+
+//Collection
+show collections  //shows all collections
+db.createCollection('users')  //create collection
+db.posts.insert({})  //creates collection & inserts a document
+db.posts.drop()  //drops collection
+
+
+//documents
+db.users.insert({id:1, name: 'Rajkumar'})   //create _id field
+db.users.insert({id:2, name: 'Archana'})
+db.users.insert([{name: "Himakar"}, {name: 'Vedansh'}]) //multiple records
+
+
+//to view documents
+db.users.find()
+db.users.findOne()
+db.users.find({id: 1}) //exact match
+db.users.find({id: {$gt: 1}})   // >
+db.users.find({id: {$gte: 1}})  // >=
+db.users.find({id: {$lt: 2}})   // <
+db.users.find({id: {$lte: 2}})  // <=
+db.users.find({id: {$ne: -100}}).pretty()   // !=
+
+
+db.users.find()
+{ "_id" : ObjectId("5ca4fa8ba36050304ffe1dad"), "id" : 1, "name" : "Rajkumar" }
+{ "_id" : ObjectId("5ca4fa8ca36050304ffe1dae"), "id" : 2, "name" : "Archana" }
+{ "_id" : ObjectId("5ca61404e17900f1a9d38a7d"), "name" : "Himakar" }
+{ "_id" : ObjectId("5ca61404e17900f1a9d38a7e"), "name" : "Vedansh" }
+
+
+
+use tollywooddb
+db.actors.insert({id: 1, name: 'Jr NTR'})
+db.actors.insert({id: 2, name: 'Allu Arjun'})
+
+

@@ -1,0 +1,43 @@
+source: https://blogs.mulesoft.com/dev/api-dev/api-best-practices-series-plan/
+
+1. Plan your APIs
+ 1.1. List out the user FUNCTIONALITY of your API
+    Identify the resources & their interactions.
+
+    Users    : add user, edit user, delete user, get user, get users etc.
+    Messages : send a message, draft a message, send a draft, edit a draft, delete a draft, mark as read, mark as unread, move messages to folders etc.
+    Products : View product, review product, add product to cart, add to whishlist
+    Cart     : view cart, add a product, change quantity, delete quantity, checkout etc.
+
+
+ 1.2. Think LONG TERM… like 2-3 years down the road -- versioning
+
+2. Spec Driven Development (Part 2)
+ 2.1. Define Your API in a Flexible, but Standard Spec
+    - RAML provides a quick, powerful, semantic, yet human readable format for describing your API.  The API Designer makes it simple to get started and even shows you what your API looks like as you describe it.
+
+    https://www.mulesoft.com/platform/api/anypoint-designer
+
+ 2.2. Mock Your API and get User Feedback
+ 2.3. Code to the Spec… and Don’t Deviate
+
+3. Nouns, CRUD, and More
+ 3.1. Use Nouns as Resources
+    /createuser
+    /edituser/id/1
+    /deleteuser/id/1
+
+    /users
+    /users/id/1
+    /messages
+
+ 3.2. Use JSON (when possible)
+ 3.3. Use the Content-Type Header
+
+4. Hypermedia
+ 4.1. 
+
+
+Summary
+
+
