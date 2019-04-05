@@ -1,10 +1,12 @@
 mongodb - WIP
 Redux - Open
-api-designing - WIp
+api-designing - WIP
 bmi new code
 AWS Lambda Functions .. Serverless Architecture
 
 https://code.visualstudio.com/docs
+
+nodejs + express + mongodb + reactjs - WIP
 
 
 npm modules
