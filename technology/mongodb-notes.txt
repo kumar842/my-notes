@@ -12,6 +12,8 @@ MongoDB vs RDBMS
 - Field vs Column
 - Collection isn't strict about what goes into it(It's schema-less)
 
+Mongo Single Instance, Mongo Replicaset and Mongo Shard Cluster.
+
 --------  Installation  -------- 
 download tar & untar it
 

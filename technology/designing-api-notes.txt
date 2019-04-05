@@ -1,4 +1,92 @@
-source: https://blogs.mulesoft.com/dev/api-dev/api-best-practices-series-plan/
+sources:
+https://blogs.mulesoft.com/dev/api-dev/api-best-practices-series-plan/
+https://medium.com/hashmapinc/rest-good-practices-for-api-design-881439796dc9
+
+Good REST APIs should:
+ - Be easy to understand so that integration is straightforward
+ - Be well documented, so that semantic behaviors are understood (not just syntactic)
+ - Follow accepted standards such as HTTP
+
+1. Use Nouns in URI
+2. Plurals or Singulars - prefer Plurals
+3. Let the HTTP Verb Define Action
+
+                     POST            GET           PUT               DELETE
+                     (Create)        (Read)        (Update)          (Delete)
+       Resource     ------------------------------------------------------------------------
+       /users          a user          all users     ** bulk upate      ** deletes all users
+       /users/{id}      --             a user        update a user      delete a user
+
+4. Don’t Misuse Safe Methods (Idempotency)
+       GET /users/123/delete - wrong
+5. Depict Resource Hierarchy Through URI
+       GET /users/123/posts/1
+6. Version Your APIs
+       Headers:
+              Custom Header:Adding a custom X-API-VERSION (or any other header of choice) header key by client can be used by a service to route a request to the correct endpoint
+              Accept Header : Using accept header to specify your version such as
+                     => Accept: application/vnd.hashmapinc.v2+json
+
+       URL:
+           POST /v2/users
+7. Return Representation
+       POST, PUT or PATCH methods, used to create a resource or update fields in a resource, should always return updated resource representation as a response with appropriate status code as described in further points.
+       POST if successful to add new resource should return HTTP status code 201 along with URI of newly created resource in Location header (as per HTTP specification)
+
+8. Filter, Search and Sort
+       Filtering:
+              GET /users/123/posts?state=published
+
+       Searching:
+              GET /users/123/posts?state=published&ta=scala
+              GET /users/123/posts?q=sometext&fq=state:published,ta:scala
+
+       Sorting:
+              GET /users/123/posts?sort=-updated_at
+
+9. HATEOAS
+       It provides ease of navigation through a resource and its available actions. This way a client doesn’t need to know how to interact with an application for different actions, as all the metadata will be embedded in responses from the server.
+
+       {
+       “name”: “John Doe”,
+       “self”: “http://localhost:8080/users/123",
+       “posts”: “http://localhost:8080/users/123",
+       “address”: “http://localhost:8080/users/123/address"
+       }
+
+10. Stateless Authentication & Authorization
+       For that reason, every request should contain all the information of a user (if it’s a secure API), instead of relying on previous requests.
+       This doesn’t limit APIs to a user as an authorized person, as it allows service-to-service authorization as well. For user authorization, JWT (JSON Web Token) with OAuth2 provides a way to achieve this. Additionally, for service-to-service communication, try to have the encrypted API-key passed in the header.
+
+11. Swagger for Documentation
+
+12. HTTP Status Codes
+       2xx Success
+              - 200 OK: Returned by a successful GET or DELETE operation. PUT or POST can also use this, if the service does not want to return a resource back to the client after creation or modification.
+              - 201 Created: Response for a successful resource creation by a POST request.
+       3xx Redirection
+              - 304 Not Modified: Used if HTTP caching header is implemented.
+       4xx Client Errors
+              - 400 Bad Request: When an HTTP request body can’t be parsed. For example, if an API is expecting a body in a JSON format for a POST request, but the body of the request is malformed.
+              - 401 Unauthorized: Authentication is unsuccessful (or credentials have not been provided) while accessing the API.
+              - 403 Forbidden: If a user is not Authorized to perform an action although authentication information is correct.
+              - 404 Not Found: If the requested resource is not available on the server.
+              - 405 Method Not Allowed: If the user is trying to violate an API contract, for example, trying to update a resource by using a POST method.
+
+       5xx Server Errors
+
+These errors occur due to server failures or issues with the underlying infrastructure.
+
+
+
+
+
+
+
+
+
+
+
 
 1. Plan your APIs
  1.1. List out the user FUNCTIONALITY of your API
