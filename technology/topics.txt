@@ -7,6 +7,13 @@ AWS Lambda Functions .. Serverless Architecture
 https://code.visualstudio.com/docs
 
 nodejs + express + mongodb + reactjs - WIP
+Tollywood-api
+ - cache
+ - logging
+ - swagger - parameters - full testing
+ - internationalisation & localisation
+ - auth0 - authentication & authorisation, RBAC
+ - session management
 
 
 npm modules
