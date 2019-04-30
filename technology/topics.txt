@@ -1,14 +1,28 @@
 mongodb - WIP
-Redux - Open
-api-designing - WIp
-bmi new code
+Redux - WIP
+API-designing - WIP
+BMI new code
 AWS Lambda Functions .. Serverless Architecture
 
 https://code.visualstudio.com/docs
 
+NodeJS
+ - Routing
+ - fixture, promises, aync, await, associations
+ - Unit testing
+ - logging
+ - session managemnet
+ - docker
 
 npm modules
 - express
 - mongoose
+- mocha
+- sequelize
+- lodash
+
+Project:
+- HST-110 - what to do?
+- Other tasks..
 
 
