@@ -14,6 +14,17 @@ NodeJS
  - session managemnet
  - docker
 
+Nodejs + express + mongodb + reactjs - WIP
+
+Tollywood-api
+ - cache
+ - logging
+ - swagger - parameters - full testing
+ - internationalisation & localisation
+ - auth0 - authentication & authorisation, RBAC
+ - session management
+
+
 npm modules
 - express
 - mongoose
