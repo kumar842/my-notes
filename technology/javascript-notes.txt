@@ -1,4 +1,9 @@
 ~~~~~~~   Javascript basics   ~~~~~~~ 
+Javascript:
+- client-side programming language
+- NodeJs - server side programming language
+- Interpreted & loosely typed language
+
 var
 const
 let

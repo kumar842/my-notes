@@ -1,0 +1,16 @@
+Typescipt:
+- to overcome the drawbacks of Javascript
+- Js + additional features
+- Strongly typed
+- object oriented
+- complied
+- supports all other js libraries
+- compiled into Javascript code 
+- you can rename all .js files to .ts
+- portable
+
+Benefits of Typescipt:
+- OOps
+- Transpiler === Typescipt compiler
+- 
+
