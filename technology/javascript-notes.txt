@@ -162,6 +162,140 @@ log('.......')
 
 
 
+Javascripts Good parts:
+----------------------------------------------------------------------
+A controversial feature in JavaScript is prototypal inheritance. JavaScript has a class-free object system in which objects inherit properties directly from other objects. This is really powerful, but it is unfamiliar to classically trained programmers. If you attempt to apply classical design patterns directly to JavaScript, you will be frustrated. But if you learn to work with JavaScript's prototypal nature, your efforts will be rewarded.
+
+
+falsy values:
+. false
+· null
+· undefined
+· The empty string ''
+· The number 0
+· The number NaN
+
+
+for (myvar in obj) {
+	if (obj.hasownProperty(myvar)) {
+	...
+	}
+}
+
+switch - case , do-while, while
+try - catch - throw - throws - finally 
+enum
+The simplest expressions are a literal value (such as a string or number), a variable, a built-in value (true, false, null, undefined, NaN, or Infinity), an invocation expression preceded by new, a refinement expression preceded by delete,
+
+typeof - nubmer, string, boolean, undefined, funtion, object
+to number 
+negate 
+logical not 
+
+typeof(arrya) = object
+typeof(null) = object 
+
+literals - number, string, object, array, function, regexp
+Numbers, strings, and booleans are object-like in that they have methods, but they are immutable.
+objects - mutable keyed collections. arrays, functions, regexpressions, objects 
+
+An object is a container of properties, where a property has a name and a value. A property name can be any string, including the empty string. A property value can be any JavaScript value except for undefined.
+
+
+Objects in JavaScript are class-free. There is no constraint on the names of new properties or on the values of properties. Objects are useful for collecting and organizing data. Objects can contain other objects, so they can easily represent tree or graph structures.
+
+JavaScript includes a prototype linkage feature that allows one object to inherit the properties of another. When used well, this can reduce object initialization time and memory consumption.
+
+var empty_object = {};
+var person = {name: "Raj"};
+Object properties
+
+stooge["first-name"] // "Joe"
+flight.departure.IATA // "SYD"
+
+The undefined value is produced if an attempt is made to retrieve a nonexistent member:
+stooge["middle-name"] // undefined
+flight.status // undefined
+stooge["FIRST-NAME"] // undefined
+The || operator can be used to fill in default values:
+var middle = stooge["middle-name"] || "(none)";
+var status = flight.status || "unknown";
+Attempting to retrieve values from undefined will throw a TypeError exception. This can be guarded
+against with the && operator:
+flight.equipment // undefined
+flight.equipment.model // throw "TypeError"
+flight.equipment && flight.equipment.model // undefined
+
+
+
+var a = {}, b = {}, c = {};
+// a, b, and c each refer to a
+// different empty object
+a = b = c = {};
+// a, b, and c all refer to
+// the same empty object
+
+
+
+
+The other approach is to use the hasOwnProperty method, which returns true if the object has a
+particular property. The hasOwnProperty method does not look at the prototype chain:
+flight.hasOwnProperty('number') // true
+flight.hasOwnProperty('constructor') // false
+
+
+
+A function encloses a set of statements. Functions are the fundamental modular unit of JavaScript. They are
+used for code reuse, information hiding, and composition. Functions are used to specify the behavior of
+objects. Generally, the craft of programming is the factoring of a set of requirements into a set of functions
+and data structures.
+
+
+Functions in JavaScript are objects. Objects are collections of name/value pairs having a hidden link to a
+prototype object. Objects produced from object literals are linked to Object.prototype. Function objects
+are linked to Function.prototype (which is itself linked to Object.prototype). Every function is
+also created with two additional hidden properties: the function's context and the code that implements the
+function's behavior.
+
+function literal 
+var add = function (a, b) {
+return a + b;
+};
+
+- keyword function 
+- name 
+- parameters
+- set of statements
+
+
+A function literal can appear anywhere that an expression can appear. Functions can be defined inside of other
+functions. An inner function of course has access to its parameters and variables. An inner function also
+enjoys access to the parameters and variables of the functions it is nested within. The function object created
+by a function literal contains a link to that outer context. This is called closure. This is the source of enormous
+expressive power.
+
+
+In addition to the declared parameters, every function receives two additional parameters: this and
+arguments. The this parameter is very important in object oriented programming, and its value is
+determined by the invocation pattern. There are four patterns of invocation in JavaScript: the method
+invocation pattern, the function invocation pattern, the constructor invocation pattern, and the apply
+invocation pattern. The patterns differ in how the bonus parameter this is initialized
+
+
+
+The invocation operator is a pair of parentheses that follow any expression that produces a function value. The
+parentheses can contain zero or more expressions, separated by commas. Each expression produces one
+argument value. Each of the argument values will be assigned to the function's parameter names. There is no
+runtime error when the number of arguments and the number of parameters do not match. If there are too
+many argument values, the extra argument values will be ignored. If there are too few argument values, the
+undefined value will be substituted for the missing values. There is no type checking on the argument
+values: any type of value can be passed to any parameter.
+
+
+clarity
+--------------------------------------------------------------
+==     ===
+prototype
 
 
 
@@ -170,3 +304,4 @@ log('.......')
 
 
 
+Floating point arithmetic is not always 100% accurate.
