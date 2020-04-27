@@ -330,6 +330,82 @@ History of JS:
 Declration & Definition
 
 
+scict mode & normal mode
+you can make strict mode only for a function() if you want..
+
+
+//closures 
+var a = 10;
+function outer(){
+    var b = 20;
+    var inner = function(){
+        console.log(a, b);
+    }
+    return inner;
+}
+outer();
+
+Javascript remembers the scope chain, when function was declared and assigned. 
+it always knows a and b. it has a pointer to the actual variables. 
+
+a function that remembers it's scope, even if it's executed in a different scope.
+
+whenever a function expression is assigned to a variables, a function object is created. 
+
+Garbage collection.
+
+clsoures are very helpful in using callbacks. callback, is you give a function to another function and you will let the another function execute the first one. 
+javascript is single threaded... it doesn't have anything like wait. whole browser or tab becomes non responsive till that point of time.. 
+
+//practical usage of closure
+var a = 10;
+var fn = function () {console.log("hi.... ", a)}; //It makes snapshot of the variables..
+setTimeout(fn, 1000); //milli-seconds .. when you are passing function, that function already has the scope information and it's varaibles..
+console.log("I don't wait.... ");
+
+module pattern:
+- As javascript doesn't have the concept of hiding variables from public access. there is nothing like hiding properties. but, with the help of scope and closures, we can make a private data and create public APIs to access private data..
+
+getters & setters - closures 
+
+//achieving encapsulation i.e. private data and public APIs to access the private data
+function createPerson(){
+    var firstName = "Rajkumar";
+    var lastName = "Regunta";
+    
+    return {
+        getFirstName: () => firstName,
+        getLastName: () => lastName,
+        setFirstName: (fName) => firstName = fName,
+        setLastName: (lName) => lastName = lName
+    }
+}
+
+removing the proeprty from the object itself and using closure functions, so that they remember the properties. this is called the module pattern. 
+
+Any variables declared in a function get created everytime the funtion is called.
+
+
+//setTimeout basically queues up the execution of the print for 10times..
+---------------------------------------------------------------
+var i;
+var print = () => console.log(i)
+for(i = 0; i < 10; i ++){
+	setTimeout(print, 1000);
+}
+---------------------------------------------------------------
+for(i = 0; i < 10; i ++){
+	(function(){
+        var currentValueOfI = i;
+		setTimeout(() => console.log(currentValueOfI), 1000);
+	})();
+}
+---------------------------------------------------------------
+for(i = 0; i < 10; i ++){
+	(function(currentI){
+		setTimeout(() => console.log(currentI), 1000);
+	})(i);
+}
 
 
 
@@ -343,7 +419,101 @@ prototype
 
 
 
-
-
-
 Floating point arithmetic is not always 100% accurate.
+
+
+-------------------------- ES6 Features ---------------------------- 
+- Constannts
+	- const PI = 3.141593
+
+- Scoping
+	- Block scoped variables & functions
+	- let 
+
+- Arrow Functions
+	- expression bodies
+		- .map(v => v + 1)
+	- stateemnt bodies
+		- .forEach(v => {
+			....
+		};)
+	- Lexical this
+
+- Extended Parameter Handling
+	- Default parameter values
+		- f(x, y, z = 7)
+	- Rest parameter
+		- f (x, y, ...a) //varargs
+	- spread operator
+		- var a = [1, 2, ...params];
+
+- Template literals
+	- String interpolation
+
+- Extended object properties
+	- property shorthand
+		- var x = 0, y = 0;
+          obj = {x, y}
+	- computed property names 
+		- let obj = {["name" + square(x)]};
+	- method properties
+		- obj = { foo(a, b) {}}
+
+- Destructuring Assignment
+	- Array matching
+		- var list = [ 1, 2, 3 ]
+		  var [ a, , b ] = list
+		  [ b, a ] = [ a, b ]
+	- Object matching shorthand notation
+		- var {name, age} = getPerson();
+	- Object matching, Deep matching 
+		- var {name, age, address: {city}} = getPerson();
+	- Object & Array matching, default values 
+		- var obj = {a: 1}; var list = [1];
+		  var {a, b = 2} = obj
+		  var [x, y = 2] = list 
+	- Parameter Context Matching, Default values 
+		- f([name, age]){console.log(name, age)};
+		- g({name: n, age: a}) {console.log(n, a)};
+		- h({name, age}){console.log(name, age)}
+	- Fail-Soft Destructuring
+		-  var list = [ 7, 42 ]
+		   var [ a = 1, b = 2, c = 3, d ] = list
+
+- Modules
+	- //  lib/math.js
+		export function sum (x, y) { return x + y }
+		export var pi = 3.141593
+
+		//  someApp.js
+		import * as math from "lib/math"
+		console.log("2π = " + math.sum(math.pi, math.pi))
+
+		//  otherApp.js
+		import { sum, pi } from "lib/math"
+		console.log("2π = " + sum(pi, pi))
+	- Default & Wildcard
+		-- TODO
+
+- Classes
+	- class Person {
+		constructor(firstName, lastName){
+			this.firstName = firstName;
+			this.lastName = lastName;
+		}
+		greet() {console.log("hello ")}
+		static foo(){}
+	}
+	class Manager extends Person {
+		constructor(firstName, lastName, managerId){
+			super(firstName, lastName);
+			this.managerId = managerId;
+		}
+	}
+	//gettters & setters
+	//class inheritance, From expressions 
+
+- 
+
+
+
