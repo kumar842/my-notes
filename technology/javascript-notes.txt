@@ -292,6 +292,48 @@ undefined value will be substituted for the missing values. There is no type che
 values: any type of value can be passed to any parameter.
 
 
+
+
+JavaBrains Videos:
+--------------------------------------------------------------
+lightweight - small memeory footprint, easy to implement 
+interpreted - No compilation step, Instructions executed directly 
+object-oriented - Modeled around objects 
+first-class-functions - fs can be used as values 
+scripting language - set of instructions put into a file called script 
+
+Different Runtime environments: Browser, 
+DOM tree 
+HTML is a static language
+JS - dynamic language - it can modify the DOM tree and by doing so, it modifies the view in real time.. because, HTML always sync view with dOM tree 
+
+why learn JS:
+- client side web development
+	- Native JS
+	- jQuery
+	- AngularJs, Angular, React, Ember
+- server side development
+	- NodeJS 
+	- Express 
+- Browser extension
+- Desktop apps 
+- Mobile apps 
+- IOT apps 
+
+
+History of JS:
+- created by Brendan Eich at Netscape
+- Created to complement Java 
+- Designed to be easy - forgiving language 
+- Standardized at ECMAScript(Es6)
+
+Declration & Definition
+
+
+
+
+
+
 clarity
 --------------------------------------------------------------
 ==     ===
