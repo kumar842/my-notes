@@ -9,15 +9,10 @@ const
 let
 
 literal
-
 typeof - both operator & function
 
 Number - Number(undefined) -> NaN, Number('  ') -> 0
 String
-prompt, confirm
-console.log
-alert
-use strict ??
 
 
 operators:
@@ -26,7 +21,6 @@ operators:
 	Compound Assignment: +=, -=, *=, and /=
 	Increment/Decrement: ++, --
 	Object Property Access: . as in console.log().
-
 	Objects are values that hold other values at specific named locations called properties. obj.a means an object value called obj with a property of the name a. Properties can alternatively be accessed as obj["a"]. See Chapter 2.
 
 	Equality: == (loose-equals), === (strict-equals), != (loose not-equals), !== (strict not-equals)
@@ -35,7 +29,7 @@ operators:
 		var a = {}
 		var b = a.id || 100. //100	
 
-data types: number, string, boolean, function, object
+data types: number, string, boolean, function, object, undefined , null
 	- number: 1, 2.0, Infinity, -Infinity, NaN
 	- string: "", ''
 	- boolean: true, false 
@@ -44,17 +38,20 @@ data types: number, string, boolean, function, object
 	- undefined: typeof(undefined) -> undefined
 	- Symbol for unique identifiers.
 	- null - reference to a non-existing object - typeof(null) -> object
-			The result of typeof null is "object". That’s wrong. It is an officially recognized error in typeof, kept for compatibility. Of course, null is not an object. It is a special value with a separate type of its own. So, again, this is an error in the language.
+			The result of typeof null is "object". That’s wrong. It is an officially recognized bug in typeof, kept for compatibility. Of course, null is not an object. It is a special value with a separate type of its own. So, again, this is an error in the language.
 
-Type Conversions:
-	- Number('') -> 0, Number('  ') -> 0, Number(undefined) -> NaN, Number(null) -> 0, 
+Type Conversions://Type Coersion
+	- Number('') -> 0, 
+	  Number('  ') -> 0, 
+	  Number(undefined) -> NaN, 
+	  Number(null) -> 0, 
 		- ''        = 0
 		- '  '      = 0
 		- undefined = NaN
 		- true, false = 1, 0
 		- non-empty string = NaN
 		- + short form of Number()
-			- +true -> 1, +"". -> 0	
+			- +true -> 1, +"". -> 0
 			- -"12" -> -12.  -''  -> 0
 
 
@@ -160,51 +157,51 @@ log('.......')
 
 
 
-
-
-Javascripts Good parts:
+Javascripts Good parts Book Notes
 ----------------------------------------------------------------------
-A controversial feature in JavaScript is prototypal inheritance. JavaScript has a class-free object system in which objects inherit properties directly from other objects. This is really powerful, but it is unfamiliar to classically trained programmers. If you attempt to apply classical design patterns directly to JavaScript, you will be frustrated. But if you learn to work with JavaScript's prototypal nature, your efforts will be rewarded.
+- A controversial feature in JavaScript is prototypal inheritance. JavaScript has a class-free object system in which objects inherit properties directly from other objects. This is really powerful, but it is unfamiliar to classically trained programmers. If you attempt to apply classical design patterns directly to JavaScript, you will be frustrated. But if you learn to work with JavaScript's prototypal nature, your efforts will be rewarded.
 
+- falsy values:
+	. false
+	· null
+	· undefined
+	· The empty string ''
+	· The number 0
+	· The number NaN
 
-falsy values:
-. false
-· null
-· undefined
-· The empty string ''
-· The number 0
-· The number NaN
+- truth values
+	. non-empty string
+	. non zero numbers
 
 
 for (myvar in obj) {
 	if (obj.hasownProperty(myvar)) {
-	...
+		...
 	}
 }
 
 switch - case , do-while, while
 try - catch - throw - throws - finally 
 enum
-The simplest expressions are a literal value (such as a string or number), a variable, a built-in value (true, false, null, undefined, NaN, or Infinity), an invocation expression preceded by new, a refinement expression preceded by delete,
+- The simplest expressions are a literal value (such as a string or number), a variable, a built-in value (true, false, null, undefined, NaN, or Infinity), an invocation expression preceded by new, a refinement expression preceded by delete,
 
 typeof - nubmer, string, boolean, undefined, funtion, object
 to number 
 negate 
 logical not 
 
-typeof(arrya) = object
-typeof(null) = object 
+- typeof(array) = object
+- typeof(null) = object 
 
-literals - number, string, object, array, function, regexp
-Numbers, strings, and booleans are object-like in that they have methods, but they are immutable.
-objects - mutable keyed collections. arrays, functions, regexpressions, objects 
+- literals - number, string, object, array, function, regexp
+- Numbers, strings, and booleans are object-like in that they have methods, but they are immutable.
+- objects - mutable keyed collections. arrays, functions, regexpressions, objects 
 
-An object is a container of properties, where a property has a name and a value. A property name can be any string, including the empty string. A property value can be any JavaScript value except for undefined.
+- An object is a container of properties, where a property has a name and a value. A property name can be any string, including the empty string. A property value can be any JavaScript value except for undefined.
 
+- Objects in JavaScript are class-free. There is no constraint on the names of new properties or on the values of properties. Objects are useful for collecting and organizing data. Objects can contain other objects, so they can easily represent tree or graph structures.
 
-Objects in JavaScript are class-free. There is no constraint on the names of new properties or on the values of properties. Objects are useful for collecting and organizing data. Objects can contain other objects, so they can easily represent tree or graph structures.
-
-JavaScript includes a prototype linkage feature that allows one object to inherit the properties of another. When used well, this can reduce object initialization time and memory consumption.
+- JavaScript includes a prototype linkage feature that allows one object to inherit the properties of another. When used well, this can reduce object initialization time and memory consumption.
 
 var empty_object = {};
 var person = {name: "Raj"};
@@ -213,94 +210,62 @@ Object properties
 stooge["first-name"] // "Joe"
 flight.departure.IATA // "SYD"
 
-The undefined value is produced if an attempt is made to retrieve a nonexistent member:
-stooge["middle-name"] // undefined
-flight.status // undefined
-stooge["FIRST-NAME"] // undefined
-The || operator can be used to fill in default values:
-var middle = stooge["middle-name"] || "(none)";
-var status = flight.status || "unknown";
-Attempting to retrieve values from undefined will throw a TypeError exception. This can be guarded
-against with the && operator:
-flight.equipment // undefined
-flight.equipment.model // throw "TypeError"
-flight.equipment && flight.equipment.model // undefined
+- The undefined value is produced if an attempt is made to retrieve a nonexistent member:
+	stooge["middle-name"] // undefined
+	flight.status // undefined
+	stooge["FIRST-NAME"] // undefined
+
+- The || operator can be used to fill in default values:
+	var middle = stooge["middle-name"] || "(none)";
+	var status = flight.status || "unknown";
+- Attempting to retrieve values from undefined will throw a TypeError exception. This can be guarded against with the && operator:
+	flight.equipment // undefined
+	flight.equipment.model // throw "TypeError"
+	flight.equipment && flight.equipment.model // undefined
 
 
+var a = {}, b = {}, c = {}; // a, b, and c each refer to a different empty object
+a = b = c = {}; // a, b, and c all refer to the same empty object
 
-var a = {}, b = {}, c = {};
-// a, b, and c each refer to a
-// different empty object
-a = b = c = {};
-// a, b, and c all refer to
-// the same empty object
-
+- The other approach is to use the hasOwnProperty method, which returns true if the object has a particular property. The hasOwnProperty method does not look at the prototype chain:
+	flight.hasOwnProperty('number') // true
+	flight.hasOwnProperty('constructor') // false
 
 
-
-The other approach is to use the hasOwnProperty method, which returns true if the object has a
-particular property. The hasOwnProperty method does not look at the prototype chain:
-flight.hasOwnProperty('number') // true
-flight.hasOwnProperty('constructor') // false
+- A function encloses a set of statements. Functions are the fundamental modular unit of JavaScript. They are used for code reuse, information hiding, and composition. Functions are used to specify the behavior of objects. Generally, the craft of programming is the factoring of a set of requirements into a set of functions and data structures.
 
 
+- Functions in JavaScript are objects. Objects are collections of name/value pairs having a hidden link to a prototype object. Objects produced from object literals are linked to Object.prototype. Function objects are linked to Function.prototype (which is itself linked to Object.prototype). Every function is also created with two additional hidden properties: the function's context and the code that implements the function's behavior.
 
-A function encloses a set of statements. Functions are the fundamental modular unit of JavaScript. They are
-used for code reuse, information hiding, and composition. Functions are used to specify the behavior of
-objects. Generally, the craft of programming is the factoring of a set of requirements into a set of functions
-and data structures.
-
-
-Functions in JavaScript are objects. Objects are collections of name/value pairs having a hidden link to a
-prototype object. Objects produced from object literals are linked to Object.prototype. Function objects
-are linked to Function.prototype (which is itself linked to Object.prototype). Every function is
-also created with two additional hidden properties: the function's context and the code that implements the
-function's behavior.
-
-function literal 
+function literal
 var add = function (a, b) {
-return a + b;
+	return a + b;
 };
 
-- keyword function 
-- name 
-- parameters
-- set of statements
+- 4 part of a function definiton:
+	- function keyword
+	- name 
+	- parameters
+	- set of statements
 
 
-A function literal can appear anywhere that an expression can appear. Functions can be defined inside of other
-functions. An inner function of course has access to its parameters and variables. An inner function also
-enjoys access to the parameters and variables of the functions it is nested within. The function object created
-by a function literal contains a link to that outer context. This is called closure. This is the source of enormous
-expressive power.
+- A function literal can appear anywhere that an expression can appear. Functions can be defined inside of other functions. An inner function of course has access to its parameters and variables. An inner function also enjoys access to the parameters and variables of the functions it is nested within. The function object created by a function literal contains a link to that outer context. This is called closure.This is the source of enormous expressive power.
 
 
-In addition to the declared parameters, every function receives two additional parameters: this and
-arguments. The this parameter is very important in object oriented programming, and its value is
-determined by the invocation pattern. There are four patterns of invocation in JavaScript: the method
-invocation pattern, the function invocation pattern, the constructor invocation pattern, and the apply
-invocation pattern. The patterns differ in how the bonus parameter this is initialized
+- In addition to the declared parameters, every function receives two additional parameters: this and arguments. The this parameter is very important in object oriented programming, and its value is determined by the invocation pattern. There are four patterns of invocation in JavaScript: the method invocation pattern, the function invocation pattern, the constructor invocation pattern, and the apply invocation pattern. The patterns differ in how the bonus parameter this is initialized.
 
 
-
-The invocation operator is a pair of parentheses that follow any expression that produces a function value. The
-parentheses can contain zero or more expressions, separated by commas. Each expression produces one
-argument value. Each of the argument values will be assigned to the function's parameter names. There is no
-runtime error when the number of arguments and the number of parameters do not match. If there are too
-many argument values, the extra argument values will be ignored. If there are too few argument values, the
-undefined value will be substituted for the missing values. There is no type checking on the argument
-values: any type of value can be passed to any parameter.
-
+- The invocation operator is a pair of parentheses that follow any expression that produces a function value. The parentheses can contain zero or more expressions, separated by commas. Each expression produces one argument value. Each of the argument values will be assigned to the function's parameter names. There is no runtime error when the number of arguments and the number of parameters do not match. If there are too many argument values, the extra argument values will be ignored. If there are too few argument values, the undefined value will be substituted for the missing values. There is no type checking on the argument values: any type of value can be passed to any parameter.
 
 
 
 JavaBrains Videos:
 --------------------------------------------------------------
-lightweight - small memeory footprint, easy to implement 
-interpreted - No compilation step, Instructions executed directly 
-object-oriented - Modeled around objects 
-first-class-functions - fs can be used as values 
-scripting language - set of instructions put into a file called script 
+- lightweight - small memeory footprint, easy to implement 
+- interpreted - No compilation step, Instructions executed directly 
+- object-oriented - Modeled around objects 
+- first-class-functions - fs can be used as values 
+- scripting language - set of instructions put into a file called script 
 
 Different Runtime environments: Browser, 
 DOM tree 
@@ -313,12 +278,12 @@ why learn JS:
 	- jQuery
 	- AngularJs, Angular, React, Ember
 - server side development
-	- NodeJS 
+	- NodeJS
 	- Express 
 - Browser extension
-- Desktop apps 
-- Mobile apps 
-- IOT apps 
+- Desktop apps
+- Mobile apps
+- IOT apps
 
 
 History of JS:
@@ -329,9 +294,8 @@ History of JS:
 
 Declration & Definition
 
-
-scict mode & normal mode
-you can make strict mode only for a function() if you want..
+- strict mode & normal mode
+- you can make strict mode only for a function() if you want..
 
 
 //closures 
@@ -345,21 +309,20 @@ function outer(){
 }
 outer();
 
-Javascript remembers the scope chain, when function was declared and assigned. 
-it always knows a and b. it has a pointer to the actual variables. 
-
-a function that remembers it's scope, even if it's executed in a different scope.
+Javascript remembers the scope chain, when function was declared and assigned. It always knows a and b. it has a pointer to the actual variables. A function that remembers it's scope, even if it's executed in a different scope.
 
 whenever a function expression is assigned to a variables, a function object is created. 
 
+
 Garbage collection.
 
-clsoures are very helpful in using callbacks. callback, is you give a function to another function and you will let the another function execute the first one. 
-javascript is single threaded... it doesn't have anything like wait. whole browser or tab becomes non responsive till that point of time.. 
+clsoures are very helpful in using callbacks. callback, is you give a function to another function and you will let the another function execute the first one. Javascript is single threaded... it doesn't have anything like wait. whole browser or tab becomes non responsive till that point of time.. 
 
 //practical usage of closure
 var a = 10;
-var fn = function () {console.log("hi.... ", a)}; //It makes snapshot of the variables..
+var fn = function () {
+	console.log("hi.... ", a)
+}; //It makes snapshot of the variables..
 setTimeout(fn, 1000); //milli-seconds .. when you are passing function, that function already has the scope information and it's varaibles..
 console.log("I don't wait.... ");
 
@@ -381,18 +344,17 @@ function createPerson(){
     }
 }
 
-removing the proeprty from the object itself and using closure functions, so that they remember the properties. this is called the module pattern. 
+- Removing the proeprty from the object itself and using closure functions, so that they remember the properties. this is called the module pattern. 
 
-Any variables declared in a function get created everytime the funtion is called.
+- Any variables declared in a function get created everytime the funtion is called.
 
-
-//setTimeout basically queues up the execution of the print for 10times..
 ---------------------------------------------------------------
 var i;
 var print = () => console.log(i)
 for(i = 0; i < 10; i ++){
 	setTimeout(print, 1000);
 }
+//setTimeout basically queues up the execution of the print for 10times..
 ---------------------------------------------------------------
 for(i = 0; i < 10; i ++){
 	(function(){
@@ -408,14 +370,45 @@ for(i = 0; i < 10; i ++){
 }
 
 
+Prototype:::
+- everytime you carete a function there are two objects that will be created, one is the object for function and the other is it's prototype objct.
+- you can access function object by it's name and prototype object by functionName.prototype. So, whever the prototype object is created, it will be set on the function object using the property 'prototype'.
+- function foo(){}
+- typeof (foo) = function
+- typeof(foo.prototype) = object 
+- var myObj1 = new foo(); var myObj2 = new foo();
+- myObj1.__proto__ and myObj2.__proto__ points to the function's prototype object. 
+- everytime you create a function object using new keyword, the newly created object will have a reference to the function's prototype using __proto__ proerty.
+- Whenever you try to access to any property on any object, Javascript engine checks for it in the object, if it's not there, it will check for it in the prototype object. 
+- prototype object is single repository for all the funtion objects and function itself. 
+- foo.prototype.test = "test";
+- myObj1.__proto__.test, or myObj1.test 
+- prototype has a property called constructor that points to the actual function.
+- dunder proto property
+- it's not recommended to use dunder proto property. instead use the "prototype" property on the function object. 
+- Global function Object is avaialbe and it's called Object
+- typeof(Object) - function
+- Function                 Prototype
+	- prototype             - constructor
+
+	Obj1
+      - __proto__
+
+- var a = {};
+  var b = new Object();
+  both objects are created in the same way.
+  a.__proto__ same as b.__proto__
+  a.__proto__.constructor same as b.__proto__.constructor -- ƒ Object() { [native code] }
+
+- Object.__proto__     --->  ƒ () { [native code] }
+  Object.constructor   --->  ƒ Function() { [native code] }
+  Object.prototype.__proto__  is null
+
 
 
 clarity
 --------------------------------------------------------------
-==     ===
 prototype
-
-
 
 
 
