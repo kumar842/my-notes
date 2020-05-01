@@ -509,4 +509,50 @@ Floating point arithmetic is not always 100% accurate.
 - 
 
 
+----------- Debugging Javascript Code ----------- 
+Pre-debugging tools:
+	- "use strict";
+	- JSHint/JSLint plugins in VS Code
+
+Debugging in Browser: 
+	- Elements
+		- Live Editing
+	- Breakpoints
+		- Conditional breakpoints 
+	- Watch expressions 
+	- Network
+		- XHR
+		- header, request headers, response headers, request, response, status code, query strings 
+		- clear all
+		- Copy 
+			- as curl 
+			- as fetch 
+			- resend, edit & resend 
+			- url 
+	- Console
+		- console.log()
+		- console.assert(expression, object)
+		- console.tabe(data, ['name', 'gender', 'age']);
+	- Storage
+		- Cache Storage
+		- Cookies
+		- Indexed DB
+		- Local Storage
+		- Session Storage
+	- Inspector
+	- Debugger
+		- Sources
+		- Outline
+			- filter
+		- Snippets
+		- shortcuts
+			- Cmd P - open file 
+			- Cmd F, Cmd + Shift F - search 
+			- Cmd Shift O - list of properties 
+			- Cmd w - close 
+			- Ctrl - G - go to line 
+			- Cmd / - list of shortcuts
+	- Performance
+	- Memory
+	- call stacks
 
