@@ -330,6 +330,11 @@ History of JS:
 Declration & Definition
 
 
+---------------------------------------------------------------
+- getting all the keys of an object: Object.keys(emp)
+	Object.keys(emp).forEach(k => console.log(`${k} : ${emp[k]}`));
+	Object.entries(emp).forEach(([k, value]) => console.log(`${k} : ${value}`));
+
 
 
 
