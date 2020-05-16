@@ -23,7 +23,7 @@ Good REST APIs should:
        GET /users/123/posts/1
 6. Version Your APIs
        Headers:
-              Custom Header:Adding a custom X-API-VERSION (or any other header of choice) header key by client can be used by a service to route a request to the correct endpoint
+              Custom Header: Adding a custom X-API-VERSION (or any other header of choice) header key by client can be used by a service to route a request to the correct endpoint
               Accept Header : Using accept header to specify your version such as
                      => Accept: application/vnd.hashmapinc.v2+json
 

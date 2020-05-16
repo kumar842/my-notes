@@ -180,15 +180,15 @@ for (myvar in obj) {
 	}
 }
 
-switch - case , do-while, while
-try - catch - throw - throws - finally 
+switch - case , do-while, whxmcn, vi
+try - catch - throw - throws - finally
 enum
 - The simplest expressions are a literal value (such as a string or number), a variable, a built-in value (true, false, null, undefined, NaN, or Infinity), an invocation expression preceded by new, a refinement expression preceded by delete,
 
 typeof - nubmer, string, boolean, undefined, funtion, object
 to number 
 negate 
-logical not 
+logical not
 
 - typeof(array) = object
 - typeof(null) = object 
@@ -466,7 +466,7 @@ Floating point arithmetic is not always 100% accurate.
 		- var {name, age} = getPerson();
 	- Object matching, Deep matching 
 		- var {name, age, address: {city}} = getPerson();
-	- Object & Array matching, default values 
+	- Object & Array matching, default values
 		- var obj = {a: 1}; var list = [1];
 		  var {a, b = 2} = obj
 		  var [x, y = 2] = list 
@@ -509,7 +509,7 @@ Floating point arithmetic is not always 100% accurate.
 		}
 	}
 	//gettters & setters
-	//class inheritance, From expressions 
+	//class inheritance, From expressions
 
 - 
 
@@ -537,7 +537,7 @@ Debugging in Browser:
 	- Console
 		- console.log()
 		- console.assert(expression, object)
-		- console.tabe(data, ['name', 'gender', 'age']);
+		- console.table(data, ['name', 'gender', 'age']);
 	- Storage
 		- Cache Storage
 		- Cookies

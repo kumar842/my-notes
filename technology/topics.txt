@@ -1,7 +1,6 @@
 mongodb - WIP
 Redux - WIP
 API-designing - WIP
-BMI new code
 AWS Lambda Functions .. Serverless Architecture
 
 https://code.visualstudio.com/docs
@@ -31,9 +30,5 @@ npm modules
 - mocha
 - sequelize
 - lodash
-
-Project:
-- HST-110 - what to do?
-- Other tasks..
 
 

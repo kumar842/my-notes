@@ -120,24 +120,8 @@ For more advanced configuration a SpringApplication instance can be created and 
 
 
  
-SpringApplications can read beans from a variety of different sources. It is generally recommended that a single @Configuration class is used to bootstrap your application, however, you may also set sources from: •The fully qualified class name to be loaded by AnnotatedBeanDefinitionReader
+SpringApplications can read beans from a variety of different sources. It is generally recommended that a single @Configuration class is used to bootstrap your application, however, you may also set sources from: 
+•The fully qualified class name to be loaded by AnnotatedBeanDefinitionReader
 •The location of an XML resource to be loaded by XmlBeanDefinitionReader, or a groovy script to be loaded by GroovyBeanDefinitionReader
 •The name of a package to be scanned by ClassPathBeanDefinitionScanner
-Configuration properties are also bound to the SpringApplication. This makes it possible to set SpringApplication properties dynamically, like additional sources ("spring.main.sources" - a CSV list) the flag to indicate a web environment ("spring.main.web-application-type=none") or the flag to switch off the banner ("spring.main.banner-mode=off").Author:Phillip WebbDave SyerAndy WilkinsonChristian DupuisStephane NicollJeremy RickardCraig BurkeMichael SimonsMadhura BhaveBrian ClozelEthan RubinsonSee Also:run(Class, String [])run(Class [], String [])SpringApplication(Class)   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Configuration properties are also bound to the SpringApplication. This makes it possible to set SpringApplication properties dynamically, like additional sources ("spring.main.sources" - a CSV list) the flag to indicate a web environment ("spring.main.web-application-type=none") or the flag to switch off the banner ("spring.main.banner-mode=off").Author:Phillip WebbDave SyerAndy WilkinsonChristian DupuisStephane NicollJeremy RickardCraig BurkeMichael SimonsMadhura BhaveBrian ClozelEthan RubinsonSee Also:run(Class, String [])run(Class [], String [])SpringApplication(Class)
