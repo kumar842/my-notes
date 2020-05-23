@@ -68,4 +68,26 @@ the following are some of the ES6 features supported in Node, straight out of th
 global objects: global, buffer, process
 its event-driven asynchronous nature. 
 
+Buffers
+Sterams
 
+
+console.log(JSON.stringify(obj, null, 2))
+(or)
+require('util').inspect.defaultOptions.depth = null
+console.log(obj)
+
+
+express
+minimist
+progress
+readline
+fs
+lodash
+events
+http
+https
+axios
+path
+os
+body-parser

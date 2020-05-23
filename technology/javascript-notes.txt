@@ -513,6 +513,39 @@ Floating point arithmetic is not always 100% accurate.
 
 - 
 
+-------------------------- ES7/ES8/ES9/ES10 Features ---------------------------- 
+'1'.padEnd(5, 'X')      = "XXXX1"
+'1'.padStart(5, 'X')    = "1XXXX"
+Object.entries({'a': 1, 'b': 2})  = [["a", 1],["b", 2]]
+Object.keys({'a': 1, 'b': 2})     = Array [ "a", "b" ]
+Object.values({'a': 1, 'b': 2})   = Array [ 1, 2 ]
+
+['a', 'b', 'c'].includes('a') // true, not 0 like indexOf would give
+['a', 'b', 'c'].includes('d') // false
+
+"abcd".includes("ab")  = true . //instead of indexOf("ac") >= 0
+"abcd".includes("ad")  = false
+
+"abcd".indexOf("ad") = -1
+"abcd".indexOf("bc") = 1
+
+2 ** 8 = 256
+
+{name: 'Raj', age: 35, }  //Trailing commas
+[1, 2, 3,,,] //No error 
+[1, 2, 3,].length = 3
+[1, 2, 3,,].length = 4
+
+Array.flat()
+Array.flatMap()
+
+String.trimstart() and String.trimend()
+
+"  Raj ".trim() = "Raj"
+"  Raj ".trimStart()  = "Raj "
+"  Raj ".trimEnd() = "  Raj"
+"  Raj ".trimLeft()  = "Raj "
+"  Raj ".trimRight() = "  Raj"
 
 ----------- Debugging Javascript Code ----------- 
 Pre-debugging tools:
