@@ -27,13 +27,19 @@ alias gpull='git pull'
 alias gl='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
 
 #apt-get related
-#TODO:
+alias update="sudo apt-get update"
+alias upgrade="sudo apt-get upgrade"
 
 # moving easily with in the filesystem
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+
+alias ll='ls -l'
+alias c='clear'
+alias del='rm -rf'
+alias r='source ~/.bash_aliases'
 
 alias mn='cd ~/workspace/my-notes'
 alias mnt='mn ; cd technology'
