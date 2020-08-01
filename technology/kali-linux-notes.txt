@@ -27,4 +27,4 @@ Firewall
 Root kit - install on an os, its able to hide the running process from the System itself. task-manager requests kernel, and kernel responds with info that these are the running processes
 Reverse-shells
 
-
+  
