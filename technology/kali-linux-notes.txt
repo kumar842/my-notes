@@ -1,0 +1,30 @@
+
+Ethical Hacking
+Pen testing & pen testing companies
+
+White/Grey/Black hat
+Footprinting
+DoS - Denial of Service (just you)
+    apache web server - 10K connections
+DDos (multiple people)
+FUD (anti-virus can not detect) - Fully undetectable - they are not labled as malicious by any of the viruses.
+RAT - Remote Administration tools - usb stick, mail attachments, Infecting the systems
+Fishing Attacks - bate and somebody bites.. email - link. and some website, looks like some legitimate website and you will give your credentials.. and they will misuse these credentials. http/https(but if it's https then it will be very hard to detect)
+SQL Injections - sending sql queries to http requests, if they are not properly formatted. it's a serious threat. most of the webistes are vulnerable, because the frameworks based on which they built are vulnerable.
+
+ways anonomizing yourself.. 
+VPN - route all the traffic through this vpn and all track b/w you & vpn is encrypted. Any server receiving request from you is actually receiving from the vpn. there is no way of actually detecting you, unless the vpn provider actually gives it up. it won't generally happen, if you pick the right vpn provider.
+Proxy - less reliable way of anonomizing, you should make it a practise to use socks5 proxys. proxy chains.. you can route your connections with several proxies, but that doesn't always work,. in practical very difficult to implement, because of the bandwidth/internet speeds.. because of lmuchot of proxies, your action will be slowed down and you can't achieve much in a reasonable amount of time.. there are paid proxies,, but you will leave your digital foot print some there. 
+Tor - free, opensource, much faster than proxies.(not faster than vpns) ability to torrify your applications. 99.99% of the times(100% anonymous).. there are ways to detect, but they are very unlikely..
+Tor Browser.. to access darkweb/hidden web. they are .onion websites, they are not indexed by any of the search engines. they can not be accessed from regular internet browsing perspective. If you don't have your internet connection configured in a proper way to connect to a network, you will not be able to acces any of the hidden web, hidden web-services. 
+VPS
+    Virtual private service - viewed as a security layer. 
+    - If you have apache server running on a phisical machine, you can have vm running on it. and sql server running in vm. so that, sql server can not be accessed only from that phisical machine and not from outside. because sql port is not opened on your phisical machine. only programs and users and from that machine can acess the sql server.
+Key loggers :
+
+Terminal
+Firewall
+Root kit - install on an os, its able to hide the running process from the System itself. task-manager requests kernel, and kernel responds with info that these are the running processes
+Reverse-shells
+
+
