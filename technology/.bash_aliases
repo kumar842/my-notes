@@ -37,6 +37,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 alias ll='ls -l'
+alias la='ls -la'
 alias c='clear'
 alias del='rm -rf'
 alias r='source ~/.bash_aliases'

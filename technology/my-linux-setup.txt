@@ -21,6 +21,9 @@ sudo apt install sshpass
 
 sudo apt-get install oracle-java8-installer
 sudo apt-get install ppa-purge
+
+ git config --global user.email ""
+ git config --global user.name ""
 -------------------------------------------------------------------------------
 sudo rm /usr/bin/vi
 sudo ln -s  /etc/alternatives/vim vi
