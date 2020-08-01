@@ -26,9 +26,9 @@ alias gpush='git push'
 alias gpull='git pull'
 alias gl='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
 
-#apt-get related
-alias update="sudo apt-get update"
-alias upgrade="sudo apt-get upgrade"
+#apt related
+alias update="sudo apt update"
+alias upgrade="sudo apt upgrade"
 
 # moving easily with in the filesystem
 alias ..="cd .."
@@ -37,7 +37,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 alias ll='ls -l'
-alias la='ls -la'
+alias la='ls -lA'
 alias c='clear'
 alias del='rm -rf'
 alias r='source ~/.bash_aliases'

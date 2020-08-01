@@ -42,3 +42,25 @@ cd workspace
 git clone http://themis.isc.inn/isc/isc-x.git
 git clone https://github.com/kumar842/my-notes.git
 -------------------------------------------------------------------------------
+
+linux command basic line shortcuts
+- up/down arrwos
+- ctrl+left, ctrl+right
+- Home, End
+- Ctrl + u -> delete the whole command till the beginning from the cursor
+- Ctrl + k -> delete the whole command till the end from the cursor
+- Ctrl + w -> delete the word before the cursor
+- Ctrl + r -> recent search
+- Tab -> next possible argument
+
+File path shortcuts
+- cd .. -> one dir up
+- cd - -> previous dir
+- !! -> run previous whole command.. sudo !!
+- mkdir /new/awesome/folder   cd !$
+
+Expansions
+- mv /path/to/file.txt /path/to/file.xml   --> mv /path/to/file.{txt,xml}
+- sudo cp /etc/rc.conf{,-old} -- taking backup of the file.. 
+- mkdir myfolder{1,2,3}
+
