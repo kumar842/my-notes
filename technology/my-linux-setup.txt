@@ -2,25 +2,29 @@
 sudo vi /etc/hosts
 
 # custom
-115  helios.isc.inn
-245  themis.isc.inn
-116  hyperion.isc.inn
-5    draco.isc.inn
+1.1.2.1    abcd.xyz.inn
 ---------------------------------------------------------------------------
 .bash_aliases
+source ~/.bash_aliases
+r -> refresh
 .vimrc
 -------------------------------------------------------------------------------
-sudo apt-get install vim
-sudo apt-get install git
-sudo apt-get install scala
-sudo apt-get install openvpn
-sudo apt-get install sublime-text
-sudo apt-get install chromium-browser
-sudo apt-get install maven
+sudo apt update
+sudo apt upgrade
+apt list --upgradable
+
+sudo apt install vim
+sudo apt install zip
+sudo apt install git
+sudo apt install scala
+sudo apt install openvpn
+sudo apt install sublime-text
+sudo apt install chromium-browser
+sudo apt install maven
 sudo apt install sshpass
 
-sudo apt-get install oracle-java8-installer
-sudo apt-get install ppa-purge
+sudo apt install oracle-java8-installer
+sudo apt install ppa-purge
 
 git config --global user.email ""
 git config --global user.name ""
@@ -66,4 +70,16 @@ Expansions
 - mv /path/to/file.txt /path/to/file.xml   --> mv /path/to/file.{txt,xml}
 - sudo cp /etc/rc.conf{,-old} -- taking backup of the file.. 
 - mkdir myfolder{1,2,3}
+
+
+-------------------------------------------------------------
+zip commands
+q - quiet, d - destination, o-overwrite, l-list, n-never overwrite, u-update existing, f-freshen existing files but create none
+
+unzip zip_file -d target_directory
+unzip -l zip_file
+unzip -o -d target_directory zip_file
+unzip -n -d target_directory zip_file
+unzip -u -d target_directory zip_file
+
 

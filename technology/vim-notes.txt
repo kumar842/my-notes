@@ -148,4 +148,8 @@ Notes:
        •  Motion Object command - depends on the cursor position
        • Text Object command   - independent of cursor position
 
+Replace:
+:%s/<search_term>/<replace_term>/g
+Option: c (for confirmation), g (replace all occurrence in one line), i (for ignoring the case)
+
 
