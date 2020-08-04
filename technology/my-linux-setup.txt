@@ -14,11 +14,16 @@ sudo apt upgrade
 apt list --upgradable
 
 sudo apt install vim
-sudo apt install zip
 sudo apt install git
+sudo apt install zip
+
+sudo apt install nodejs
+sudo apt install npm
+sudo npm install gulp -g
+
 sudo apt install scala
 sudo apt install openvpn
-sudo apt install sublime-text
+--sudo apt install sublime-text
 sudo apt install chromium-browser
 sudo apt install maven
 sudo apt install sshpass
@@ -29,6 +34,7 @@ sudo apt install ppa-purge
 git config --global user.email ""
 git config --global user.name ""
 git config --global credential.helper store
+...test it.. 
 git config --global credential.helper cache
 
 -------------------------------------------------------------------------------
@@ -82,4 +88,6 @@ unzip -o -d target_directory zip_file
 unzip -n -d target_directory zip_file
 unzip -u -d target_directory zip_file
 
+vi .bashrc
+export DISPLAY="`grep nameserver /etc/resolv.conf | sed 's/nameserver //'`:0"
 
