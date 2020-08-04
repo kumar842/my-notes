@@ -8,6 +8,8 @@ sudo vi /etc/hosts
 source ~/.bash_aliases
 r -> refresh
 .vimrc
+
+sudo passwd root
 -------------------------------------------------------------------------------
 sudo apt update
 sudo apt upgrade
