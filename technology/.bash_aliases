@@ -29,6 +29,7 @@ alias gl='git log --graph --full-history --all --color --pretty=format:"%x1b[31m
 #apt related
 alias update="sudo apt update"
 alias upgrade="sudo apt upgrade"
+alias clean="sudo apt clean"
 
 # moving easily with in the filesystem
 alias ..="cd .."
