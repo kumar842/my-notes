@@ -45,6 +45,12 @@ alias r='source ~/.bash_aliases'
 
 alias mn='cd ~/workspace/my-notes'
 alias mnt='mn ; cd technology'
+alias wh='cd /mnt/c/Users/Rajkumar\ Regunta'
+alias whw='cd /mnt/c/Users/Rajkumar\ Regunta/workspace'
+alias proterra='cd /mnt/c/Users/Rajkumar\ Regunta/workspace/proterra'
+alias myw='cd /mnt/c/Users/Rajkumar\ Regunta/workspace/proterra/my_work'
+
+
 alias is='cd ~/workspace/isc-x'
 alias isp='is ; cd isc-parser'
 alias isps='isp ; cd isc-parser-service'

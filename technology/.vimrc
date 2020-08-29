@@ -1,12 +1,12 @@
 
 " Indention Options
-  set autoindent              " New lines inherit the indentation of previous lines.
+ " set autoindent              " New lines inherit the indentation of previous lines.
  "set expandtab               " Convert tabs to spaces.
  "set filetype indent on      " Enable indentation rules that are file-type specific.
  "set shiftround              " When shifting lines, round the indentation to the nearest multiple of “shiftwidth.”
  "set shiftwidth=4            " When shifting, indent using four spaces.
- "set smarttab                " Insert 'tabstop' number of spaces when the 'tab' key is pressed.
- "set tabstop=4               " Indent using four spaces.
+ set smarttab                " Insert 'tabstop' number of spaces when the 'tab' key is pressed.
+ set tabstop=4               " Indent using four spaces.
 
 " Search Options
   set hlsearch                " Enable search highlighting.
@@ -60,7 +60,7 @@
  "set noswapfile                    " Disable swap files.
  "set nrformats-=octal              " Interpret octal as decimal when incrementing numbers.
  "set shell                         " The shell used to execute commands.
-  set spell                         " Enable spellchecking.
+ "set spell                         " Enable spellchecking.
  "set wildignore+=.pyc,.swp         " Ignore files matching these patterns when opening files based on a glob pattern.
 
 
