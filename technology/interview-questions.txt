@@ -1,3 +1,61 @@
+- logging framework
+- unit testing framework, which version
+- Build tool
+- CICD
+- cloud? or onPremise?
+- Jenkins.. teamcity
+- Docker
+
+========== Sql/Database/RDBMS ==========
+ - Indexing
+ - Joins
+ - Foreign key
+ - Composite key
+ - Primary key(no null) vs Unique key(allow only 1 null) vs Foreign key(no null)
+ - ACID properties
+ - Views
+    - abstraction over tables.. simplifies the query.. helps in hiding the columns.. 
+ - id, fistName, lastName, gender, dept, managerId 
+    - count employees in each dept
+    - count male & female employees in each dept
+    - count of the employees reporting to each manager
+ - OLTP vs OLAP
+ - rdbms - nosql
+ - hbase
+ - row oriented vs column oriented
+
+========== Core Java ==========
+ - Set vs List
+ - Stack vs Queue
+ - ArrayList vs LinkedList
+ - Java memory model
+ - Garbage collection
+ - id, firstName, lastName, gender, dob -> How do you define Employee class in such a way, when they are added to a Set, It will not update the duplicates -- 
+ - native method
+ - heap memory
+ - 1.8 features
+ - asynchronous method
+ - String pool
+ - StringBuffer vs StringBuilder
+ - StackOverflow 
+ - ClassNotFoundException vs NoClassDefFoundError
+
+========== Scala ==========
+ - ...
+
+========== Spring/Spring Boot/Micro services ==========
+ - REST APIs
+ - POST vs PUT
+ - PUT.. 
+ - pagination..
+ - HTTP Reponse codes
+	- 400
+	- 404
+
+========== ORM/Hibernate ==========
+ - ...
+ 
+
 ==========  Hadoop  ==========
  - What happens when namenode goes to Safemode.
  - How to deal when few data nodes goes down in cluster and steps to make it available.
@@ -28,6 +86,22 @@
  - Thrift server in Hive
  - Hive metastore
  - Hive Architecture
+ - partition vs bucketing
+ - computing engines
+ - Difference between Mapreduce, Tez and Spark
+ - Explain about dynamic Partitioning in Hive
+ - What is Bloom Filter?
+ - How can we achieve ACID properties in Hive
+ - How to read Hbase data using Hive and why we need it
+ - Thrift server in Hive
+ - Hive metastore
+ - Hive Architecture
+ - Hive Property to change hive metastore database
+ - UDF - 
+ - External table vs managed table
+ - HDFS directory – /user/hive/warehouse
+ - User Interface, Metastore, Compiler, Execute Engine
+ - Map side join vs reduce side join
 
 
 ==========  Pig  ==========
@@ -40,7 +114,25 @@
 ==========  Spark  ==========
  - Spark sql functions.
  - Thrift server in Spark
+ - pure function
+ - transformation vs action --
+ - lineage graph
+ - RDD - 
+ - RDD vs Dataframe vs Dataset
+ - Spark SQL (Shark) for developers
+Spark Streaming for processing live data streams
+GraphX for generating and computing graphs
+MLlib (Machine Learning Algorithms)
+SparkR to promote R programming in the Spark engine
 
+- Criteria	MapReduce	Spark
+Processing speed	Good	Excellent (up to 100 times faster)
+Data caching	Hard disk	In-memory
+Performing iterative jobs	Average	Excellent
+Dependency on Hadoop	Yes	No
+Machine Learning applications	Average	Excellent
+
+ - Parquet file
 
 ==========  Hbase  ==========
  - Hbase architecture.
