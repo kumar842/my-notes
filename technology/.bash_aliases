@@ -26,8 +26,10 @@ alias gpush='git push'
 alias gpull='git pull'
 alias gl='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
 
-#apt-get related
-#TODO:
+#apt related
+alias update="sudo apt update"
+alias upgrade="sudo apt upgrade"
+alias clean="sudo apt clean"
 
 # moving easily with in the filesystem
 alias ..="cd .."
@@ -35,8 +37,20 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+alias ll='ls -l'
+alias la='ls -lA'
+alias c='clear'
+alias del='rm -rf'
+alias r='source ~/.bash_aliases'
+
 alias mn='cd ~/workspace/my-notes'
 alias mnt='mn ; cd technology'
+alias wh='cd /mnt/c/Users/Rajkumar\ Regunta'
+alias whw='cd /mnt/c/Users/Rajkumar\ Regunta/workspace'
+alias proterra='cd /mnt/c/Users/Rajkumar\ Regunta/workspace/proterra'
+alias myw='cd /mnt/c/Users/Rajkumar\ Regunta/workspace/proterra/my_work'
+
+
 alias is='cd ~/workspace/isc-x'
 alias isp='is ; cd isc-parser'
 alias isps='isp ; cd isc-parser-service'

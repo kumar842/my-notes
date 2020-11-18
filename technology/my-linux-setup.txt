@@ -2,25 +2,43 @@
 sudo vi /etc/hosts
 
 # custom
-115  helios.isc.inn
-245  themis.isc.inn
-116  hyperion.isc.inn
-5    draco.isc.inn
+1.1.2.1    abcd.xyz.inn
 ---------------------------------------------------------------------------
 .bash_aliases
+source ~/.bash_aliases
+r -> refresh
 .vimrc
+
+sudo passwd root
 -------------------------------------------------------------------------------
-sudo apt-get install vim
-sudo apt-get install git
-sudo apt-get install scala
-sudo apt-get install openvpn
-sudo apt-get install sublime-text
-sudo apt-get install chromium-browser
-sudo apt-get install maven
+sudo apt update
+sudo apt upgrade
+apt list --upgradable
+
+sudo apt install vim
+sudo apt install git
+sudo apt install zip
+
+sudo apt install nodejs
+sudo apt install npm
+sudo npm install gulp -g
+
+sudo apt install scala
+sudo apt install openvpn
+--sudo apt install sublime-text
+sudo apt install chromium-browser
+sudo apt install maven
 sudo apt install sshpass
 
-sudo apt-get install oracle-java8-installer
-sudo apt-get install ppa-purge
+sudo apt install oracle-java8-installer
+sudo apt install ppa-purge
+
+git config --global user.email ""
+git config --global user.name ""
+git config --global credential.helper store
+...test it.. 
+git config --global credential.helper cache
+
 -------------------------------------------------------------------------------
 sudo rm /usr/bin/vi
 sudo ln -s  /etc/alternatives/vim vi
@@ -39,3 +57,39 @@ cd workspace
 git clone http://themis.isc.inn/isc/isc-x.git
 git clone https://github.com/kumar842/my-notes.git
 -------------------------------------------------------------------------------
+
+linux command basic line shortcuts
+- up/down arrwos
+- ctrl+left, ctrl+right
+- Home, End
+- Ctrl + u -> delete the whole command till the beginning from the cursor
+- Ctrl + k -> delete the whole command till the end from the cursor
+- Ctrl + w -> delete the word before the cursor
+- Ctrl + r -> recent search
+- Tab -> next possible argument
+
+File path shortcuts
+- cd .. -> one dir up
+- cd - -> previous dir
+- !! -> run previous whole command.. sudo !!
+- mkdir /new/awesome/folder   cd !$
+
+Expansions
+- mv /path/to/file.txt /path/to/file.xml   --> mv /path/to/file.{txt,xml}
+- sudo cp /etc/rc.conf{,-old} -- taking backup of the file.. 
+- mkdir myfolder{1,2,3}
+
+
+-------------------------------------------------------------
+zip commands
+q - quiet, d - destination, o-overwrite, l-list, n-never overwrite, u-update existing, f-freshen existing files but create none
+
+unzip zip_file -d target_directory
+unzip -l zip_file
+unzip -o -d target_directory zip_file
+unzip -n -d target_directory zip_file
+unzip -u -d target_directory zip_file
+
+vi .bashrc
+export DISPLAY="`grep nameserver /etc/resolv.conf | sed 's/nameserver //'`:0"
+
