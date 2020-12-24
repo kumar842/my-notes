@@ -18,7 +18,7 @@ https://docs.spring.io/spring-boot/docs/current/reference/html/common-applicatio
  	    - let's you build entriprise Java apps by providing the templates..
  
    - Programming and configuration model
- 	    - u ll focus on building business services and u will let spring to handle the common concerns.. like database connection, running queries, handling http requests, mvc layer etc.
+ 	    - u ll focus on building business services and u will let spring to handle the common concerns.. like database connection, running queries, handling http requests, mvc layer, security etc.
  
    - Infrastructure support
 
@@ -125,3 +125,96 @@ SpringApplications can read beans from a variety of different sources. It is gen
 •The location of an XML resource to be loaded by XmlBeanDefinitionReader, or a groovy script to be loaded by GroovyBeanDefinitionReader
 •The name of a package to be scanned by ClassPathBeanDefinitionScanner
 Configuration properties are also bound to the SpringApplication. This makes it possible to set SpringApplication properties dynamically, like additional sources ("spring.main.sources" - a CSV list) the flag to indicate a web environment ("spring.main.web-application-type=none") or the flag to switch off the banner ("spring.main.banner-mode=off").Author:Phillip WebbDave SyerAndy WilkinsonChristian DupuisStephane NicollJeremy RickardCraig BurkeMichael SimonsMadhura BhaveBrian ClozelEthan RubinsonSee Also:run(Class, String [])run(Class [], String [])SpringApplication(Class)
+
+
+--------- Spring Security --------
+ - Protection against attacks like session fixation, clickjacking, cross site request forgery, etc
+ - OS level security, JVM level security, App server level security, .. Application level security
+ - App level security
+ - Security threats are constantly evolving & morphing...
+ - Security Guard :: Who are you? & What do you want?
+- Security
+    - Login & Logout functionality
+    - Allow/block access to URLs to logged in users
+    - Allow/block access to URLs to logged in users AND with certain roles
+
+Spring security + configuration -> Flexible & customization
+Handles lot of common vulnerabilities
+    - Session fixation
+    - clickjacking
+    - Click site request forgery
+
+widely adopted
+
+What spring security can do?
+ * username/password authentication
+ * SSO/Okta/LDAP
+ * App level authorization
+ * Intra App Authorization like OAuth
+ * Miroservice security(using token, JWT)
+ * Method level security
+
+Core concepts in spring security:
+ * Authentication
+ * Authorization
+ * Principal
+ * Granted Authority
+ * Roles
+
+1. Authentication: (Answering Who are you? with proof)
+   - Knowledge based Authentication -> Password, Pin code, Answer to a secret question
+     - simple, Easy to implement & use.
+     - Not fully safe
+   - Possession based Authentication -> Phone/text messages, Key cards & badges, Access token device
+   - Multi Factor Authentication -> both 1 & 2
+
+2. Authorization: (Can this user do this? Yes/No)
+   - Needs Authentication at first place
+   - Retail store - store clerk, department manager, store manager
+
+3. Principal:
+   - currently logged in user/account
+   - the application establishes prinicipal & it remembers, that's why you don't need to enter passowrd every time..
+
+4. Granted Authority:
+   - Authorities/Permissions for each user - should be definied prior
+   - configure the permissions
+   - fine-grained
+
+5. Role:
+    - Group of authorities
+    - role_store_clerk, role_dept_mgr, role_store_mgr
+    - Coarse-grained
+
+
+- dependency: spring-boot-starter-security
+- underneeth servlet technologies.. multiple servlets in the web-app to server diff. requests etc.. servlets are mapped to urls..
+
+Filters: 
+  - Intercepts every request or cross-cutting
+  - log every request, check every request to see if a header exists etc. 
+  - Spring security is putting a security filter before all servlets
+
+Spring security default behavior:
+  - Adds mandatory authentication for all URLs (few are skipped like error...)
+  - Adds login form
+  - Handles login error
+  - Creates a user & sets a default password: user/*** check log.
+  - customize: 
+    - spring.security.user.name=foo
+    - spring.security.user.password=foo
+
+
+AuthenticationManager: sits inside in the spring-secured-app
+  - authenticate()
+  - step1: Get hold of AuthenticationManagerBuilder
+  - step2: set the configuration on it
+
+
+
+
+
+
+
+
+

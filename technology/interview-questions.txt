@@ -84,10 +84,11 @@
 
 
 --------
-  - id, fistName, lastName, gender, dept, managerId 
+  - table: employees
+  - columns: id, fistName, lastName, gender, dept, managerId, dob
     - count employees in each dept
     - count male & female employees in each dept
-    - count of the employees reporting to each manager
+    - count of the employees reporting to each manager name
 
 ========== Core Java ==========
  - Set vs List
@@ -104,6 +105,9 @@
  - StringBuffer vs StringBuilder
  - StackOverflow 
  - ClassNotFoundException vs NoClassDefFoundError
+
+ string reversal
+ 
 
 ========== Scala ==========
  - ...
