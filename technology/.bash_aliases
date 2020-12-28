@@ -2,15 +2,12 @@
 alias openvpn='sudo openvpn'
 
 # connecting easily to servers
-alias sshp='sshpass -p ifusion ssh'
+alias sshp='sshpass -p PASSWORD ssh'
 
-alias 78='sshp root@172.17.17.78'
-alias 65='sshp root@172.17.17.65'
-alias 92='sshp root@172.17.17.92'
+alias 712='sshp root@172.17.17.712'
 
 # connecting to vpns
-alias cfvpn='cd ~/Softwares/openvpn.rc/ ;  openvpn --config pfSense-udp-1194-eval.ovpn'
-alias ifvpn='cd ~/Softwares/openvpn.rc/ ;  openvpn --config iFusion.ovpn'
+alias ifvpn='cd ~/Softwares/openvpn.rc/ ;  openvpn --config MYPROJECT.ovpn'
 
 #copying
 alias cpvim='cd ; cp .vimrc workspace/my-notes/technology/'
