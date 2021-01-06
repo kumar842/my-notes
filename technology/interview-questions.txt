@@ -85,10 +85,11 @@
 
 --------
   - table: employees
-  - columns: id, fistName, lastName, gender, dept, managerId, dob
+  - columns: id, fistName, lastName, gender, dept_id, manager_id, dob
     - count employees in each dept
-    - count male & female employees in each dept
+    - count of male & female employees in each dept
     - count of the employees reporting to each manager name
+	- manager name & number of employees reporting him/her
 
 ========== Core Java ==========
  - Set vs List
