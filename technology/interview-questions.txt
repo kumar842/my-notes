@@ -8,6 +8,11 @@
 - Docker
 
 ========== Sql/Database/RDBMS ==========
+- ... 
+	- DDL (Data Definition Language) – It allows you to perform various operations on the database such as CREATE, ALTER and DELETE objects.
+	- DML ( Data Manipulation Language) – It allows you to access and manipulate data. It helps you to insert, update, delete and retrieve data from the database.
+	- DCL ( Data Control Language) – It allows you to control access to the database. Example – Grant, Revoke access permissions.
+- ‘HAVING’ CLAUSE and a ‘WHERE’ CLAUSE?
  - Indexing
 	- performance tuning method..
 	- Different types of indexes:
@@ -55,6 +60,10 @@
  - DELETE and TRUNCATE
  - DROP and TRUNCATE
  - ACID properties
+	- Atomicity
+	- Consistency
+	- Isolation
+	- Durability
  - Views
     - virtual table.. consists of subset of the data from multiple tables.. 
 	- abstraction over tables.. simplifies the query.. helps in hiding the columns.. It's a table to the outside world..
@@ -66,7 +75,7 @@
  	- Online Transaction Processing (OLTP) manages transaction based applications which can be used for data entry, data retrieval and data processing. OLTP makes data management simple and efficient. Unlike OLAP systems goal of OLTP systems is serving real-time transactions. ex: Bank Transactions 
  - rdbms - nosql
  - hbase
- - row oriented vs column oriented
+ - row oriented databases vs column oriented databases
  - what are the advantages of denormization? When do we go for it?
  - Normalization rules:
 	- First Normal Form (1NF): This should remove all the duplicate columns from the table. Creation of tables for the related data and identification of unique columns.
@@ -82,16 +91,30 @@
  - ER diagram
 
 
-
 --------
   - table: employees
   - columns: id, fistName, lastName, gender, dept_id, manager_id, dob
     - count employees in each dept
     - count of male & female employees in each dept
-    - count of the employees reporting to each manager name
 	- manager name & number of employees reporting him/her
 
 ========== Core Java ==========
+https://www.javatpoint.com/corejava-interview-questions
+ - Features of Java:
+	- Simple: Java is easy to learn. The syntax of Java is based on C++ which makes easier to write the program in it.
+	- Object-Oriented: Java follows the object-oriented paradigm which allows us to maintain our code as the combination of different type of objects that incorporates both data and behavior.
+	- Portable: Java supports read-once-write-anywhere approach. We can execute the Java program on every machine. Java program (.java) is converted to bytecode (.class) which can be easily run on every machine.
+	- Platform Independent: Java is a platform independent programming language. It is different from other programming languages like C and C++ which needs a platform to be executed. Java comes with its platform on which its code is executed. Java doesn't depend upon the operating system to be executed.
+	- Secured: Java is secured because it doesn't use explicit pointers. Java also provides the concept of ByteCode and Exception handling which makes it more secured.
+	- Robust: Java is a strong programming language as it uses strong memory management. The concepts like Automatic garbage collection, Exception handling, etc. make it more robust.
+	- Architecture Neutral: Java is architectural neutral as it is not dependent on the architecture. In C, the size of data types may vary according to the architecture (32 bit or 64 bit) which doesn't exist in Java.
+	- Interpreted: Java uses the Just-in-time (JIT) interpreter along with the compiler for the program execution.
+	- High Performance: Java is faster than other traditional interpreted programming languages because Java bytecode is "close" to native code. It is still a little bit slower than a compiled language (e.g., C++).
+	- Multithreaded: We can write Java programs that deal with many tasks at once by defining multiple threads. The main advantage of multi-threading is that it doesn't occupy memory for each thread. It shares a common memory area. Threads are important for multi-media, Web applications, etc.
+	- Distributed: Java is distributed because it facilitates users to create distributed applications in Java. RMI and EJB are used for creating distributed applications. This feature of Java makes us able to access files by calling the methods from any machine on the internet.
+	- Dynamic: Java is a dynamic language. It supports dynamic loading of classes. It means classes are loaded on demand. It also supports functions from its native languages, i.e., C and C++.
+
+ - JVM, JRE, JDK
  - Set vs List
  - Stack vs Queue
  - ArrayList vs LinkedList
@@ -106,8 +129,17 @@
  - StringBuffer vs StringBuilder
  - StackOverflow 
  - ClassNotFoundException vs NoClassDefFoundError
+ - types of memory areas are allocated by JVM
+	- Class(Method) Area: Class Area stores per-class structures such as the runtime constant pool, field, method data, and the code for methods.
+	- Heap: It is the runtime data area in which the memory is allocated to the objects
+	- Stack: Java Stack stores frames. It holds local variables and partial results, and plays a part in method invocation and return. Each thread has a private JVM stack, created at the same time as the thread. A new frame is created each time a method is invoked. A frame is destroyed when its method invocation completes.
+	- Program Counter Register: PC (program counter) register contains the address of the Java virtual machine instruction currently being executed.
+	- Native Method Stack: It contains all the native methods used in the application.
 
- string reversal
+
+Coding:
+ - String reversal: public String revers(String str) {}
+ - letter wise count: public Map<Char, Integer> getLetterCount(){}
  
 
 ========== Scala ==========
