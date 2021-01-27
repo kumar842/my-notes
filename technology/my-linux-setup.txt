@@ -1,3 +1,11 @@
+
+sudo apt-get install linux-headers-surface linux-image-surface linux-libc-dev-surface surface-ipts-firmware libwacom-surface
+sudo apt-get install linux-headers-surface linux-image-surface  surface-ipts-firmware libwacom-surface
+sudo apt-get install linux-headers-surface linux-image-surface linux-libc-dev-surface surface-ipts-firmware libwacom-surface
+sudo apt-get install linux-libc-dev
+sudo apt install build-essential binutils-dev libncurses5-dev libssl-dev ccache bison flex libelf-dev
+sudo apt-get install linux-surface-secureboot-mok
+
 ---------------------------------------------------------------------------
 sudo vi /etc/hosts
 
@@ -11,27 +19,26 @@ r -> refresh
 
 sudo passwd root
 -------------------------------------------------------------------------------
-sudo apt update
-sudo apt upgrade
 apt list --upgradable
+updateAndUpgrade
 
-sudo apt install vim
-sudo apt install git
-sudo apt install zip
+gnome-twek ubuntu-restricted-extras ubuntu-restricted-addons tlp tlp-rdw
+vim git zip preload synaptic uget curl wget dconf-editor 
 
-sudo apt install nodejs
-sudo apt install npm
-sudo npm install gulp -g
+youtube-dl
 
-sudo apt install scala
-sudo apt install openvpn
---sudo apt install sublime-text
-sudo apt install chromium-browser
-sudo apt install maven
-sudo apt install sshpass
+chrome
+postman
 
-sudo apt install oracle-java8-installer
-sudo apt install ppa-purge
+openjdk-11-jdk
+node npm
+scala
+
+openvpn
+maven
+
+sshpass
+ppa-purge
 
 git config --global user.email ""
 git config --global user.name ""
@@ -54,7 +61,6 @@ export EDITOR="$VISUAL"
 cd
 mkdir workspace Softwares Softwares/archieve Downloads/archieve
 cd workspace
-git clone http://themis.isc.inn/isc/isc-x.git
 git clone https://github.com/kumar842/my-notes.git
 -------------------------------------------------------------------------------
 
