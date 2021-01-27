@@ -7,6 +7,9 @@ sudo apt install build-essential binutils-dev libncurses5-dev libssl-dev ccache 
 sudo apt-get install linux-surface-secureboot-mok
 
 ---------------------------------------------------------------------------
+gsettings set org.gnome.shell.extensions.dash-to-dock autohide false && gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false && gsettings set org.gnome.shell.extensions.dash-to-dock intellihide false
+---------------------------------------------------------------------------
+
 sudo vi /etc/hosts
 
 # custom
