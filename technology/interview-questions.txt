@@ -94,9 +94,9 @@
 --------
   - table: employees
   - columns: id, fistName, lastName, gender, dept_id, manager_id, dob
-    - count employees in each dept
+    - count employees in each dept - select deptId, gender, count(*) from e group by deptId, gender
     - count of male & female employees in each dept
-	- manager name & number of employees reporting him/her
+	- manager name & number of employees reporting him/her - select t1.name, t2.xyz  from t1 inner join (select managerId, count(*) as xyz from e groupBy mangerId) t2 where t1.id = t2.managerId
 
 ========== Core Java ==========
 https://www.javatpoint.com/corejava-interview-questions
@@ -138,8 +138,11 @@ https://www.javatpoint.com/corejava-interview-questions
 
 
 Coding:
- - String reversal: public String revers(String str) {}
+ - String reversal: public static String revers(String str) {}
+ - public static boolean isPalindrome(String str) {}
+ - public static Map uniqueWordsInATest(String str) {}
  - letter wise count: public Map<Char, Integer> getLetterCount(){}
+ - 
  
 
 ========== Scala ==========
@@ -391,3 +394,8 @@ Machine Learning applications	Average	Excellent
  - How frequently files will load?
 
 
+1) Reverse this string: txt = "I love coding in Java". Output should be "Java in coding love I"
+2) Remove duplicates from list: [8, 9, 2, 2, 3, 4, 5, 2]
+3) list = [8, 9, 2, 2, 3, 4, 5, 2] a = [] for i in list: if i not in a: a.add(i) print (a)
+4) Add the element 10 to this tuple : tuplex = ( 4 , 6 , 2 , 8 , 3 , 1 ) output should be ( 4 , 6 , 2 , 8 , 3 , 1, 10 )
+5) Write a Python script to print a dictionary where the keys are numbers between 1 and 15 (both included) and the values are square of keys. Sample Dictionary: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81, 10: 100, 11: 121, 12: 144, 13: 169, 14: 196, 15: 225}

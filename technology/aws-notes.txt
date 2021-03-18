@@ -1,0 +1,331 @@
+Best practices
+    - Grant least privilege access : Establishing a principle of least privilege ensures that identities are only permitted to perform the most minimal set of functions necessary to fulfill a specific task, while balancing usability and efficiency.
+    - Use AWS Organizations  : Centrally manage and govern your environment as you scale your AWS resources. Easily create new AWS accounts, group accounts to organize your workflows, and apply policies to accounts or groups for governance.
+    - Enable Identity federation: Manage users and access across multiple services from your preferred identity source. Using AWS Single Sign-On  centrally manage access to multiple AWS accounts and provide users with single sign-on access to all their assigned accounts from one place.
+    - Enable MFA: For extra security, we recommend that you require multi-factor authentication (MFA) for all users.
+    -Rotate credentials regularly: Change your own passwords and access keys regularly, and make sure that all users in your account do as well.
+    -Enable IAM Access Analyzer: Enable IAM Access Analyzer to analyze public, cross-account, and cross-organization access.
+
+Security in IAM and AWS STS:
+    - Security of the cloud – AWS is responsible for protecting the infrastructure that runs AWS services in the AWS Cloud. AWS also provides you with services that you can use securely. Third-party auditors regularly test and verify the effectiveness of our security as part of the AWS Compliance Programs. To learn about the compliance programs that apply to AWS Identity and Access Management (IAM), see AWS Services in Scope by Compliance Program.
+    - Security in the cloud – Your responsibility is determined by the AWS service that you use. You are also responsible for other factors including the sensitivity of your data, your company's requirements, and applicable laws and regulations.
+
+This documentation helps you understand how to apply the shared responsibility model when using AWS Identity and Access Management (IAM) and AWS Security Token Service (AWS STS). The following topics show you how to configure IAM and AWS STS to meet your security and compliance objectives. You also learn how to use other AWS services that help you to monitor and secure your IAM resources.
+
+Contents
+    - Data protection in AWS Identity and Access Management
+    - Logging and monitoring in AWS Identity and Access Management
+    - Compliance validation for AWS Identity and Access Management
+    - Resilience in AWS Identity and Access Management
+    - Infrastructure security in AWS Identity and Access Management
+    - Configuration and vulnerability analysis in AWS Identity and Access Management
+    - Security best practices and use cases in AWS Identity and Access Management
+
+Security best practices in IAM
+    Lock away your AWS account root user access keys
+    Create individual IAM users
+    Use groups to assign permissions to IAM users
+    Grant least privilege
+    Get started using permissions with AWS managed policies
+    Use customer managed policies instead of inline policies
+    Use access levels to review IAM permissions
+    Configure a strong password policy for your users
+    Enable MFA
+    Use roles for applications that run on Amazon EC2 instances
+    Use roles to delegate permissions
+    Do not share access keys
+    Rotate credentials regularly
+    Remove unnecessary credentials
+    Use policy conditions for extra security
+    Monitor activity in your AWS account
+    Video presentation about IAM best practices
+
+------------------ AWS Lambda FAQs ---------------------
+Q: Can I store sensitive information in environment variables?
+
+For sensitive information, such as database passwords, we recommend you use client-side encryption using AWS Key Management Service and store the resulting values as ciphertext in your environment variable. You will need to include logic in your AWS Lambda function code to decrypt these values.
+
+
+----------------- DynamoDB ----------- 
+DynamoDB supports two kinds of indexes:
+    - Global secondary index – An index with a partition key and sort key that can be different from those on the table.
+    - Local secondary index – An index that has the same partition key as the table, but a different sort key.
+Each table in DynamoDB has a quota of 20 global secondary indexes (default quota) and 5 local secondary indexes per table.
+
+
+
+
+
+--------------------- Elasticache Quiz --------------------
+1. A. & D.
+AWS documentation mentions the following:
+Amazon RDS Read Replicas provide enhanced performance and durability for database (DB) instances. This replication feature makes it easy to elastically scale out beyond the capacity constraints of a single DB Instance for read-heavy database workloads. You can create one or more replicas of a given source DB Instance and serve high-volume application read traffic from multiple copies of your data, thereby increasing aggregate read throughput. Read replicas can also be promoted when needed to become standalone DB instances.
+For more information on AWS RDS Read Replica’s, please visit the below URL:
+https://aws.amazon.com/rds/details/read-replicas/
+Amazon ElastiCache is a web service that makes it easy to deploy, operate, and scale an in-memory data store or cache in the cloud. The service improves the performance of web applications by allowing you to retrieve information from fast, managed, in-memory data stores, instead of relying entirely on slower disk-based databases.
+For more information on AWS ElastiCache, please visit the below URL:
+https://aws.amazon.com/elasticache/
+
+2. C. AWS ElastiCache
+AWS Documentation mentions the following:
+Amazon ElastiCache offers fully managed Redis and Memcached. Seamlessly deploy, operate, and scale popular open source compatible in-memory data stores. Build data-intensive apps or improve the performance of your existing apps by retrieving data from high throughput and low latency in-memory data stores. Amazon ElastiCache is a popular choice for Gaming, Ad-Tech, Financial Services, Healthcare, and IoT apps.
+For more information on AWS ElastiCache, please visit the following URL:
+https://aws.amazon.com/elasticache/
+
+3. B. & D.
+DynamoDB and ElastiCache are perfect options for storing session data.
+
+AWS Documentation mentions the following on these services:
+
+Amazon DynamoDB is a fast and flexible NoSQL database service for all applications that need consistent, single-digit millisecond latency at any scale. It is a fully managed cloud database and supports both document and key-value store models. Its flexible data model, reliable performance, and automatic scaling of throughput capacity, makes it a great fit for mobile, web, gaming, ad tech, IoT, and many other applications.
+
+For more information on AWS DynamoDB, please visit the following URL:
+
+https://aws.amazon.com/dynamodb/
+ElastiCache is a web service that makes it easy to set up, manage, and scale a distributed in-memory data store or cache environment in the cloud. It provides a high-performance, scalable, and cost-effective caching solution, while removing the complexity associated with deploying and managing a distributed cache environment.
+
+For more information on AWS Elasticache, please visit the following URL:
+
+https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/WhatIs.html
+
+Incorrect answers:
+
+AWS CloudWatch offers cloud monitoring services for customers of AWS resources.
+
+AWS Storage Gateway is a hybrid storage service that enables your on- premises applications to seamlessly use AWS cloud storage.
+
+AWS Elastic Load Balancing automatically distributes incoming application traffic across multiple targets.
+
+4. B. Put an ElastiCache in front of the database.
+The ideal solution would be to use ElastiCache.
+AWS Documentation further mentions the following with respect to ElastiCache:
+ElastiCache is a web service that makes it easy to set up, manage, and scale a distributed in-memory data store or cache environment in the cloud. It provides a high-performance, scalable, and cost-effective caching solution, while removing the complexity associated with deploying and managing a distributed cache environment.
+For more information on AWS ElastiCache, please visit the following URL:
+https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/WhatIs.html
+
+5. B. Use ElastiCache in front of the database.
+Amazon ElastiCache is an in-memory cache
+which can be used to cache common read requests.The below diagram shows how caching can be added to an existing architecture:For more information on database caching, please visit the below URL:https://aws.amazon.com/caching/database-caching/Note:Option A is incorrect because,If we enable this, again the data is going to serve from another disk, latencywill be there.Option C is incorrect because,CloudFront is a valuable component of scaling a website, especially for geo-location workloads and queries. And more advanced for given architecture.Option Dis incorrect because, it will have latency and additional changes as well.So the best and possible way is option B.
+
+6. C. Setup ElastiCache in front of the database.
+ElastiCache is an in-memory solution which can be used in front of a database to cache the common queries issued against the database. This can reduce the overall load on the database.
+
+Option A is incorrect because this is normally used for content distribution.
+
+Option B is partially correct, but you need to have one more database as an internal load balancing solution.
+
+Option D is incorrect because SNS is a simple notification service.
+
+For more information on ElastiCache, please visit the following URL:
+
+https://aws.amazon.com/elasticache/
+
+7. D. AWS ElastiCache
+AWS Documentation mentions the following:
+
+Amazon ElastiCache offers fully managed Redis and Memcached. Seamlessly deploy, operate, and scale popular open source compatible in-memory data stores. Build data-intensive apps or improve the performance of your existing apps by retrieving data from high throughput and low latency in-memory data stores. Amazon ElastiCache is a popular choice for Gaming, Ad-Tech, Financial Services, Healthcare, and IoT apps.
+
+For more information on ElastiCache, please refer to the URL below.
+
+https://aws.amazon.com/elasticache/
+Option A is incorrect. RDS is a distributed relational database. It is a web service running “in the cloud” designed to simplify the setup, operation, and scaling of a relational database for use in applications.
+
+Option B is incorrect. SQS is a fully managed message queuing service that makes it easy to decouple and scale microservices, distributed systems, and serverless applications.
+
+Option C is incorrect. ELB is Elastic Load Balancer which automatically distributes incoming application traffic across multiple targets.
+
+Note:
+
+In order to address scalability and to provide a shared data storage for sessions that can be accessible from any individual web server, you can abstract the HTTP sessions from the web servers themselves. A common solution to for this is to leverage an In-Memory Key/Value store such as Redis and Memcached.
+
+In-memory caching improves application performance by storing frequently accessed data items in memory, so that they can be retrieved without access to the primary data store. Properly leveraging caching can result in an application that not only performs better, but also costs less at scale. Amazon ElastiCache is a managed service that reduces the administrative burden of deploying an in-memory cache in the cloud.
+
+Please refer the following white paper for more information.
+
+https://d0.awsstatic.com/whitepapers/performance-at-scale-with-amazon-elasticache.pdf
+
+
+--------------------------- Redshift Quiz -------------------------
+1. B. Enable Cross-Region Snapshots for the Redshift Cluster.
+The below diagram shows that snapshots are available for Redshift clusters enabling them to be available in different regions:
+For more information on managing Redshift Snapshots, please visit the following URL:
+https://docs.aws.amazon.com/redshift/latest/mgmt/managing-snapshots-console.html
+
+2. D. Disable automated and manual snapshots on the cluster.
+Snapshots are point-in-time backups of a cluster. There are two types of snapshots:automatedandmanual. Amazon Redshift stores these snapshots internally in Amazon S3 by using an encrypted Secure Sockets Layer (SSL) connection. If you need to restore from a snapshot, Amazon Redshift creates a new cluster and imports data from the snapshot that you specify.
+Since the question already mentions that the cluster is easily reproducible from additional data stored on Amazon S3, you do not need to maintain snapshots.
+For more information on Redshift Snapshots, please visit the below URL:
+http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html
+
+3. A. Amazon Redshift
+AWS Documentation mentions the following:
+Amazon Redshift is a column-oriented, fully managed, petabyte-scale data warehouse that makes it simple and cost-effective to analyze all your data using your existing business intelligence tools. Amazon Redshift achieves efficient storage and optimum query performance through a combination of massively parallel processing, columnar data storage, and very efficient, targeted data compression encoding schemes.
+For more information on columnar database in AWS, please refer to the below URL:
+https://aws.amazon.com/nosql/columnar/
+
+4. A. Delete the manual snapshots.
+AWS Documentation mentions the following:
+Regardless of whether you enable automated snapshots, you can take a manual snapshot whenever you want. Amazon Redshift will never automatically delete a manual snapshot. Manual snapshots are retained even after you delete your cluster.
+Because manual snapshots accrue storage charges, it’s important that you manually delete them if you no longer need them.
+Automated snapshots are automatically deleted within the period of 1(Least) to 35(Max) days(Based on the retention period settings). So we have to take care of the Manual snapshots instead of Automated snapshots. Amazon Redshift never deletes Manual snaphots automatically, like how it does for Automatic Snapshots.
+For more information on working with Snapshots, please visit the following URL:
+https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html
+
+5. D. AWS Redshift
+AWS Documentation mentions the
+following:
+Redshift is a fully managed, petabyte-scale data warehouse service in the cloud. You can start with just a few hundred gigabytes of data and scale to a petabyte or more. This enables you to use your data to acquire new insights for your business and customers.
+For more information on AWS Redshift, please visit the following URL:
+https://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html
+
+6. C. Conside rusing Reserved Instances for the Redshift Cluster.
+AWS Documentation mentions the following:
+If you intend to keep your Amazon Redshift cluster running continuously for a prolonged period, you should consider purchasing reserved node offerings. These offerings provide significant savings over on-demand pricing, but they require you to reserve compute nodes and commit to paying for those nodes for either a one-year or three-year duration.
+For more information on Reserved Nodes in Redshift, please visit the following URL:
+https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html
+
+7. B. Ensure that unnecessary manual snapshots of the cluster are deleted.
+AWS Documentation mentions the following:
+Amazon Redshift provides free storage for snapshots that is equal to the storage capacity of your cluster until you delete the cluster. After you reach the free snapshot storage limit, you are charged for any additional storage at the normal rate. Because of this, you should evaluate how many days you need to keep automated snapshots and configure their retention period accordingly, and delete any manual snapshots that you no longer need.
+For more information on working with Redshift Snapshots, please visit the following URL:
+https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html
+Note: Redshift pricing is based on the following elements.Compute node hours Backup StorageData transfer – There is no data transfer charge for data transferred to or from Amazon Redshift and Amazon S3 within the same AWS Region. For all other data transfers into and out of Amazon Redshift, you will be billed at standard AWS data transfer rates.Data scanned There is no additional charge for using Enhanced VPC Routing. You might incur additional data transfer charges for certain operations, such as UNLOAD to Amazon S3 in a different region or COPY from Amazon EMR or SSH with public IP addresses. Enhanced VPC routing does not incur any cost but any Unload operation to a different region will incur a cost.With Enhanced VPC routing or with out it any data transfer to a different region does incur cost.But with Storage, increasing your backup retention period or taking additional snapshots increases the backup storage consumed by your data warehouse. There is no additional charge for backup storage up to 100% of your provisioned storage for an active data warehouse cluster. Any amount of storage exceeding this limit does incur cost.
+
+8. A. Enable Amazon Redshift Enhanced VPC Routing.
+AWS Documentation mentions the following:
+When you use Amazon Redshift Enhanced VPC Routing, Amazon Redshift forces all COPY and UNLOAD traffic between your cluster and your data repositories through your Amazon VPC. If Enhanced VPC Routing is not enabled, Amazon Redshift routes traffic through the Internet, including traffic to other services within the AWS network.
+For more information on Redshift Enhanced Routing, please visit the following URL:
+https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html
+
+9. A. & D.
+Amazon Redshift Enhanced VPC Routing provides VPC resources, the access to Redshift.
+
+Redshift will not be able to access the S3 VPC endpoints without enabling Enhanced VPC routing, so one option is not going to support the scenario if another is not selected.
+
+NAT instance (the proposed answer) cannot be reached by Redshift without enabling Enhanced VPC Routing.
+
+https://aws.amazon.com/about-aws/whats-new/2016/09/amazon-redshift-now-supports-enhanced-vpc-routing/
+
+12. B. Use AWS KMS Customer Default master key.
+AWS documentation mentions the following:
+
+Amazon Redshift uses a hierarchy of encryption keys to encrypt the database. You can use either AWS Key Management Service (AWS KMS) or a hardware security module (HSM) to manage the top-level encryption keys in this hierarchy. The process that Amazon Redshift uses for encryption differs depending on how you manage keys.
+
+For more information on Redshift encryption, please visit the following URL:
+
+https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html
+
+13. D. AWS Redshift
+For this sheer data size, the ideal storage unit would be AWS Redshift.
+
+AWS Documentation mentions the following on AWS Redshift:
+
+Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud. You can start with just a few hundred gigabytes of data and scale to a petabyte or more. This enables you to use your data to acquire new insights for your business and customers.
+
+The first step to create a data warehouse is to launch a set of nodes, called an Amazon Redshift cluster. After you provision your cluster, you can upload your data set and then perform data analysis queries. Regardless of the size of the data set, Amazon Redshift offers fast query performance using the same SQL-based tools and business intelligence applications that you use today.
+
+For more information on AWS Redshift, please refer to the URL below.
+
+https://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html
+Option A is incorrect because the maximum item size in DynamoDB is 400KB.
+
+Option B is incorrect because Aurora supports 64TB of data.
+
+Option C is incorrect because we can create MySQL, MariaDB, SQL Server, PostgreSQL, and Oracle RDS DB instances with up to 16 TiB of storage.
+
+14. C. Change the security groups for the cluster.
+AWS Documentation mentions the following:
+
+When you provision an Amazon Redshift cluster, it is locked down by default so nobody has access to it. To grant other users inbound access to an Amazon Redshift cluster, you associate the cluster with a security group.
+
+For more information on Redshift Security Groups, please refer to the below URL:
+
+https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html
+
+
+
+--------------------- Route 53 Quiz -------------------------------
+1. D. Weighted
+AWS Documentation mentions that Weighted routing policy is good for testing new versions of software. And that this is the ideal approach for Blue-Green deployments. Weighted routing lets you associate multiple resources with a single domain name (example.com) or subdomain name (acme.example.com) and choose how much traffic is routed to each resource. This can be useful for a variety of purposes, including load balancing and testing new versions of software.
+For more information on Route 53 routing policies, please visit the following URL:
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.htmlNote:Multivalue-answer is recommended to use only when you want to route traffic randomly to multiple resources, such as web servers, you can create one multivalue answer record for each resource and, optionally, associate an Amazon Route 53 health check with each record.However, in our case, we need to choose how much traffic is routed to each resource (blue and green). For example, Blue is currently live and we need to send less portion of traffic to Green, to check everything works fine. If yes, then we can decide to go with Green resources. If no, we can change the weight for that record to 0. Blue will be completely live again.
+
+2. A. & C.
+The Elastic Load Balancer can be used to distribute traffic to EC2 Instances. So, to add elasticity to your setup, one can either do this, or even use Route 53. In Route 53, you can setup weighted routing policies to distribute requests to multiple EC2 Instances.
+For more information on architecting for the cloud, please visit the following URL:
+https://aws.amazon.com/whitepapers/architecting-for-the-aws-cloud-best-practices/
+Note:
+Option B can’t be the correct answer to this question.
+The reason is here, Amazon ElastiCache improves application performance by storing critical pieces of data in memory for fast access. You can use this caching to significantly improve latency and throughput for manyread-heavyapplication workloads. so, will not help in elasticity
+And option D will not help in elasticity for your application.
+Hence, the correct answer is optionA and C.
+
+3. A. Use Route 53 Health Checks and then do a failover.
+AWS Documentation mentions the following:
+If you have multiple resources that perform the same function, you can configure DNS failover so that Route53 will route your traffic from an unhealthy resource to a healthy resource. For example, if you have two web servers and one web server becomes unhealthy, Route53 can route traffic to the other web server.
+For more information on configuring DNS failover using Route 53, one can refer to the below link:
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html
+
+4. C. Use Route 53 with the failover option to failover to a static S3 website bucket or CloudFront distribution.
+Amazon Route53 health checks monitor the health and performance of your web applications, web servers, and other resources.
+If you have multiple resources that perform the same function, you can configure DNS failover so that Amazon Route53 will route your traffic from an unhealthy resource to a healthy resource. For example, if you have two web servers and one web server becomes unhealthy, Amazon Route53 can route traffic to the other web server. So you can route traffic to a website hosted on S3 or to a cloudFront distribution.
+For more information on DNS failover using Route 53, please refer to the link below.
+http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html
+
+5. D. Create a Geolocation Route 53 Policy to route the policy based on the location.
+AWS Documentation mentions the following with respect to this requirement: Geolocation routing lets you choose the resources that serve your traffic based on the geographic location of your users, meaning the location that DNS queries originate from.
+For more information on AWS Route 53 Routing Policies, please visit the following URL:
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html
+
+6. A. Create an Alias record which points to the CloudFront distribution.
+AWS Documentation mentions the following:
+While ordinary Amazon Route53 records are standard DNS records,alias recordsprovide a Route53–specific extension to DNS functionality. Instead of an IP address or a domain name, an alias record contains a pointer to a CloudFront distribution, an Elastic Beanstalk environment, an ELB Classic, Application, or Network Load Balancer, an Amazon S3 bucket that is configured as a static website, or another Route53 record in the same hosted zone. When Route53 receives a DNS query that matches the name and type in an alias record, Route53 follows the pointer and responds with the applicable value.
+For more information on Route 53 Alias records, please visit the following URL:
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html
+
+7. D. Configure a failover routing policy.
+AWS Documentation mentions the following:
+You can create an active-passive failover configuration by using failover records. Create a primary and a secondary failover record that have the same name and type, and associate a health check with each. The various Route 53 routing policies are as follows:
+    Simple routing policy – Use for a single resource that performs a given function for your domain, for example, a web server that serves content for the example.com website.
+    Failover routing policy – Use when you want to configure active-passive failover.
+    Geolocation routing policy – Use when you want to route traffic based on the location of your users.
+    Geoproximity routing policy – Use when you want to route traffic based on the location of your resources and, optionally, shift traffic from resources in one location to resources in another.
+    Latency routing policy – Use when you have resources in multiple locations and you want to route traffic to the resource that provides the best latency.
+    Multivalue answer routing policy – Use when you want Route 53 to respond to DNS queries with up to eight healthy records selected at random.
+    Weighted routing policy – Use to route traffic to multiple resources in proportions that you specify. For more information on DNS Failover using Route 53, please visit the following URL:
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html
+
+8. B. & C.
+You can host a static website in S3. You need to ensure that the nameserver records for the Route53 hosted zone are entered in your domain registrar.
+
+For more information on website hosting in S3, please visit the following URL:
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html
+
+9. C. Multivalue Answer
+The AWS Documentation mentions the following to support this:
+
+If you want to route traffic approximately randomly to multiple resources such as web servers, you can create one multivalue answer record for each resource and, optionally, associate an Amazon Route 53 health check with each record. For example, suppose you manage an HTTP web service with a dozen web servers that each have their own IP address, no one web server could handle all of the traffic, but if you create a dozen multivalue answer records, Amazon Route 53 responds to DNS queries with up to eight healthy records in response to each DNS query. Amazon Route 53 gives different answers to different DNS resolvers. If a web server becomes unavailable after a resolver caches a response, client software can try another IP address in the response.
+
+For more information on this option, please visit the following URL:
+
+https://aws.amazon.com/about-aws/whats-new/2017/06/amazon-route-53-announces-support-for-multivalue-answers-in-response-to-dns-queries/
+
+Simple routing policy – Use for a single resource that performs a given function for your domain, for example, a web server that serves content for the example.com website.
+
+Latency routing policy – Use when you have resources in multiple locations and you want to route traffic to the resource that provides the best latency.
+
+Weighted routing policy – Use to route traffic to multiple resources in proportions that you specify.
+
+Multivalue answer routing policy – Use when you want Route 53 to respond to DNS queries with up to eight healthy records selected at random.
+
+
+10. A. Use Route 53 health checks to monitor the endpoints.
+Route 53 health checks can be used for any endpoint that can be accessed via the Internet. Hence, this would be an ideal option for monitoring endpoints.
+AWS Documentation mentions the following:
+You can configure a health check that monitors an endpoint that you specify either by IP address or by domain name. At regular intervals that you specify, Route 53 submits automated requests over the internet to your application, server, or other resource to verify that it’s reachable, available and functional. For more information on Route 53 Health checks, please refer to the URL below.
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-simple-configs.htmlNote:As per AWS,Once enabled, Route 53 automatically configures and manages health checks for individual ELB nodes. Route 53 also takes advantage of the EC2 instance health checking that ELB performs. By combining the results of health checks of your EC2 instances and your ELBs, Route 53 DNS Failover is able to evaluate the health of the load balancer and the health of the application running on the EC2 instances behind it. In other words, if any part of the stack goes down, Route 53 detects the failure and routes traffic away from the failed endpoint.For more information, please visit:https://aws.amazon.com/blogs/aws/amazon-route-53-elb-integration-dns-failover/AWS documentation states, that you can create a Route 53 resource record that points to an address outside AWS, you can set up health checks for parts of your application running outside AWS, and you can fail over to any endpoint that you choose, regardless of location. For example, you may have a legacy application running in a datacenter outside AWS and a backup instance of that application running within AWS. You can set up health checks of your legacy application running outside AWS, and if the application fails the health checks, you can fail over automatically to the backup instance in AWS.Please refer:https://aws.amazon.com/route53/faqs/Note: As per AWS,Route 53 has health checkers in locations around the world. When you create a health check that monitors an endpoint, health checkers start to send requests to the endpoint that you specify to determine whether the endpoint is healthy. You can choose which locations you want Route 53 to use, and you can specify the interval between checks: every 10 seconds or every 30 seconds. Note that Route 53 health checkers in different data centers don’t coordinate with one another, so you’ll sometimes see several requests per second regardless of the interval you chose, followed by a few seconds with no health checks at all.Each health checker evaluates the health of the endpoint based on two values:Response timeWhether the endpoint responds to a number of consecutive health checks that you specify (the failure threshold)Route 53 aggregates the data from the health checkers and determines whether the endpoint is healthy:If more than 18% of health checkers report that an endpoint is healthy, Route 53 considers it healthy.If 18% of health checkers or fewer report that an endpoint is healthy, Route 53 considers it unhealthy.The response time that an individual health checker uses to determine whether an endpoint is healthy depends on the type of health check:HTTP and HTTPS health checks, TCP health checks or HTTP and HTTPS health checks with string matching.Regarding your specific query where we are having more than 2 servers for the website, AWS docs states that:When you have more than one resource performing the same function—for example, more than one HTTP server or mail server—you can configure Amazon Route 53 to check the health of your resources and respond to DNS queries using only the healthy resources. For example, suppose your website, example.com, is hosted on six servers, two each in three data centers around the world. You can configure Route 53 to check the health of those servers and to respond to DNS queries for example.com using only the servers that are currently healthy. The configuration details are provided in the second link.Please refer the following links for more information.https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.htmlhttps://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring.html
+
+
+
+
