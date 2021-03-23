@@ -45,13 +45,45 @@ Q: Can I store sensitive information in environment variables?
 
 For sensitive information, such as database passwords, we recommend you use client-side encryption using AWS Key Management Service and store the resulting values as ciphertext in your environment variable. You will need to include logic in your AWS Lambda function code to decrypt these values.
 
+---------------------------------------------------------------------------------------------------------------------------------------------
+aws - venture
+vpc
+    - virtual private cloud - compound wall
+    - public subnet type - multiple public subnets - public communicating - Hall.. will have 2 types of ip addresses.. public  & private
+    - private subnet type - multiple private subnets - bedroom... nobody outside world knows whether a component is there or not.. only private ips
+        - 2 ways
+        - only private ips.. ranges from ... to ...  - CIDR block.. 
+        - every time you create a vpc.. chooose CIDR block carefully.. CIDRs shouldn't clash.. 
+        - 1. public subnet.. route tables.. connect to private subnets..
+        - 2. NAT gateway.. create a NAT instance ip...  in the public subnet.. .. if you want to install any module or update anything. .internet is needed..
+        - sometimes there is no need of public subnet.. sometimes there is no need of private subnet.. 
+    - Internet gateway - Gate - connected to the public subnets.. using route tables
+
+    - NAT gateway/NAT instance.. 
+    - bostion host.. - plain EC2 Instance, only for communication with the instances in private subnet.. 
+    - VPC peering - both should have different ip ranges..
+    - NACL - at sub-net level... you can control both inflow & outflow..  we can block it even if something is allowed in SG ... explicitely deny.. 
+    - Security Group - ports 22, 33,.. - instance level.. only inflow is controlled.. you can specify ips/ip range..  we can block even if it's allowed in NACL.. explictely allow.. 
+    - both are used for better security.. 
+
+    - end-to-end encryption
+    - ssl loading .. domain.. --> cloud front(multi region caching.. edge locations.. ) https:// --> s3 bucket..  --ACM..
+    - s3-bucket --> API Gateway(https://) -> load balancer url (https://)  -> pods in ec2 instances(there is no ssl offloading..) -> .  volume mount... pk12 file.. 
+
+    - vpc peering
+        - NACL.. allow the cross vpc, cross region, cross account
+        - if we want to use a production db in dev.. go for this..
+        - routes has to created.. 
+
+direct-connect
+    - instead going by the general public internet,, it's a dedicated connection to aws environement
+---------------------------------------------------------------------------------------------------------------------------------------------
 
 ----------------- DynamoDB ----------- 
 DynamoDB supports two kinds of indexes:
     - Global secondary index – An index with a partition key and sort key that can be different from those on the table.
     - Local secondary index – An index that has the same partition key as the table, but a different sort key.
 Each table in DynamoDB has a quota of 20 global secondary indexes (default quota) and 5 local secondary indexes per table.
-
 
 
 
@@ -329,3 +361,14 @@ https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-simple-co
 
 
 
+--------------------- Elasticache Quiz --------------------
+1. B. Use a public subnet for the web tier and a private subnet for the database layer.
+The ideal setup is to ensure that the web server is hosted in the public subnet so that it can be accessed by users on the internet. The database server can be hosted in the private subnet.The below diagram from AWS Documentation shows how this can be setup:
+For more information on public and private subnets in AWS, please visit the following URL:https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html\
+
+2. A. VPC Endpoint
+A VPC endpoint enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by PrivateLink without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC do not require public IP addresses to communicate with resources in the service. Traffic between your VPC and the other service does not leave the Amazon network.
+For more information on AWS VPC endpoints, please visit the following URL:
+https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html
+
+3. 

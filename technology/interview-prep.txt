@@ -1,104 +1,104 @@
 Core Java:
-    - static keyword: variable, method, block, nested class
-    - What advantages of overloading & overriding 
-    - Advantages of dynamic polimorphism
-    - What all DS you have worked on?
-    - Exception handling - types of exeptions.. What type of exceptions we need to handle & what type of exceptions we don't need to handle..How you have handled exceptions in your project? write a custom exceptions?
-    - SOLID principles
-    - advantages of collections
-    - How ConcurrentHashMap works internally
-    - Serialization? use of id..
-    - explain Multi-threading, Where did you use in your applications..
-    - Diff. b/w Abstract class & Interface
-    - What is preferred Synchronized method Or Synchronized block?
-    - What's wrong in using HashMap in multi-threaded environment?
-    - Do all properties of immutable objects need to be final?
-    - Overriding a hashcode() method have any performance implication?
-    - t1, t2, t3 threads, t2 should run after t1 & t3 should run after t2.. join() method..
-    - How will you awake a blocked thread in Java?
-    - What's context switching in multi-threading?
-    - What's difference b/w Hashmap and Hashset?
-    - When will you use ArrayList and when will you use LinkedList?
-    - Can we use non-static inside Abstract class & Interface?
-    - What's concurrent API in Java?
-    - What's ExecutorService framework in Java?
-    - What's concurrency modification exception?
-    - Why character array is better than string for storing password in Java?
-    - Can we handle Error in catch block? Why not?
-    - Tell me some best practises while using Collections?
-    - 
-
+    - static keyword: variable, method, block, nested class
+    - What advantages of overloading & overriding 
+    - Advantages of dynamic polymorphism
+    - What all DS you have worked on?
+    - Exception handling - types of exceptions.. What type of exceptions we need to handle & what type of exceptions we don't need to handle..How you have handled exceptions in your project? write a custom exceptions?
+    - SOLID principles
+    - advantages of collections
+    - How ConcurrentHashMap works internally
+    - Serialization? use of id..
+    - explain Multi-threading, Where did you use in your applications..
+    - Diff. b/w Abstract class & Interface
+    - What is preferred Synchronized method Or Synchronized block?
+    - What's wrong in using HashMap in multi-threaded environment?
+    - Do all properties of immutable objects need to be final?
+    - Does overriding a hashcode() method have any performance implication?
+    - t1, t2, t3 threads, t2 should run after t1 & t3 should run after t2.. join() method..
+    - How will you awake a blocked thread in Java?
+    - What's context switching in multi-threading?
+    - What's difference b/w HashMap and HashSet?
+    - When will you use ArrayList and when will you use LinkedList?
+    - Can we use non-static inside Abstract class & Interface?
+    - What's concurrent API in Java?
+    - What's ExecutorService framework in Java?
+    - What's concurrency modification exception?
+    - Why character array is better than string for storing password in Java?
+    - Can we handle Error in catch block? Why not?
+    - Tell me some best practices while using Collections?
+ 
 
 Design Patterns:
-    - difference b/w Factory & AbstractFactory patterns?
-    - What all design patterns used in JDK?
-    - 
-
+    - difference b/w Factory & AbstractFactory patterns?
+    - What all design patterns used in JDK?
+    - 
+ 
 Spring & Spring boot:
-    - What all components you have worked in Spring?
-    - DI & IOC & How are they related
-    - Spring AOP - weaving, joint point, point cord etc..
-    - Explain transaction management? How did you implement this in your application?
-    - @Component & @Service
-    - Explain Spring security?
-    - How did you connect to DB?
-    - Spring boot
-    - Create a sample Spring boot application
-    - Explain Spring bean life cycle
-    - Explain what is DispacherServlet?
-    - Explain what are the Spring boot starters?
-    - What do you mean by dev tools in spring boot mean?
-    - Would we able to use spring boot with applications which are not using Spring?
-    - What's AutoConfiguration in Spring boot?
-    - difference b/w @GetMapping vs @RequestMapping
-    - What does the @SpringBootApplication annotation do internally? -- combination of 3 annotations
-    - How to exclude any package without using the Base packages filter?
-    - How to enable/disable the Actuator?
-
+    - What all components you have worked in Spring?
+    - DI & IOC & How are they related
+    - Spring AOP - weaving, joint point, point cord etc..
+    - Explain transaction management? How did you implement this in your application?
+    - @Component & @Service
+    - Explain Spring security?
+    - How did you connect to DB?
+    - Spring boot
+    - Create a sample Spring boot application
+    - Explain Spring bean life cycle
+    - Explain what is DispacherServlet?
+    - Explain what are the Spring boot starters?
+    - What do you mean by dev tools in spring boot mean?
+    - Would we able to use spring boot with applications which are not using Spring?
+    - What's AutoConfiguration in Spring boot?
+    - difference b/w @GetMapping vs @RequestMapping
+    - What does the @SpringBootApplication annotation do internally? -- combination of 3 annotations
+    - How to exclude any package without using the Base packages filter?
+    - How to enable/disable the Actuator?
+ 
 Project questions:
-    - How did you validate a user in your applicaiton? Authentication, JWT Tokens.. Benifits of JWT tokens & advantages..
-    - How did you check coding standards? Sonarcube .. 
-    - How do you check if there are any memory leaks?
-    - Do you write Junits? What framework you use?
-    - What is the most technical difficult challenge/critical situation you ever faced? & How you have handled?
-    - How do you perform end to end testing?
-    - How do you deploy your code on serves?
-    - What will you pick up when there are two tasks which are of Top priority?
-    - What's definition of Done in your project?
-    - Explain your project architecture?
-
+    - How did you validate a user in your application? Authentication, JWT Tokens.. Benefits of JWT tokens & advantages..
+    - How did you check coding standards? Sonarcube .. 
+    - How do you check if there are any memory leaks?
+    - Do you write Junit testcases? What framework you use?
+    - What is the most technical difficult challenge/critical situation you ever faced? & How you have handled?
+    - How do you perform end to end testing?
+    - How do you deploy your code on serves?
+    - What will you pick up when there are two tasks which are of Top priority?
+    - What's definition of Done in your project?
+    - Explain your project architecture?
+ 
 Sprint/Agile Methodology/Working Style?
-    - Sprint planning, Sprint restrospection, Sprint review etc.
-    - 
-
+    - Sprint planning, Sprint retrospection, Sprint review etc.
+    - 
+ 
 APIs:
-    - difference b/w RESTful web services & SOAP web services?
-    - Explaing about REST architecture?
-    - How do you call one API service from another?
-    - Tell me some best practises while designing REST APIs?
-
+    - difference b/w RESTful web services & SOAP web services?
+    - Explain about REST architecture?
+    - How do you call one API service from another?
+    - Tell me some best practices while designing REST APIs?
+ 
 
 Micro-services:
-    - What are micro-services in your openion?
-    - Advantages & disadvantages of micro-services?
-
+    - What are micro-services in your opinion?
+    - Advantages & disadvantages of micro-services?
+ 
 Programming questions?
-    - * Wirte a code to compare two objects using Comparator? In which scenario you will be using Comparator & in which scenario you will be using Comparable? 
-    - Code for Singleleton class
-    - Code for Immutable class
-    - Code to sort employees based on id
-    - Write a code to swap two numbers without using third variable?
-    - Write a simple spring boot applicaiton?
-    - Write a program to create a cache where object is removed after period of time?
-
+    - * Write a code to compare two objects using Comparator? In which scenario you will be using Comparator & in which scenario you will be using Comparable? 
+    - Code for Singleton class
+    - Code for Immutable class
+    - Code to sort employees based on id
+    - Write a code to swap two numbers without using third variable?
+    - Write a simple spring boot application?
+    - Write a program to create a cache where object is removed after period of time?
+ 
 Coding Problems:
-    - what all special characters need to be adde to make it a balanced string? '{[}}'    ']}'
-    - How many characters needs to be appended to the input to make it a shortest palindrome?
-
+    - what all special characters need to be adde to make it a balanced string? '{[}}'    ']}'
+    - How many characters needs to be appended to the input to make it a shortest palindrome?
+ 
 
 HR:
-    - Why are you looking for a job change?
-    - How long will you work for us?
-    - Are you attending the interviews of Other Companies as well?
-    - If we release you a offer Will you stop attending the Interviews?
-    - What's expectation from us?
+    - Why are you looking for a job change?
+    - How long will you work for us?
+    - Are you attending the interviews of Other Companies as well?
+    - If we release you a offer Will you stop attending the Interviews?
+    - What's expectation from us?
+ 
