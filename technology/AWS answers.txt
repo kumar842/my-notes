@@ -1,0 +1,1357 @@
+D
+   - A, B
+A, E
+B, A   - A, D
+A
+A
+B
+C
+A   - D
+B
+---- certified developer sample questions - 7/10
+
+Answers
+1) D – AWS Secrets Manager helps to protect the credentials needed to access databases, applications,
+services, and other IT resources. The service enables users to easily rotate, manage, and retrieve database
+credentials, API keys, and other secrets throughout their lifecycle. Users and applications retrieve secrets with a
+call to the Secrets Manager APIs, eliminating the need to hard code sensitive information in plaintext. Secrets
+Manager offers secret rotation with built-in integration for Amazon RDS, Amazon Redshift, and Amazon
+DocumentDB.
+2) A, B - AWS AppSync simplifies application development by letting users create a flexible API to securely
+access, manipulate, and combine data from one or more data sources. AWS AppSync is a managed service that
+uses GraphQL to make it easy for applications to get the exact data they need. AWS AppSync allows users to
+build scalable applications, including those requiring real-time updates, on a range of data sources, including
+Amazon DynamoDB. In Amazon API Gateway, users can create a WebSocket API as a stateful frontend for an
+AWS service (such as AWS Lambda or DynamoDB) or for an HTTP endpoint. The WebSocket API invokes the
+backend based on the content of the messages it receives from client applications. Unlike a REST API, which
+receives and responds to requests, a WebSocket API supports two-way communication between client
+applications and the backend.
+3) A, E - Amazon Cognito adds user sign-up, sign-in, and access control to web and mobile applications quickly
+and easily. Users can also create an AWS Lambda function to make an API call to a custom analytics solution
+and then trigger that function with an Amazon Cognito post authentication trigger.
+4) A, D - A resource policy can be used to grant API access to one AWS account to users in a different AWS
+account using Signature Version 4 (SigV4) protocols.
+5) A - An AWS Lambda function's execution role grants it permission to access AWS services and resources.
+Users provide this role when a function is created, and Lambda assumes the role when a function is invoked.
+6) A - If a user copies an encrypted snapshot, the copy of the snapshot must also be encrypted. If a user copies
+an encrypted snapshot across Regions, users cannot use the same AWS KMS encryption key for the copy as
+used for the source snapshot, because KMS keys are Region-specific. Instead, users must specify a KMS key
+that is valid in the destination Region.
+7) B - Lazy loading is a concept where the loading of a record is delayed until it is needed. Lazy loading first
+checks the cache. If a record is not present, lazy loading retrieves the record from the database, and then stores
+the record in the cache.
+8) C – The Amazon CloudWatch Agent can be configured to stream logs and metrics to CloudWatch. Metric filters
+can be created from logs stored in CloudWatch Logs.
+9) D - Users can configure an AWS Lambda function to pull in additional code and content in the form of layers. A
+layer is a .zip archive that contains libraries, a custom runtime, or other dependencies. With layers, users can use
+libraries in a function without needing to include the libraries in a deployment package.
+10) B - With deployment stages in Amazon API Gateway, users can manage multiple release stages for each
+API, such as alpha, beta, and production. Using stage variables that can be configured, an API deployment stage
+can interact with different backend endpoints. Users can use API Gateway stage variables to reference a single
+AWS Lambda function with multiple versions and aliases.
+
+
+
+
+S3 Notes:
+ - Bucket name must be unique and must not contain spaces or uppercase letters.
+ - Object Lock works only in versioned buckets. Enabling Object Lock automatically enables Bucket Versioning.
+ - This suspends the creation of object versions for all operations but preserves any existing object versions.
+ - Lifecycle rules : Use lifecycle rules to define actions you want Amazon S3 to take during an object's lifetime such as transitioning objects to another storage class, archiving them, or deleting them after a specified period of time. Learn more
+ - Replication rules: Use replication rules to define options you want Amazon S3 to apply during replication such as server-side encryption, replica ownership, transitioning replicas to another storage class, and more
+ - Inventory configurations: You can create inventory configurations on a bucket to generate a flat file list of your objects and metadata. These scheduled reports can include all objects in the bucket or be limited to a shared prefix.
+ - Access Points: Amazon S3 Access Points simplify managing data access at scale for shared datasets in S3. Access points are named network endpoints that are attached to buckets that you can use to perform S3 object operations.
+ - Intelligent-Tiering Archive configurations: Enable objects stored in the Intelligent-Tiering storage class to tier-down to the Archive Access tier or the Deep Archive Access tier which are optimized for objects that will be rarely accessed for long periods of time
+ - Server access logging: Log requests for access to your bucket
+ - Batch Operations: A job is used to execute batch operations on a list of S3 objects. The list of S3 objects is contained in a manifest object, which can be an S3 inventory report or a list of objects that you generate. After the total number of objects listed in the manifest has been confirmed, the job status will update to Awaiting your confirmation to run, and you must Run job within 30 days. Job events are published to CloudWatch Events. Jobs are deleted 90 days after they finish or fail.
+ - Access analyzer for S3: The buckets listed below are configured to allow access by anyone using the internet or authenticated AWS users, including AWS users outside of your organization. AWS recommends that you restrict access immediately. Review each bucket to verify the access. View detailed findings on the IAM console. When a bucket policy, access point policy, or ACL is added or modified, Access analyzer generates and updates findings based on the change within 30 minutes. Findings related to account-level Block public access settings may not be generated or updated for up to 6 hours after you change the settings. Learn more
+ - Storage Lens: Storage Lens provides visibility into storage usage and activity trends at the organization or account level, with drill-downs by Region, storage class, bucket, and prefix. Learn more
+
+EC2-Notes:
+ - Step 1: Choose an Amazon Machine Image (AMI): An AMI is a template that contains the software configuration (operating system, application server, and applications) required to launch your instance. You can select an AMI provided by AWS, our user community, or the AWS Marketplace; or you can select one of your own AMIs.
+ - Instance state : Your instance can be in one of the following states: pending, running, stopping, stopped, shutting-down, or terminated. If your instance is hibernated, it is in the stopped state
+ - 
+
+
+------------------------ S3 Quiz --------------------------
+1.
+A. Amazon S3
+
+Option B is incorrect. EBS provides persistent block storage volumes for use with EC2.
+Option C is incorrect. EFS is an elastic and scalable file storage.
+Option D is incorrect. AWS Storage Gateway VTL helps to integrate your on premise IT infrastructure with AWS storage.
+
+2.
+D. Store the file in an S3 bucket. Use Amazon S3 event notification to invoke aLambda function for file processing.
+
+You can first create a Lambda function with the code to process the file.
+You can then use an Event Notification from the S3 bucket to invoke the Lambda function whenever a file is uploaded.
+For more information on Amazon S3 event notification, please visit the following URL:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html
+Option A is incorrect. Kinesis is used to collect, process and analyze real time data.
+The frequency of updates are quite unpredictable. By default SQS uses short polling. In this case, it will lead to the cost factor going up since we are getting messages in an unpredictable manner and many a times it will be returning empty responses. Hence option B is not a solution.
+
+
+3.
+B. Amazon S3 Standard Infrequent Access
+
+Amazon S3 Infrequent Access is perfect if you want to store data that need not be frequently accessed. It is must more cost effective than Amazon S3 Standard (Option D). And if you choose Amazon Glacier with expedited retrievals, then you defeat the whole purpose of the requirement, because you would have an increased cost with this option.
+
+For more information on AWS Storage classes, please visit the following URL:
+
+https://aws.amazon.com/s3/storage-classes/
+
+4. 
+B. Expedited retrieval
+
+AWS Documentation mentions the following:
+
+Expedited retrievals to access data in 1 – 5 minutes for a flat rate of $0.03 per GB retrieved. Expedited retrievals allow you to quickly access your data when occasional urgent requests for a subset of archives are required.
+
+For more information on AWS Glacier Retrieval, please visit the following URL:
+
+https://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive-two-steps.html
+The other two are standard ( 3-5 hours retrieval time) and Bulk retrievals which is the cheapest option.(5-12 hours retrieval time)
+
+5.
+C. Prefix each object name with a hex hash key along with the current data.
+
+NOTE: Based on the S3 new performance announcement, ” S3 request rate performance increase removes any previous guidance to randomize object prefixes to achieve faster performance.” But Amazon exam questions and answers not yet updated. So Option C is correct answer as per AWS exam.
+
+This recommendation for increasing performance in case of a high request rate in s3 is given in the documentation.
+
+
+6.
+B. Store the files in Amazon S3 and create a Lifecycle Policy to remove files after 3 months.
+
+Option A is invalid, since the records need to be stored in a highly scalable system.
+
+Option C is invalid, since the records must be available for immediate download.
+
+Option D is invalid, because it does not have the concept of a Lifecycle Policy.
+
+AWS Documentation mentions the following on Lifecycle Policies:
+
+Lifecycle configuration enables you to specify the Lifecycle Management of objects in a bucket. The configuration is a set of one or more rules, where each rule defines an action for Amazon S3 to apply to a group of objects. These actions can be classified as follows:
+
+Transition actions – In which you define when the objects transition to another storage class. For example, you may choose to transition objects to the STANDARD_IA (IA, for infrequent access) storage class 30 days after creation, or archive objects to the GLACIER storage class one year after creation.
+
+Expiration actions – In which you specify when the objects expire. Then Amazon S3 deletes the expired objects on your behalf.
+
+For more information on AWS S3 Lifecycle Policies, please visit the following URL:
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html
+
+
+7. 
+B. Store data in an S3 bucket and enable versioning.
+
+Amazon S3 has an option for versioning as shown below. Versioning is on the bucket level and can be used to recover prior versions of an object.
+
+For more information on AWS S3 versioning, please visit the following URL:
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html
+
+Option A is invalid as it does not offer protection against accidental deletion of files.
+
+Option C is invalid as S3 buckets are global.
+
+Option D is ephemeral.
+
+8.
+B. Configuring lifecycle configuration rules on the S3 bucket.
+
+AWS Documentation mentions the following on Lifecycle policies:
+
+Lifecycle configuration enables you to specify the Lifecycle management of objects in a bucket. The configuration is a set of one or more rules, where each rule defines an action for Amazon S3 to apply to a group of objects. These actions can be classified as follows:
+
+Transition actions – In which you define when objects transition to another storage class. For example, you may choose to transition objects to the STANDARD_IA (IA, for infrequent access) storage class 30 days after creation, or archive objects to the GLACIER storage class one year after creation.
+Expiration actions – In which you specify when the objects expire. Then, Amazon S3 deletes the expired objects on your behalf.
+For more information on AWS S3 Lifecycle policies, please visit the following URL:
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html
+
+Option D is for Sharing resources between regions.
+
+
+9. 
+B. Use a hexadecimal hash for the prefix.
+
+This recommendation for increasing performance in case of a high request rate in S3 is given in the AWS documentation.
+
+For more information on S3 performance considerations, please visit the following URL:
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/request-rate-perf-considerations.html
+
+Note:
+Amazon S3 maintains an index of object key names in each AWS Region. Object keys are stored in UTF-8 binary ordering across multiple partitions in the index. The key name determines which partition the key is stored in. Using a sequential prefix, such as a timestamp or an alphabetical sequence, increases the likelihood that Amazon S3 will target a specific partition for a large number of your keys, which can overwhelm the I/O capacity of the partition.
+
+If your workload is a mix of request types, introduce some randomness to key names by adding a hash string as a prefix to the key name. By introducing randomness to your key names, the I/O load is distributed across multiple index partitions. For example, you can compute an MD5 hash of the character sequence that you plan to assign as the key, and add three or four characters from the hash as a prefix to the key name.
+
+10.
+
+B. Create a pre-signed URL for each profile which will last for a week’s duration.
+
+Pre-signed URL’s are the perfect solution when you want to give temporary access to users for S3 buckets. So, whenever a new profile is created, you can create a pre-signed URL to ensure that the URL lasts for a week and allows users to upload the required objects.
+
+For more information on pre-signed URL’s, please visit the following URL:
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/PresignedUrlUploadObject.html
+
+
+11.
+C. AWS Glacier
+
+Amazon Glacier is the perfect solution for this. Since the agreed time frame for retrieval is met at 8 hours, this will be the most cost effective option.
+
+For more information on AWS Glacier, please visit the following URL:
+
+https://aws.amazon.com/documentation/glacier/
+
+
+12. 
+B. Use Amazon S3 to host the files.
+
+If you need storage for the Internet, AWS Simple Storage Service is the best option. Each uploaded file automatically gets a public URL, which can be used to download the file at a later point in time.
+
+For more information on Amazon S3, please refer to the below URL:
+
+https://aws.amazon.com/s3/
+Options A and D are incorrect because EBS Volumes or Snapshots do not have Public URL.
+
+Option C is incorrect because Glacier is mainly used for data archiving purposes.
+
+13.
+D. UseS3 Lifecycle Policies to manage the deletion.
+
+AWS Documentation mentions the following to support the above requirement:
+
+Lifecycle configuration enables you to specify the lifecycle management of objects in a bucket. The configuration is a set of one or more rules, where each rule defines an action for Amazon S3 to apply to a group of objects. These actions can be classified as follows:
+
+Transition actions – In which you define when objects transition to another storage class. For example, you may choose to transition objects to the STANDARD_IA (IA, for infrequent access) storage class 30 days after creation, or archive objects to the GLACIER storage class one year after creation.
+Expiration actions – In which you specify when the objects expire. Then, Amazon S3 deletes the expired objects on your behalf.
+For more information on S3 Lifecycle Policies, please refer to the URL below.
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html
+
+A built-in feature exists to do this job, hence Options A, B and C are not necessary.
+
+
+14.
+B. Amazon S3 Standard Infrequent Access
+
+Amazon S3 Infrequent access is perfect if you want to store data that is not frequently accessed. It is more cost effective than Option D (Amazon S3 Standard). If you choose Amazon Glacier with Expedited Retrievals, you defeat the whole purpose of the requirement, because of its increased cost.
+
+For more information on AWS Storage Classes, please visit the following URL:
+
+https://aws.amazon.com/s3/storage-classes/
+
+
+
+16.
+A. Prefix each object name with a random string.
+
+If the request rate is high, you can use hash keys or random strings to prefix the object name. In such a case, the partitions used to store the objects will be better distributed and hence allow for better read/write performance for your objects.
+
+For more information on how to ensure performance in S3, please visit the following URL:
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/request-rate-perf-considerations.html
+STANDARD_IA storage class is for infrequent data access. Option C is not a good solution. Versioning does not make any difference to the performance in this case.
+
+
+17.
+
+D. Placethe S3 bucket behind a CloudFront distribution.
+
+AWS Documentation mentions the following:
+
+If your workload is mainly sending GET requests, in addition to the preceding guidelines, you should consider using Amazon CloudFront for performance optimization.
+
+Integrating Amazon CloudFront with Amazon S3, you can distribute content to your users with low latency and a high data transfer rate. You will also send fewer direct requests to Amazon S3, which will reduce your costs.
+
+For example, suppose that you have a few objects that are very popular. Amazon CloudFront fetches those objects from Amazon S3 and caches them. Amazon CloudFront can then serve future requests for the objects from its cache, reducing the number of GET requests it sends to Amazon S3.
+
+For more information on performance considerations in S3, please visit the following URL:
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/request-rate-perf-considerations.html
+Options A and B are incorrect. S3 Cross-Region Replication and Transfer Acceleration incurs cost.
+
+Option C is incorrect. ELB is used to distribute traffic on to EC2 Instances.
+
+
+18.
+
+A & C
+
+AWS Elasticsearch provides full search capabilities and can be used for log files stored in the S3 bucket.
+
+AWS Documentation mentions the following with regard to the integration of Elasticsearch with S3:
+
+You can integrate your Amazon ES domain with Amazon S3 and AWS Lambda. Any new data sent to an S3 bucket triggers an event notification to Lambda, which then runs your custom Java or Node.js application code. After your application processes the data, it streams the data to your domain.
+
+For more information on integration between Elasticsearch and S3, please visit the following URL:
+
+https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-aws-integrations.html
+
+
+19.
+
+C. Glacier
+
+Amazon Glacier is a secure, durable, and extremely low-cost cloud storage service for data archiving and long-term backup. Customers can reliably store large or small amounts of data for as little as $0.004 per gigabyte per month, a significant savings compared to on-premises solutions. To keep costs low yet suitable for varying retrieval needs, Amazon Glacier provides three options for access to archives, from a few minutes to several hours.
+
+For more information on Amazon Glacier, please refer to the link below.
+
+https://aws.amazon.com/glacier/
+
+
+20.
+Answer – A and C
+
+AWS Documentation mentions the
+following on using S3 for static web site hosting:
+
+You can host a static website on Amazon Simple Storage Service (Amazon S3). On a static website, individual webpages include static content. They might also contain client-side scripts.
+
+For more information on static web site hosting using S3, please refer to the URL below.
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html
+
+
+21.
+A. Enable Versioning for the underlying S3 bucket.
+
+Versioning as shown below. Versioning is on the bucket level and can be used
+to recover prior versions of an object.
+
+For more information on S3 Versioning, please refer to the below URL:https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html
+
+22.
+D. EnableCross-Region Replication for the S3 bucket.
+
+This is mentioned clearly as a use case for S3 Cross-Region Replication.
+
+You might configure Cross-Region Replication on a bucket for various reasons, including the following:
+
+Compliance requirements – Although, by default, Amazon S3 stores your data across multiple geographically distant Availability Zones, compliance requirements might dictate that you store data at even further distances. Cross-region replication allows you to replicate data between distant AWS Regions to satisfy these compliance requirements.
+For more information on S3 Cross-Region Replication, please visit the following URL:
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html
+
+23.
+B. Add a random prefix to the key names.
+
+Based on the New S3 announcement (S3 performance)Amazon S3 now provides increased request rate performance. But AWS not yet updated the exam Questions. So as per exam Option B is the correct answer.
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/request-rate-perf-considerations.html
+One way to introduce randomness to key names is to add a hash string as prefix to the key name. For example, you can compute an MD5 hash of the character sequence that you plan to assign as the key name. From the hash, pick a specific number of characters, and add them as the prefix to the key name. The following example shows key names with a four-character hash.
+
+
+24.
+
+B. Store the files in Amazon S3 and create a Lifecycle Policy to archive the files after 6 months.
+
+Based on the New S3 announcement (S3 performance)Amazon S3 now provides increased request rate performance. But AWS not yet updated the exam Questions. So as per exam Option B is the correct answer.
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/request-rate-perf-considerations.html
+One way to introduce randomness to key names is to add a hash string as prefix to the key name. For example, you can compute an MD5 hash of the character sequence that you plan to assign as the key name. From the hash, pick a specific number of characters, and add them as the prefix to the key name. The following example shows key names with a four-character hash.
+
+
+25.
+C. EnableServer-side encryption on the S3 bucket.
+
+AWS Documentation mentions the following:
+
+Server-side encryption is about data encryption at rest—that is, Amazon S3 encrypts your data at the object level as it writes it to disks in its data centers and decrypts it for you when you access it. As long as you authenticate your request and you have access permissions, there is no difference in the way you access encrypted or unencrypted objects.
+
+For more information on S3 Server-side encryption, please refer to the below link:
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html
+
+26.
+
+A. & C.
+
+AWS Documentation mentions the following:
+
+Amazon S3 offers access policy options broadly categorized as resource-based policies and user policies. Access policies you attach to your resources (buckets and objects) are referred to as resource-based policies. For example, bucket policies and access control lists (ACLs) are resource-based policies. You can also attach access policies to users in your account. These are called user policies. You may choose to use resource-based policies, user policies, or some combination of these to manage permissions to your Amazon S3 resources.
+
+For more information on S3 access control, please refer to the below link:
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html
+
+27.
+A. Amazon Glacier
+
+AWS Documentation mentions the following on Amazon Glacier:
+
+Amazon Glacier is an extremely low-cost storage service that provides durable storage with security features for data archiving and backup. With Amazon Glacier, customers can store their data cost effectively for months, years, or even decades. Amazon Glacier enables customers to offload the administrative burdens of operating and scaling storage to AWS, so they don’t have to worry about capacity planning, hardware provisioning, data replication, hardware failure detection and recovery, or time-consuming hardware migrations.
+
+For more information on Amazon Glacier, please visit the following URL:
+
+https://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html
+
+
+28.
+B. & C.
+
+AWS Documentation mentions the following:
+
+When a user performs a DELETE operation on an object, subsequent simple (un-versioned) requests will no longer retrieve the object. However, all versions of that object will continue to be preserved in your Amazon S3 bucket and can be retrieved or restored.
+
+Versioning’s MFA Delete capability, which uses multi-factor authentication, can be used to provide an additional layer of security. By default, all requests to your Amazon S3 bucket require your AWS account credentials. If you enable Versioning with MFA Delete on your Amazon S3 bucket, two forms of authentication are required to permanently delete a version of an object: your AWS account credentials and a valid six-digit code and serial number from an authentication device in your physical possession.
+
+For more information on the features of S3, please visit the following URL:
+
+https://aws.amazon.com/s3/faqs/
+
+29.
+
+A. & B.
+
+AWS Documentation mentions the following:
+
+When your workload is sending mostly GET requests, you can add randomness to key names. In addition, you can integrate Amazon CloudFront with Amazon S3 to distribute content to your users with low latency and a high data transfer rate.
+
+Note: S3 can now scale to high request rates. Your application can achieve at least 3,500 PUT/POST/DELETE and 5,500 GET requests per second per prefix in a bucket.
+However the AWS exam questions are not yet updated reflecting these changes in the questions. Hence the answer for this question is based on the initial request rate performance.
+
+For more information on S3 bucket performance, please visit the following URL:
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/PerformanceOptimization.html
+
+
+30.
+A. AWS Simple Storage Service
+
+The Simple Storage Service is the perfect place to store the documents. You can define buckets for each user and have policies which restrict access so that each user can only access his/her own files.
+
+For more information on the S3 service, please visit the following URL:
+
+https://aws.amazon.com/s3/
+
+
+
+31.
+
+D. Standard retrieval
+
+AWS Documentation mentions the following on Standard retrievals:
+
+Standard retrievals are a low-cost way to access your data within just a few hours. For example, you can use Standard retrievals to restore backup data, retrieve archived media content for same-day editing or distribution, or pull and analyze logs to drive business decisions within hours.
+
+For more information on Amazon Glacier retrievals, please visit the following URL:
+
+https://aws.amazon.com/glacier/faqs/#dataretrievals
+
+
+32.
+
+A. Enable Cross-Region Replication for the bucket.
+
+AWS Documentation mentions the following:
+
+Cross-Region Replication is a bucket-level configuration that enables automatic, asynchronous copying of objects across buckets in different AWS Regions.
+
+For more information on Cross-Region Replication in the Simple Storage Service, please visit the below URL:
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html
+
+33.
+
+B. Use transition rule in S3 to move the files to Glacier and use expiration rule to delete it after 30 days.
+
+AWS Documentation mentions the following on Lifecycle Policies:
+
+Lifecycle configuration enables you to specify the lifecycle management of objects in a bucket. The configuration is a set of one or more rules, where each rule defines an action for Amazon S3 to apply to a group of objects. These actions can be classified as follows:
+
+Transition actions – In which you define when objects transition to another storage class. For example, you may choose to transition objects to the STANDARD_IA (IA, for infrequent access) storage class 30 days after creation, or archive objects to the GLACIER storage class one year after creation.
+Expiration actions – In which you specify when the objects expire. Then Amazon S3 deletes the expired objects on your behalf.
+
+For more information on AWS S3 Lifecycle policies, please visit the following URL:
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html
+
+Note: Yes, if we delete the data within 30 days, we will incur certain charges. And the question says that “How should this be implemented in an cost-effective manner?” The charge which is going to incur because of not storing data for 90 days in Glacier is would be less than storing in S3.
+
+Further, in the given options we need to choose the cost-effective option, that doesn’t mean it has to be the most cost-effective.
+
+34.
+A. SSE-S3
+
+AWS Documentation mentions the following on Encryption keys:
+
+SSE-S3 requires that Amazon S3 manages the data and master encryption keys.
+SSE-C requires that you manage the encryption keys.
+SSE-KMS requires that AWS manages the data key but you manage the master key in AWS KMS.
+For more information on using the Key Management service for S3, please visit the below URL:
+
+https://docs.aws.amazon.com/kms/latest/developerguide/services-s3.html
+
+35.
+
+A. Place the S3 bucket behind a CloudFront distribution.
+
+AWS Documentation mentions the following:
+
+Using CloudFront can be more cost effective if your users access your objects frequently because, at higher usage, the price for CloudFront data transfer is lower than the price for Amazon S3 data transfer. In addition, downloads are faster with CloudFront than with Amazon S3 alone because your objects are stored closer to your users.
+
+For more information on using Cloudfront with S3, please visit the below URL:
+
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/MigrateS3ToCloudFront.html
+
+
+36. same
+37.
+38. C. Store your logs in Amazon S3, and use Lifecycle Policies to archive to Amazon Glacier.
+
+Option A is invalid, because it is not a cost-effective option.
+
+Option B is invalid, because it will not serve the purpose of regularly retrieving the most recent logs for troubleshooting. You will need to pay more to retrieve the logs faster from this storage option.
+
+Option D is invalid because it is neither an ideal nor cost-effective option.
+
+For more information on Lifecycle management please refer to the below link:
+
+http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html
+
+
+
+
+ 
+42.
+B. & D.
+
+Store the images initially in Standard storage since they are accessed frequently. Define Lifecycle Policies to move the images to Infrequent Access storage to save on costs.
+
+Amazon S3 Infrequent access is perfect if you want to store data that is not frequently accessed, and is must more cost-effective than Option D i.e. Amazon S3 Standard. Also, if you choose Amazon Glacier with expedited retrievals, you defeat the whole purpose of the requirement, because this option would result in increased costs.
+
+For more information on AWS Storage classes, please visit the following URL:
+
+https://aws.amazon.com/s3/storage-classes/
+
+
+43.
+B. Using Expedited retrieval
+
+The AWS Documentation mentions the following:
+
+Expedited retrievals allow you to quickly access your data when occasional urgent requests for a subset of archives are required.
+
+For more information on AWS Glacier Retrieval, please visit the following URL:
+
+https://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive-two-steps.html
+
+44.
+
+A. Prefix each object name with a random string.
+
+If the request rate is high, you can use hash keys or random strings to prefix to the object name. Here, partitions used to store the objects will be better distributed and hence allow for better read/write performance for your objects.
+
+For more information on how to ensure performance in S3, please visit the following URL:
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/request-rate-perf-considerations.html
+
+
+45.
+B. Use CloudFront with the S3 bucket as the source.
+
+AWS Documentation mentions the following to backup this requirement:
+
+Amazon CloudFront is a web service that speeds up distribution of static and dynamic web content, such as .html, .css, .js, and image files, to your users. CloudFront delivers your content through a worldwide network of data centers called Edge locations. When a user requests content that you’re serving with CloudFront, the user is routed to the Edge location that provides the lowest latency (time delay), so that content is delivered with the best possible performance. If the content is already in the Edge location with the lowest latency, CloudFront delivers it immediately. If the content is not in that Edge location, CloudFront retrieves it from an Amazon S3 bucket or an HTTP server (for example, a web server) that you have identified as the source for the definitive version of your content.
+
+For more information on Amazon CloudFront, please visit the following URL:
+
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
+
+45.
+
+C. Use S3 with standard redundancy to store and serve the scanned files. UseCloudSearch for query processing, and use Elastic Beanstalk to host the website across multiple Availability Zones.
+
+With Amazon CloudSearch, you can quickly add rich search capabilities to your website or application. You don’t need to become a search expert or worry about hardware provisioning, setup, and maintenance. With a few clicks in the AWS Management Console, you can create a search domain and upload the data that you want to make searchable, and Amazon CloudSearch will automatically provision the required resources and deploy a highly tuned search index.
+
+You can easily change your search parameters, fine tune search relevance, and apply new settings at any time. As your volume of data and traffic fluctuates, Amazon CloudSearch seamlessly scales to meet your needs.
+
+For more information on AWS CloudSearch , please visit the below link:
+
+https://aws.amazon.com/cloudsearch/
+
+
+
+46.
+C. Use Pre-Signed URLs.
+
+AWS Documentation mentions the following:
+
+All objects by default are private. Only the object owner has permission to access these objects. However, the object owner can optionally share objects with others by creating a pre-signed URL, using their own security credentials, to grant time-limited permission to download the objects.
+
+For more information on pre-signed URLs, please visit the URL below.
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html
+
+47.
+
+A. Amazon Glacier
+
+With the above requirements, the best option is to opt for Amazon Glacier.
+
+AWS Documentation further mentions the following:
+
+Amazon Glacier is a secure, durable, and extremely low-cost cloud storage service for data archiving and long-term backup. It is designed to deliver 99.999999999% durability, and provides comprehensive security and compliance capabilities that can help meet even the most stringent regulatory requirements.
+
+For more information on Amazon Glacier, please refer to the below URL:
+
+https://aws.amazon.com/glacier/
+
+
+49.
+ 
+ A. & D.
+
+The AWS Documentation mentions the following
+
+Amazon Simple Storage Service is storage for the Internet. It is designed to make web-scale computing easier for developers.
+
+Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications. SQS eliminates the complexity and overhead associated with managing and operating message oriented middleware, and empowers developers to focus on differentiating work. Using SQS, you can send, store, and receive messages between software components at any volume, without losing messages or requiring other services to be available.
+
+Option B is incorrect since this is used for archive storage
+
+Option C is incorrect since this is used as a notification service
+
+For more information on S3, please visit the below URL:
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html
+For more information on SQS, please visit the below URL:
+
+https://aws.amazon.com/sqs/
+
+50.
+
+A. & C.
+
+AWS S3 is object level storage that is completely managed by AWS.
+
+Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. DynamoDB lets you offload the administrative burdens of operating and scaling a distributed database, so that you don’t have to worry about hardware provisioning, setup and configuration, replication, software patching, or cluster scaling.
+
+Option B is incorrect since you need to manage EBS volumes
+
+Option D is incorrect since this is a compute service
+
+For more information on DynamoDB, please refer to the below link
+
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html
+For more information on Simple Storage Service, please refer to the below link
+
+https://aws.amazon.com/s3/
+
+
+52.
+A. & B.
+
+The AWS Documentation mentions the following
+
+Amazon EBS encryption offers a simple encryption solution for your EBS volumes without the need to build, maintain, and secure your own key management infrastructure.
+
+Server-side encryption protects data at rest. Server-side encryption with Amazon S3-managed encryption keys (SSE-S3) uses strong multi-factor encryption. Amazon S3 encrypts each object with a unique key
+
+Options C and D are invalid since these are used to manage encryption of data in transit
+
+For more information on Encryption of EBS volumes, please visit the url
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html
+For more information on Encryption of S3 buckets, please visit the url
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.h
+
+53.
+C. EnableCross-Region Replication for the bucket
+The AWS Documentation mentions the following
+
+Cross-region replication is a bucket-level configuration that enables automatic, asynchronous copying of objects across buckets in different AWS Regions. We refer to these buckets as source bucket and destination bucket. These buckets can be owned by different AWS accounts.
+
+Option A is invalid because this is not the right way to take backups of an S3 bucket
+
+Option B is invalid because yes S3 will ensure objects are available in multiple availability zones but not across regions in case of a disaster
+
+Option D is invalid because versioning can only help from accidental deletion of objects but not from disaster recovery
+
+For more information on cross region replication, please visit the url
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html
+
+
+54.
+
+B. UseLifecycle policies to transfer the files onto Glacier after a period of 3 months
+The AWS Documentation mentions the following
+
+To manage your objects so that they are stored cost effectively throughout their lifecycle, configure their lifecycle. A lifecycle configuration is a set of rules that define actions that Amazon S3 applies to a group of objects. There are two types of actions:
+
+Transition actions—Define when objects transition to another storage class. For example, you might choose to transition objects to the STANDARD_IA storage class 30 days after you created them, or archive objects to the GLACIER storage class one year after creating them.
+Expiration actions—Define when objects expire. Amazon S3 deletes expired objects on your behalf. The lifecycle expiration costs depend on when you choose to expire objects.
+
+Option A is invalid since there is already the option of lifecycle policies
+
+Option C is invalid since lifecycle policies are used to transfer to Glacier or S3-Infrequent Access
+
+Option D is invalid since snapshots are used for EBS volumes
+
+For more information on S3 lifecycle policies, please visit the below URL
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html
+
+
+55.
+A. S3 Infrequent Access
+The AWS Documentation mentions the following
+
+Amazon S3 Standard-Infrequent Access (S3 Standard-IA) is an Amazon S3 storage class for data that is accessed less frequently but requires rapid access when needed. S3 Standard-IA offers the high durability, high throughput, and low latency of S3 Standard, with a low per GB storage price and per GB retrieval fee. This combination of low cost and high performance make S3 Standard-IA ideal for long-term storage, backups, and as a data store for disaster recovery.
+
+Options B and C are incorrect since the data retrieval time is more than 20 minutes and does not meet the requirements of the question
+
+Option D is incorrect since this would not be a cost-effective option
+
+For more information on the different storage classes, please refer to the below URL
+
+https://aws.amazon.com/s3/storage-classes/
+
+56.
+A. & D.
+The AWS Documentation mentions the following
+
+Server-side encryption is about protecting data at rest. Using server-side encryption with customer-provided encryption keys (SSE-C) allows you to set your own encryption keys. With the encryption key you provide as part of your request, Amazon S3 manages both the encryption, as it writes to disks, and decryption, when you access your objects. Therefore, you don’t need to maintain any code to perform data encryption and decryption. The only thing you do is manage the encryption keys you provide.
+
+Options C is incorrect since here you will still not manage the complete lifecycle of the keys.
+
+Options D is incorrect, because the maximum key policy document size is 32kb.
+
+https://docs.aws.amazon.com/kms/latest/developerguide/limits.html
+
+Option E is correct since your own keys can be uploaded to the Key management service.
+
+https://aws.amazon.com/blogs/aws/new-bring-your-own-keys-with-aws-key-management-service/
+
+For more information on Server side encryption with customer keys and Client side encryption, please refer to the below URL
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html
+
+
+57.
+D. Store the Images in Amazon S3 and store the metadata in DynamoDB
+Amazon S3 is used for object level storage and should be used to store files such as Images, videos etc. The metadata can be in JSON format which can then be stored in DynamoDB tables.
+
+Options A and B are incorrect since Amazon Glacier is used for archive storage
+
+Option C is incorrect since you cannot store images in DynamoDB
+
+For more information on Amazon S3 and DynamoDB, please refer to the below URL
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html
+
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html
+
+
+58.
+A. & D.
+Options B and C are incorrect since these options cannot be used to actually encrypt the objects
+
+The AWS Documentation mentions the following
+
+You have three mutually exclusive options depending on how you choose to manage the encryption keys:
+
+– Use Server-Side Encryption with Amazon S3-Managed Keys (SSE-S3) – Each object is encrypted with a unique key employing strong multi-factor encryption. As an additional safeguard, it encrypts the key itself with a master key that it regularly rotates..
+
+– Use Server-Side Encryption with AWS KMS-Managed Keys (SSE-KMS) – Similar to SSE-S3, but with some additional benefits along with some additional charges for using this service. There are separate permissions for the use of an envelope key (that is, a key that protects your data’s encryption key) that provides added protection against unauthorized access of your objects in S3.
+
+– Use Server-Side Encryption with Customer-Provided Keys (SSE-C) – You manage the encryption keys and Amazon S3 manages the encryption, as it writes to disks, and decryption, when you access your objects.
+
+For more information on Server – Side encryption, please refer to the below URL
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html
+
+59.
+C. Create pre-signed URL’s
+The AWS Documentation mentions the following
+
+A pre-signed URL gives you access to the object identified in the URL, provided that the creator of the pre-signed URL has permissions to access that object. That is, if you receive a pre-signed URL to upload an object, you can upload the object only if the creator of the pre-signed URL has the necessary permissions to upload that object.
+
+All objects and buckets by default are private. The pre-signed URLs are useful if you want your user/customer to be able to upload a specific object to your bucket, but you don’t require them to have AWS security credentials or permissions. When you create a pre-signed URL, you must provide your security credentials and then specify a bucket name, an object key, an HTTP method (PUT for uploading objects), and an expiration date and time. The pre-signed URLs are valid only for the specified duration.
+
+Option A is incorrect since this is used for Cross origin access
+
+Option B is incorrect since this is used for encryption purposes.
+
+Option D is incorrect since this is used for versioning
+
+For more information on pre-signed URL’s, please refer to the below URL
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/PresignedUrlUploadObject.html
+
+
+60.
+C. Use the lifecycle policies of the S3 bucket to transfer the files to Amazon Glacier
+The AWS Documentation mentions the following
+
+To manage your objects so that they are stored cost effectively throughout their lifecycle, configure their lifecycle. A lifecycle configuration is a set of rules that define actions that Amazon S3 applies to a group of objects. There are two types of actions:
+
+– Transition actions—Define when objects transition to another storage class. For example, you might choose to transition objects to the STANDARD_IA storage class 30 days after you created them, or archive objects to the GLACIER storage class one year after creating them.
+– Expiration actions—Define when objects expire. Amazon S3 deletes expired objects on your behalf.
+
+Options B and D are incorrect because ideally you don’t transfer to EBS volumes – Cold HDD
+
+Option A is incorrect because you need to use lifecycle policies
+
+For more information on lifecycle policies, please refer to the below URL
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html
+
+
+
+
+
+
+-------------------------- SQS: quiz -----------------------------
+1.
+D. AWS SQS
+AWS Documentation mentions the following:
+Amazon Simple Queue Service (SQS) is a fully managed message queuing service that makes it easy to decouple and scale microservices, distributed systems, and serverless applications. Building applications from individual components that each perform a discrete function improves scalability and reliability, and is best practice design for modern applications. SQS makes it simple and cost-effective to decouple and coordinate the components of a cloud application. Using SQS, you can send, store, and receive messages between software components at any volume, without losing messages or requiring other services to be always available.
+For more information on AWS SQS, please visit the following URL:
+https://aws.amazon.com/sqs/
+
+C. Create a service that pulls SQS messages and writes these to DynamoDB to handle suddenspikes in DynamoDB.
+When looking for scalability, SQS is the best option. DynamoDB is scalable, but since a cost-effective solution is required, SQS messaging can assist in managing the above situation.
+Amazon Simple Queue Service (SQS) is a fully-managed message queuing service for reliably communicating among distributed software components and microservices – at any scale. Building applications from individual components that each perform a discrete function improves scalability and reliability, and is best practice design for modern applications. SQS makes it simple and cost-effective to decouple and coordinate the components of a cloud application. Using SQS, you can send, store, and receive messages between software components at any volume, without losing messages or requiring other services to be always available.
+For more information on SQS, please refer to the below URL:
+https://aws.amazon.com/sqs/
+
+3.
+
+4.
+C. Use two SQS queues, one for high priority messages, the other for defaultpriority. Transformation instances first poll the high priority queue; if there is nomessage, they poll the default priority queue.
+The best way is to use 2 SQS queues. Each queue can be polled separately. The high priority queue can be polled first.
+For more information on AWS SQS, please refer to the link below:
+https://aws.amazon.com/sqs/
+
+6.
+
+D. SQS helps to facilitate horizontal scaling of encoding tasks.
+Even though SQS guarantees the order of messages for FIFO queues, the main reason for using it is because it helps in horizontal scaling of AWS resources and is used for decoupling systems. SQS can neither be used for transcoding output nor for checking the health of worker instances. The health of worker instances can be checked via ELB or CloudWatch.
+For more information on SQS, please visit the following URL:
+https://aws.amazon.com/sqs/faqs/
+
+7.
+
+
+C. Use SQS Queues to queue the database writes.
+SQS Queues can be used to store the pending database writes, and these writes can then be added to the database. It is the perfect queuing system for such architecture.
+Note that adding more IOPS may help the situation but will not totally eliminate chances of losing database writes.
+For more information on AWS SQS, please refer to the URL below:
+https://aws.amazon.com/sqs/faqs/Note:The scenario in the question is that the database is unable to handle the write operations and the requirement is that with out loosing any data we need to perform data writes on to the database.For this requirement, we can use an SQS queue to store the pending write requests, which will ensure the delivery of these messages.Increasing IOPS can handle the traffic bit more efficiently but it has a limit of .40,000 IOPS where as SQS queues can handle 120,000 messages inflight.
+
+8.
+
+A. AWS SQS FIFO
+One can use SQS FIFO queues for this purpose. AWS Documentation mentions the following on SQS FIFO Queues:Amazon SQS is a reliable and highly-scalable managed message queue service for storing messages in transit between application components. FIFO queues complement the existing Amazon SQS standard queues, which offer high throughput, best-effort ordering, and at-least-once delivery. FIFO queues have essentially the same features as standard queues, but provide the added benefits of supporting ordering and exactly-once processing. FIFO queues provide additional features that help prevent unintentional duplicates from being sent by message producers or from being received by message consumers. Additionally, message groups allow multiple separate ordered message streams within the same queue. For more information on SQS FIFO Queues, please visit the following URL:
+https://aws.amazon.com/about-aws/whats-new/2016/11/amazon-sqs-introduces-fifo-queues-with-exactly-once-processing-and-lower-prices-for-standard-queues/Note:As per AWS, SQS FIFO queues will ensure the delivery of the message only once and it will be delivered in a sequential order. (i.e. First in First Out) where as SNS cannot guarantee the delivery of the message only once.As per AWS SNS FAQ,Q: How many times will a subscriber receive each message?Although most of the time each message will be delivered to your application exactly once, the distributed nature of Amazon SNS and transient network conditions could result in occasional, duplicate messages at the subscriber end.Developers should design their applications such that processing a message more than once does not create any errors or inconsistencies.FIFO FQs states thatUsing SQS FIFO queues will satisfy both the requirements stated in the question.i.e. Duplication of message will not occur and the order of messages will be preserved.
+
+9.
+
+B. Use an SQS queue to store the file, to be accessed by a fleet of EC2 Instances.
+You can first create a Lambda function with the code to process the file.
+
+You can then use an Event Notification from the S3 bucket to invoke the Lambda function whenever a file is uploaded.
+
+10.
+A. AWS SQS FIFO
+One can use SQS FIFO queues for this purpose. The AWS Documentation mentions the following on SQS FIFO Queues:
+
+Amazon SQS is a reliable and highly-scalable managed message queue service for storing messages in transit between application components. FIFO queues complement the existing Amazon SQS standard queues, which offer high throughput, best-effort ordering, and at-least-once delivery. FIFO queues have essentially the same features as standard queues, but provide the added benefits of supporting ordering and exactly-once processing. FIFO queues provide additional features that help prevent unintentional duplicates from being sent by message producers or from being received by message consumers. Additionally, message groups allow multiple separate ordered message streams within the same queue.
+
+For more information on SQS FIFO Queues, please visit the following URL:
+
+https://aws.amazon.com/about-aws/whats-new/2016/11/amazon-sqs-introduces-fifo-queues-with-exactly-once-processing-and-lower-prices-for-standard-queues/
+
+Note:
+
+Yes, SNS is used to send out the messages.
+
+SNS is a web service that coordinates and manages the delivery or sending of messages to subscribing endpoints or clients. In Amazon SNS, there are two types of clients—publishers and subscribers—also referred to as producers and consumers. Publishers communicate asynchronously with subscribers by producing and sending a message to a topic, which is a logical access point and communication channel. Subscribers (i.e., web servers, email addresses, Amazon SQS queues, AWS Lambda functions) consume or receive the message or notification over one of the supported protocols (i.e., Amazon SQS, HTTP/S, email, SMS, Lambda) when they are subscribed to the topic. There is no such thing like maintain the messages order in SNS.
+
+In the question, it mentioned that “There is a requirement for 500 messages to be sent and processed in order”. By SNS all messages will send at the same time to all the subscribers.
+
+Please refer following the link to get more information.
+
+https://docs.aws.amazon.com/sns/latest/dg/welcome.html
+
+11.
+B. Make use of AWS SQS to manage the messages.
+An ideal option would be to make use of AWS Simple Queue Service to manage the messages between the application components. The AWS SQS Service is a highly scalable and durable service.
+
+For more information on Amazon SQS, please refer to the below URL:
+
+https://aws.amazon.com/sqs/
+
+
+
+
+
+--------------------- SNS quiz -------------------------------
+1.
+B. & D.
+Amazon CloudWatch may be used to monitor IOPS metrics from the RDS instance and Amazon Simple Notification Service, to send the notification if any alarm is triggered.
+For more information on CloudWatch metrics, please refer to the link below.
+http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Supp
+
+2.
+A. AWS SNS
+AWS Documentation mentions the following:
+Amazon Simple Notification Service (Amazon SNS)is a web service that coordinates and manages the delivery or sending of messages to subscribing endpoints or clients. In Amazon SNS, there are two types of clients—publishers and subscribers—also referred to as producers and consumers. Publishers communicate asynchronously with subscribers by producing and sending a message to a topic, which is a logical access point and communication channel. Subscribers (i.e., web servers, email addresses, Amazon SQS queues, AWS Lambda functions) consume or receive the message or notification over one of the supported protocols (i.e., Amazon SQS, HTTP/S, email, SMS, Lambda) when they are subscribed to the topic.
+For more information on the Simple Notification Service, please visit the below URL:
+https://docs.aws.amazon.com/sns/latest/dg/welcome.html
+
+3.
+
+D. Amazon SNS
+The AWS Documentation mentions the following:
+
+You can use Amazon SNS to send text messages or SMS messages, to SMS-enabled devices. A message can be sent directly to a phone number, or to multiple phone numbers at once by subscribing those phone numbers to a topic and sending your message to the topic.
+
+For more information on configuring SNS and SMS messages, please visit the following URL:
+
+https://docs.aws.amazon.com/sns/latest/dg/SMSMessages.html
+
+
+--------------- API Gateway quiz--------------------
+1. 
+A. Use the API Gateway and provide integration with the AWS Lambda functions.
+An API Gateway provides the ideal access to your back end services via APIs.
+For more information on the API Gateway service, please visit the following URL:
+https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html
+
+2. 
+A., B. & C.
+Answer – A, B and C
+AWS Lambda is a serverless compute service that allows you to build independent services. The Elastic Container service (ECS) can be used to manage containers. The API Gateway is a serverless component for managing access to APIs.
+For more information about Microservices on AWS, please visit the following URL:
+https://aws.amazon.com/microservices/
+
+3.
+B. Use the API Gateway along with AWS Lambda
+Since the company has full ownership of the API, the best solution would be to convert the code for the API and use it in a Lambda function. This can help save on cost, since in the case of Lambda, you only pay for the time the function runs, and not for the infrastructure.
+
+Then, you can use the API Gateway along with the AWS Lambda function to scale accordingly.
+
+For more information on using API Gateway with AWS Lambda, please visit the following URL:
+
+https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-with-lambda-integration.html
+
+Note: With Lambda you do not have to provision your own instances; Lambda performs all the operational and administrative activities on your behalf, including capacity provisioning, monitoring fleet health, applying security patches to the underlying compute resources, deploying your code, running a web service front end, and monitoring and logging your code. AWS Lambda provides easy scaling and high availability to your code without additional effort on your part.
+
+
+
+
+-------------------------- IAM Quiz ---------------------------
+1. 
+D AWS Documentation mentions the following: You can use roles to delegate access to users, applications, or services that don’t normally have access to your AWS resources. It is not a good practice to use IAM credentials for a production based application. A good practice however, is to use IAM Roles. For more information on IAM Roles, please visit the following URL: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html
+
+2.
+A. IAMroles for tasks 
+The AWS Documentation mentions the following: With IAM roles for Amazon ECS tasks, you can specify an IAM role to be used by the containers in a task. Applications are required to sign their AWS API requests with AWS credentials, and this feature provides a strategy to manage credentials for your application’s use. This is similar to how Amazon EC2 instance profiles provide credentials to EC2 instances. For more information on configuring IAM Roles for tasks in ECS, please visit the following URL: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html
+
+3.
+C. STS generates Git Credentials for IAM users. The AWS Security Token Service (STS) is a web service that enables you to request temporary, limited-privilege credentials for AWS Identity and Access Management (IAM) users or for users that you authenticate (federated users). This guide provides descriptions of the STS API. https://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html
+
+
+4. 
+B. IAM User used to generate Federated User credentials does not have access on S3 bucket. Returns a set of temporary security credentials (consisting of an access key ID, a secret access key, and a security token) for a federated user. A typical use is in a proxy application that gets temporary security credentials on behalf of distributed applications inside a corporate network. You must call the GetFederationToken operation using the long-term security credentials of an IAM user. As a result, this call is appropriate in contexts where those credentials can be safely stored, usually in a server-based application. For a comparison of GetFederationToken with the other API operations that produce temporary credentials https://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html
+
+
+5.
+A. AssumeRoleWithSAML. Returns a set of temporary security credentials for users who have been authenticated via a SAML authentication response. This operation provides a mechanism for tying an enterprise identity store or directory to role-based AWS access without user-specific credentials or configuration. For a comparison of AssumeRoleWithSAML with the other API operations that produce temporary credentials https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html
+
+
+6.
+A. UseIAM Roles with permissions to interact with DynamoDB and assign it to the EC2Instance. To ensure secure access to AWS resources from EC2 Instances, always assign a role to the EC2 Instance. For more information on IAM Roles, please refer to the below URL: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html An IAM role is similar to a user, in that it is an AWS identity with permission policies that determine what the identity can and cannot do in AWS. However, instead of being uniquely associated with one person, a role is intended to be assumable by anyone who needs it. Also, a role does not have standard long-term credentials (password or access keys) associated with it. Instead, if a user assumes a role, temporary security credentials are created dynamically and provided to the user. You can use roles to delegate access to users, applications, or services that don’t normally have access to your AWS resources. Note: You can attach IAM role to the existing EC2 instance. https://aws.amazon.com/about-aws/whats-new/2017/02/new-attach-an-iam-role-to-your-existing-amazon-ec2-instance/
+
+7.
+A. Ensure an IAM Role is attached to the Lambda function which has the required DynamoDB privileges.
+
+AWS Documentation mentions the following to support this requirement:
+
+Each Lambda function has an IAM role (execution role) associated with it. You specify the IAM role when you create your Lambda function. Permissions you grant to this role determine what AWS Lambda can do when it assumes the role. There are two types of permissions that you grant to the IAM role:
+
+If your Lambda function code accesses other AWS resources, such as to read an object from an S3 bucket or write logs to CloudWatch Logs, you need to grant permissions for relevant Amazon S3 and CloudWatch actions to the role.
+If the event source is stream-based (Amazon Kinesis Data Streams and DynamoDB streams), AWS Lambda polls these streams on your behalf. AWS Lambda needs permissions to poll the stream and read new records on the stream so you need to grant the relevant permissions to this role.
+For more information on the Permission Role model for AWS Lambda, please refer to the URL below.
+
+https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html
+
+8.
+D. Define the tags on the test and production servers and add a condition to the IAMPolicy which allows access to specific tags.
+
+You can easily add tags to define which instances are production and which ones are development instances. These tags can then be used while controlling access via an IAM Policy.
+
+For more information on tagging your resources, please refer to the link below.
+
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html
+
+9.
+B. An IAM Role with the required permissions.
+
+While working with AWS Lambda functions, if there is a need to access other resources, ensure that an IAM role is in place. The IAM role will have the required permissions to access the SQS queue.
+
+For more information on AWS IAM Roles, please visit the following URL:
+
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html
+
+10.
+Answer
+B. Don’t save your API credentials. Instead create a role in IAM and assign this role toan EC2 instance when you first create it.
+
+Applications must sign their API requests with AWS credentials. Therefore, if you are an application developer, you need a strategy for managing credentials for your applications that run on EC2 instances. For example, you can securely distribute your AWS credentials to the instances, enabling the applications on those instances to use your credentials to sign requests, while protecting your credentials from other users. However, it’s challenging to securely distribute credentials to each instance, especially those that AWS creates on your behalf, such as Spot Instances or instances in Auto Scaling groups. You must also be able to update the credentials on each instance when you rotate your AWS credentials.
+
+IAM roles are designed so that your applications can securely make API requests from your instances, without requiring you to manage the security credentials that the applications use.
+
+For more information on IAM Roles, please visit the below URL:
+
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html
+
+11.
+A. Add tags to the instances marking each environment and then segregate access using IAM Policies.
+
+AWS Documentation mentions the following to support this requirement:
+
+Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. This is useful when you have many resources of the same type — you can quickly identify a specific resource based on the tags you’ve assigned to it. Each tag consists of a key and an optional value, both of which you define. For example, you could define a set of tags for your account’s Amazon EC2 instances that helps you track each instance’s owner and stack level. We recommend that you devise a set of tag keys that meets your needs for each resource type. Using a consistent set of tag keys makes it easier for you to manage your resources. You can search and filter the resources based on the tags you add.
+
+For more information on using tags, please see the below link:
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html
+
+12. 
+D. Create and Assign an IAM role to the EC2 Instance.
+
+AWS Documentation mentions the following:
+
+You can use roles to delegate access to users, applications, or services that don’t normally have access to your AWS resources. It is not a good practice to use IAM credentials for a production-based application. It is always a good practice to use IAM Roles.
+
+For more information on IAM Roles, please visit the following URL:
+
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html
+
+13. 
+A. AWS STS
+
+AWS Documentation mentions the following:
+
+You can use the AWS Security Token Service (AWS STS) to create and provide trusted users with temporary security credentials that can control access to your AWS resources. Temporary security credentials are short-term, as the name implies. They can be configured to last for anywhere from a few minutes to several hours. After the credentials expire, AWS no longer recognizes them or allows any kind of access from API requests made with them.
+
+For more information on the Secure Token Service, please visit the following URL:
+
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html
+
+14. 
+
+A. Use IAM permissions to control the access.
+
+AWS Documentation mentions the following:
+
+You control access to Amazon API Gateway with IAM permissions by controlling access to the following two API Gateway component processes:
+
+To create, deploy, and manage an API in API Gateway, you must grant the API developer permissions to perform the required actions supported by the API management component of API Gateway.
+To call a deployed API or to refresh the API caching, you must grant the API caller permissions to perform required IAM actions supported by the API execution component of API Gateway.
+For more information on permissions for the API gateway, please visit the URL:
+
+https://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html
+
+
+15. 
+B. & D.
+
+AWS Documentation mentions the following:
+
+IAM roles are designed so that your applications can securely make API requests from your instances, without requiring you to manage the security credentials that the applications use. Instead of creating and distributing your AWS credentials, you can delegate permission to make API requests using IAM roles
+
+For more information on IAM Roles, please refer to the below link:
+
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html
+MFA Delete can be used to add another layer of security to S3 Objects to prevent accidental deletion of objects.
+
+For more information on MFA Delete, please refer to the below link:
+
+https://aws.amazon.com/blogs/security/securing-access-to-aws-using-mfa-part-3/
+
+16. 
+B. Ensure that the Autoscaling Group attaches an IAM Role attached to the underlying EC2 Instances.
+
+Applications must sign their API requests with AWS credentials. Therefore, if you are an application developer, you need a strategy for managing credentials for your applications that run on EC2 instances. For example, you can securely distribute your AWS credentials to the instances, enabling the applications on those instances to use your credentials to sign requests, while protecting your credentials from other users. However, it’s challenging to securely distribute credentials to each instance, especially those that AWS creates on your behalf, such as Spot Instances or instances in Auto Scaling groups. You must also be able to update the credentials on each instance when you rotate your AWS credentials.
+
+We designed IAM roles so that your applications can securely make API requests from your instances, without requiring you to manage the security credentials that the applications use.
+
+Option A is incorrect since using Access keys is the least secure option
+
+Option C is incorrect since the IAM policy is not the right option , you have to use IAM Roles instead
+
+Option D is incorrect since you need to use IAM Roles and not IAM Users
+
+For more information on IAM Roles for EC2, please refer to the below URL
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html
+
+17. 
+B. Create a cross account IAM Role.
+
+The AWS Documentation mentions the following
+
+Cross-account IAM roles allow customers to securely grant access to AWS resources in their account to a third party, like an APN Partner, while retaining the ability to control and audit who is accessing their AWS account. Cross-account roles reduce the amount of sensitive information APN Partners need to store for their customers, so that they can focus on their product instead of managing keys. In this blog post, I explain some of the risks of sharing IAM keys, how you can implement cross-account IAM roles, and how cross-account IAM roles mitigate risks for customers and for APN Partners, particularly those who are software as a service (SaaS) providers.
+
+Because this is clearly mentioned in the AWS Documentation , all other options are invalid
+
+For more information on cross account roles, please refer to the below URL
+
+https://aws.amazon.com/blogs/apn/securely-accessing-customer-aws-accounts-with-cross-account-iam-roles/
+
+
+---------------------- CloudWatch Quiz ------------------------
+1. D. AWS CloudWatch Logs
+You can use Amazon CloudWatch Logs to monitor, store, and access your log files from Amazon Elastic Compute Cloud (Amazon EC2) instances, AWS CloudTrail, and other sources.
+For more information on CloudWatch Logs, please visit the following URL:
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchL
+
+2. B. & D.
+Amazon CloudWatch may be used to monitor IOPS metrics from the RDS instance and Amazon Simple Notification Service, to send the notification if any alarm is triggered.
+For more information on CloudWatch metrics, please refer to the link below.
+http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Suppo
+
+3.
+A. & C.
+You can create a Lambda function containing the code to process the file, and add the name of the file to the DynamoDB table.You can then use an Event Notification from the S3 bucket to invoke the Lambda function whenever the file is uploaded.
+For more information on Amazon S3 Event Notifications, please visit the following URL:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html
+
+4. C. CloudWatch
+AWS Documentation mentions the following on monitoring Redshift Clusters:
+Amazon CloudWatch metrics help you monitor physical aspects of your cluster, such as CPU utilization, latency, and throughput. Metric data is displayed directly in the Amazon Redshift console. You can also view it in the Amazon CloudWatch console, or you can consume it in any other way you work with metrics such as with the Amazon CloudWatch Command Line Interface (CLI) or one of the AWS Software Development Kits (SDKs).
+For more information on monitoring Redshift, please visit the below URL:
+https://docs.aws.amazon.com/redshift/latest/mgmt/metrics.html
+
+5.
+A. & D.
+AWS Documentation mentions the following about these services: AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account. With CloudTrail, you can log, continuously monitor, and retain account activity related to actions across your AWS infrastructure. CloudTrail provides event history of your AWS account activity, including actions taken through the AWS Management Console, AWS SDKs, command line tools, and other AWS services. This event history simplifies security analysis, resource change tracking, and troubleshooting.
+For more information on CloudTrail, please refer to below URL:
+https://aws.amazon.com/cloudtrail/
+You can use Amazon CloudWatch Logs to monitor, store, and access your log files from Amazon Elastic Compute Cloud (Amazon EC2) instances, AWS CloudTrail, Amazon Route53, and other sources. You can then retrieve the associated log data from CloudWatch Logs.
+For more information on CloudWatch logs, please refer to below URL:
+http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html
+
+6.
+B. & D.
+Amazon CloudWatch will be used to monitor the IOPS metrics from the RDS Instance and Amazon Simple Notification Service will be used to send the notification if any alarm is triggered.
+For more information on CloudWatch and SNS, please visit the URLs below.
+https://aws.amazon.com/cloudwatch/https://aws.amazon.com/sns/
+
+7. A. Use CloudWatch metrics and logs to watch for errors.
+AWS Documentation mentions the following:
+AWS Lambda automatically monitors Lambda functions on your behalf, reporting metrics through Amazon CloudWatch. To help you troubleshoot failures in a function, Lambda logs all requests handled by your function and also automatically stores logs generated by your code through Amazon CloudWatch Logs.
+For more information on Monitoring Lambda functions, please visit the following URL:
+https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html
+
+8. A. & C.
+AWS CloudTrail can be used to monitor the API calls.
+
+For more information on CloudTrail, please visit the following URL:
+
+https://aws.amazon.com/cloudtrail/
+When you use CloudWatch metrics for an ELB, you can get the amount of read requests and latency out of the box.
+
+For more information on using Cloudwatch with the ELB, please visit the following URL:
+
+https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-cloudwatch-metrics.html
+
+Option A is correct. CloudTrail is a web service that records AWS API calls for your AWS account and delivers log files to an Amazon S3 bucket. The recorded information includes the identity of the user, the start time of the AWS API call, the source IP address, the request parameters, and the response elements returned by the service.
+
+https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/Welcome.html
+
+Option C is correct. Use Cloudwatch metrics for the metrics that needs to be monitored as per the requirement and set up an alarm activity to send out notificatons when the metric reaches the set threshold limit.
+
+9. 
+B. & D.
+For more information on CloudWatch events, please refer to the below URL:
+
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWa
+
+
+
+---------------------------- Cloudfront Quiz --------------------
+1. C. Increase the cache expiration time.
+You can control how long your objects stay in a CloudFront cache before CloudFront forwards another request to your origin. Reducing the duration allows you to serve dynamic content. Increasing the duration means your users get better performance because your objects are more likely to be served directly from the edge cache. A longer duration also reduces the load on your origin.
+For more information on CloudFront cache expiration, please refer to the following link:
+http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration
+
+2. B. Create an Origin Access Identity (OAI) for CloudFront and grant access to the objectsin your S3 bucket to that OAI.
+If you want to use CloudFront signed URLs or signed cookies to provide access to objects in your Amazon S3 bucket, you probably also want to prevent users from accessing your Amazon S3 objects using Amazon S3 URLs. If users access your objects directly in Amazon S3, they bypass the controls provided by CloudFront signed URLs or signed cookies, for example, control over the date and time that a user can no longer access your content and control over which IP addresses can be used to access content. In addition, if users access objects both through CloudFront and directly by using Amazon S3 URLs, CloudFront access logs are less useful because they’re incomplete.
+For more information on Origin Access Identity, please see the below link:
+http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
+
+3.A. & B.
+AWS Documentation mentions the following:
+When your workload is sending mostly GET requests, you can add randomness to key names. In addition, you can integrate Amazon CloudFront with Amazon S3 to distribute content to your users with low latency and a high data transfer rate.
+Note: S3 can now scale to high request rates. Your application can achieve at least 3,500 PUT/POST/DELETE and 5,500 GET requests per second per prefix in a bucket.
+However the AWS exam questions are not yet updated reflecting these changes in the questions. Hence the answer for this question is based on the initial request rate performance.
+For more information on S3 bucket performance, please visit the following URL:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/PerformanceOptimization.ht
+
+4. 
+D. Place a CloudFront distribution in front of the EC2 Instance.
+Since there is a mention of only one EC2 instance, placing it behind the ELB would not make much sense, hence Option A and B are invalid.
+Having it in an Auto Scaling Group with just one instance would not make much sense.
+CloudFront distribution would help alleviate the load on the EC2 Instance because of its edge location and cache feature.
+For more information on CloudFront, please visit the following URL:
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introd
+
+5. 
+C. Create CloudFront signed URLs and then distribute these URLs to the users.
+AWS Documentation mentions the following:Many companies that distribute content via the internet want to restrict access to documents, business data, media streams, or content that is intended for selected users, for example, users who have paid a fee. To securely serve this private content using CloudFront, you can do the following:
+Require that your users access your private content by using special CloudFront signed URLs or signed cookies.Require that your users access your Amazon S3 content using CloudFront URLs, not Amazon S3 URLs. Requiring CloudFront URLs isn’t required, but we recommend it to prevent users from bypassing the restrictions that you specify in signed URLs or signed cookies.
+For more information on serving private content via CloudFront, please visit the following URL:
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Private
+
+6.D. Place the S3 bucket behind a CloudFront distribution.
+AWS Documentation mentions the following:
+If your workload is mainly sending GET requests, in addition to the preceding guidelines, you should consider using Amazon CloudFront for performance optimization.
+Integrating Amazon CloudFront with Amazon S3, you can distribute content to your users with low latency and a high data transfer rate. You will also send fewer direct requests to Amazon S3, which will reduce your costs.
+For example, suppose that you have a few objects that are very popular. Amazon CloudFront fetches those objects from Amazon S3 and caches them. Amazon CloudFront can then serve future requests for the objects from its cache, reducing the number of GET requests it sends to Amazon S3.
+For more information on performance considerations in S3, please visit the following URL:
+https://docs.aws.amazon.com/AmazonS3/latest/dev/request-rate-perf-considerations.htmlOptions A and B are in. S3 Cross-Region Replication and Transfer Acceleration incurs cost. Option C is in. ELB is used to distribute traffic on to EC2 Instances.
+
+7. B. Cache static content using CloudFront.
+AWS Documentation mentions the following on the benefits of using CloudFront:
+
+Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, such as .html, .css, .js, and image files to your users. CloudFront delivers your content through a worldwide network of data centers called edge locations. When a user requests content that you’re serving with CloudFront, the user is routed to the edge location that provides the lowest latency (time delay), so that content is delivered with the best possible performance. If the content is already in the edge location with the lowest latency, CloudFront delivers it immediately.
+
+For more information on AWS Cloudfront, please visit the following URL:
+
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
+Glacier is not used for frequent retrievals. So Option A is not a good solution. Option C & D scenarios will also not help in this situation.
+
+8. B. Based on query string parameters
+Since language is specified in the query string parameters, CloudFront should be configured for the same.
+
+For more information on configuring CloudFront via query string parameters, please visit the following URL:
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html
+
+9. D. Place the EC2 Instance behind CloudFront.
+
+AWS Documentation mentions the
+following:
+Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, such as .html, .css, .js, and image files, to your users. CloudFront delivers your content through a worldwide network of data centers called edge locations. When a user requests content that you’re serving with CloudFront, the user is routed to the edge location that provides the lowest latency (time delay), so that content is delivered with the best possible performance.
+For more information on Amazon CloudFront, please refer to the below URL:
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
+Option A is in. The latency issue is experienced by people from certain parts of the world only. So, increasing the number of EC2 Instances or increasing the instance size does not make much of a difference. Option C is in. Route 53 health checks are meant to see whether the instance status is healthy or not. Since this case deals with responding to requests from users, we do not have to worry about this. However, for improving latency issues, CloudFront is a good solution.
+
+10. A. & C.
+AWS Documentation mentions the following:
+If you run PCI or HIPAA-compliant workloads based on the AWS Shared Responsibility Model, we recommend that you log your CloudFront usage data for the last 365 days for future auditing purposes. To log usage data, you can do the following:
+Enable CloudFront access logs.Capture requests that are sent to the CloudFront API.
+For more information on compliance with CloudFront, please visit the following URL:
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/compliance.html
+Option B helps to reduce latency.Option D – VPC flow logs capture information about the IP traffic going to and from network interfaces in a VPC but not for CloudFront.
+
+
+---------------------- CloudTrail Quiz  ---------------------
+1. A. Cloud Trailfor security logs
+AWS CloudTrail is a de facto service provided by AWS for monitoring all the API calls to AWS and is used for logging and monitoring for compliance purposes. Amazon CloudTrail detects every call made to AWS and creates a log which can then be used for analysis.
+For more information on Amazon CloudTrail, please visit the link below.
+https://aws.amazon.com/cloudtrail/
+
+
+2.B. There is no need to do anything since the logs will already be encrypted.
+AWS Documentation mentions the following:
+By default, CloudTrail event log files are encrypted using Amazon S3 server-side encryption (SSE). You can also choose to encrypt your log files with an AWS Key Management Service (AWS KMS) key. You can store your log files in your bucket for as long as you want. You can also define Amazon S3 lifecycle rules to archive or delete log files automatically. If you want notifications about log file delivery and validation, you can set up Amazon SNS notifications.
+For more information on how CloudTrail works, please visit the following URL:
+https://docs.aws.amazon.com/awscloudtrail/latest/userguide/how-cloudtrail-works.html
+
+3. A. & D.
+AWS Documentation mentions the following about these services: AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account. With CloudTrail, you can log, continuously monitor, and retain account activity related to actions across your AWS infrastructure. CloudTrail provides event history of your AWS account activity, including actions taken through the AWS Management Console, AWS SDKs, command line tools, and other AWS services. This event history simplifies security analysis, resource change tracking, and troubleshooting.
+For more information on CloudTrail, please refer to below URL:
+https://aws.amazon.com/cloudtrail/
+You can use Amazon CloudWatch Logs to monitor, store, and access your log files from Amazon Elastic Compute Cloud (Amazon EC2) instances, AWS CloudTrail, Amazon Route53, and other sources. You can then retrieve the associated log data from CloudWatch Logs.
+For more information on CloudWatch logs, please refer to below URL:
+http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html
+
+
+4.D. Use AWS CloudTrail to monitor all API activity.
+AWS Documentation mentions the following on AWS CloudTrail:
+AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account. With CloudTrail, you can log, continuously monitor, and retain account activity related to actions across your AWS infrastructure. CloudTrail provides event history of your AWS account activity, including actions taken through the AWS Management Console, AWS SDKs, command line tools, and other AWS services. This event history simplifies security analysis, resource change tracking, and troubleshooting.Visibility into your AWS account activity is a key aspect of security and operational best practices. You can use CloudTrail to view, search, download, archive, analyze, and respond to account activity across your AWS infrastructure. You can identify who or what took which action, what resources were acted upon, when the event occurred, and other details to help you analyze and respond to activity in your AWS account.You can integrate CloudTrail into applications using the API, automate trail creation for your organization, check the status of trails you create, and control how users view CloudTrail events.More information is available at the below URLs:https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.htmlhttps://aws.amazon.com/cloudtrail/
+
+5. A. & C.
+AWS CloudTrail can be used to monitor the API calls.
+
+For more information on CloudTrail, please visit the following URL:
+
+https://aws.amazon.com/cloudtrail/
+When you use CloudWatch metrics for an ELB, you can get the amount of read requests and latency out of the box.
+
+For more information on using Cloudwatch with the ELB, please visit the following URL:
+
+https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-cloudwatch-metrics.html
+
+Option A is correct. CloudTrail is a web service that records AWS API calls for your AWS account and delivers log files to an Amazon S3 bucket. The recorded information includes the identity of the user, the start time of the AWS API call, the source IP address, the request parameters, and the response elements returned by the service.
+
+https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/Welcome.html
+
+Option C is correct. Use Cloudwatch metrics for the metrics that needs to be monitored as per the requirement and set up an alarm activity to send out notificatons when the metric reaches the set threshold limit.
+
+6. B. Ensure one CloudTrail trail is enabled for all regions.
+AWS Documentation mentions the following:
+
+You can now turn on a trail across all regions for your AWS account. CloudTrail will deliver log files from all regions to the Amazon S3 bucket and an optional CloudWatch Logs log group you specified. Additionally, when AWS launches a new region, CloudTrail will create the same trail in the new region. As a result, you will receive log files containing API activity for the new region without taking any action.
+
+For more information on this feature, please visit the following URL:
+
+https://aws.amazon.com/about-aws/whats-new/2015/12/turn-on-cloudtrail-across-all-regions-and-support-for-multiple-trails/
+
+--------------z------------- EC2 Quiz -----------------------
+1. 
+A. & D.
+The following diagram from AWS showcases a
+self-healing architecture where you have a set of EC2 servers as Web server being launched by an Auto Scaling Group.
+AWS Documentation mentions the following:
+Amazon RDS Multi-AZ deployments provide enhanced availability and durability for Database (DB) Instances, making them a natural fit for production database workloads. When you provision a Multi-AZ DB Instance, Amazon RDS automatically creates a primary DB Instance and synchronously replicates the data to a standby instance in a different Availability Zone (AZ). Each AZ runs on its own physically distinct, independent infrastructure, and is engineered to be highly reliable. In case of an infrastructure failure, Amazon RDS performs an automatic failover to the standby (or to a read replica in the case of Amazon Aurora), so that you can resume database operations as soon as the failover is complete. Since the endpoint for your DB Instance remains the same after a failover, your application can resume database operation without the need for manual administrative intervention.
+For more information on Multi-AZ RDS, please refer to the below link:
+https://aws.amazon.com/rds/details/multi-az/
+
+2.
+A., B. & C.
+AWS documentation mentions the following:
+Amazon EBS encryption offers you a simple encryption solution for your EBS volumes without the need for you to build, maintain, and secure your own key management infrastructure. When you create an encrypted EBS volume and attach it to a supported instance type, the following types of data are encrypted:
+Data at rest inside the volumeAll data moving between the volume and the instance
+All snapshots created from the volume Data protection refers to protecting data while in-transit (as it travels to and from Amazon S3) and at rest (while it is stored on disks in Amazon S3 data centers). You can protect data in transit by using SSL or by using client-side encryption. You have the following options of protecting data at rest in Amazon S3.
+Use Server-Side Encryption – You request Amazon S3 to encrypt your object before saving it on disks in its data centers and decrypt it when you download the objects.Use
+Client-Side Encryption – You can encrypt data client-side and upload the encrypted data to Amazon S3. In this case, you manage the encryption process, the encryption keys, and related tools. You can create a load balancer that uses the SSL/TLS protocol for encrypted connections (also known as SSL offload). This feature enables traffic encryption between your load balancer and the clients that initiate HTTPS sessions, and for connections between your load balancer and your EC2 instances.
+For more information on securing data at rest, please refer to the below link:
+https://d0.awsstatic.com/whitepapers/aws-securing-data-at-rest-with-encryption.pdf
+
+3.A. Backu pand Restore
+Since the cost needs to be at a minimum, the best option is to back up all the resources and then perform a restore in the event of a disaster.
+For more information on disaster recovery, please refer to the below link:
+https://media.amazonwebservices.com/AWS_Disaster_Recovery.pdf
+
+
+4.A. Reserved instances
+When you have instances that will be used continuously and throughout the year, the best option is to buy reserved instances. By buying reserved instances, you are actually allocated an instance for the entire year or the duration you specify with a reduced cost.
+To understand more on reserved instances, please visit the below URL:
+https://aws.amazon.com/ec2/pricing/reserved-instances/
+
+5. C. Create an Amazon Machine image.
+AWS Documentation mentions the following:
+An Amazon Machine Image (AMI) provides the information required to launch an instance, which is a virtual server in the cloud. You must specify a source AMI when you launch an instance. You can launch multiple instances from a single AMI when you need multiple instances with the same configuration. You can use different AMIs to launch instances when you need instances with different configurations.
+For more information on AMIs please see the below link:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html
+
+6. B. Choosing Spot Instances for the underlying nodes
+AWS Documentation mentions the following:
+Spot Instances in Amazon EMR provide an option to purchase Amazon EC2 instance capacity at a reduced cost as compared to On-Demand purchasing.
+For more information on Instance types for EMR, please visit the URL:
+https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-purchasing-options.htmlhttps://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-instances-guidelines.html
+
+7. 
