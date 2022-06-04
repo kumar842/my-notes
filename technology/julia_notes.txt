@@ -1,0 +1,99 @@
+first, first(ls, 2)
+last, last(ls, 2)
+pop!(ls), popfirst!(ls)
+push!(ls, "")
+deleteat!(ls, n) //[1,2] 
+keepat!(ls, n) /[1,2]
+collect(1:5)
+replace(array_1, "orlando" => "Orlando")
+union(ls1, ls2, ls3) //unique elements
+intersect(ls1, ls2) //unique elements
+symdiff(ls1, ls2)
+setdiff(ls1, ls2)
+unique(ls)
+unique!(ls) // overwrite the original array 
+lowercase
+uppercase
+"Pluto" in plantes //condition
+"Pluto" in lowercase.(plantes) //condition
+writedlm(outfile, array_union)
+
+haskey(dict, "key")
+keys(dict)
+delete!(dict, "key")
+get(dict, "key", "default")
+
+
+
+min
+max
+sum
+typeof()
+isa
+supertype()
+subtypes()
+
+promote
+convert(T, 1)
+
+
+
+-- Basic/Scalar literals --
+.. no need to specify type
+.. they are immutable
+Int64/Int32 -- Int is a constant whose value can be one of the two
+Float64
+Bool
+Char
+String
+UInt(Unsigned Int)
+
+1 + 2im - complex number
+1//2 - Rational number
+
+
+
+--- Special literals and types  ---
+Any
+union{}
+Nothing
+nothing
+Missing
+missing
+
+
+--- Tuples and NamedTuples ---
+Tuples are immutable sequences indexed from 1:
+() # an empty tuple
+(1,) # a one element tuple
+("a", 1) # a two element tuple
+('a', false)::Tuple{Char, Bool} # tuple type assertion
+x = (1, 2, 3)
+x[1] # 1 (element)
+x[1:2] # (1, 2) (tuple)
+x[4] # bounds error
+x[1] = 1 # error - a tuple is not mutable
+a, b = x # tuple unpacking a==1, b==2
+
+Additionally you can add names to tuple entries (via named tuples):
+NamedTuple() # an empty named tuple
+(a=1,) # a one element named tuple
+(x="a", y=1) # a two element named tuple
+x = (p=1, q=2, r=3)
+x.p # access to element p of a tuple
+typeof(x) # NamedTuple{(:p, :q, :r),Tuple{Int64,Int64,Int64}}, field names are part of type
+
+
+
+
+for line in eachline("words.txt")
+if(length(line) > 3)
+println(line)
+end
+end
+
+
+
+
+
+
