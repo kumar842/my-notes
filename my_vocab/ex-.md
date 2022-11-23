@@ -1,0 +1,1 @@
+ "out of, from," but also "upwards, completely, deprive of, without," and "former;"
