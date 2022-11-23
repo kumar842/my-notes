@@ -1,0 +1,7 @@
+- each [[Tenant]] has a single, dedicated, trusted directory
+- includes [[Tenant]]'s users, groups, applications
+- use [[Azure AD Directory]] to manage IAM fuctions for [[Tenant]]'s resources
+- **AAD1**
+	- S1
+	- ..
+	- Sn

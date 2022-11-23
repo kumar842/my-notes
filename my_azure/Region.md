@@ -1,0 +1,2 @@
+- set of a [[Datacenter]]s inside a latency defined permiter
+- [[Datacenter]]s connec through a dedicated, regional, low-latency network
