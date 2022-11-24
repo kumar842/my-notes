@@ -6,3 +6,11 @@
 	- ...
 	- Sn
 
+[[Azure Account]] can have multiple [[Subscription]]s and the most common three are:
+- Free Trial
+- Pay-As-You-Go
+- Azure for Students
+
+If you wanted Developer support you would add a Developer Support Subscription
+
+
