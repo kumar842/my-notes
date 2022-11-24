@@ -35,6 +35,10 @@ Think of [[Resource Manager]] as a gate keeper. All requests flow through ARM an
 scope is a boundary of control for Azure [[Resource]]s, It a way to govern your [[Resource]]s by placing [[Resource]]s
 - with in a logical grouping
 - and also applying logical restrictions in the form of rules
+
+set of resources that access for hte Role assignment applies to.
+Scope Access Controls at the Management, [[Subscription]] or [[[Resource Group]] level.
+
 [[Management Group]]
 [[Subscription]]
 [[Resource Group]]

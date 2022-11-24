@@ -25,5 +25,5 @@ All of your users have a single _home_ directory for authentication. Your user
 
 
 https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#before-you-begin
-[[learn it]]
+[[-learn it]]
 

@@ -19,7 +19,7 @@
 	- [[Resource locks]]
 - [[Resource]]s won't inherits the [[Resource Tags]] from [[Resource Group]]
 - deleting [[Resource Group]] deletes all [[Resource]]s
-- 800 instances of a resource type in each resource group [[learn it]]
+- 800 instances of a resource type in each resource group [[-learn it]]
 - Some [[Resource]]s can exist outside [[Resource Group]] ex: [[Subscription]], [[Management Group]], [[Tenant]]
 
 ----

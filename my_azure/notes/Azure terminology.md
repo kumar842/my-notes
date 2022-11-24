@@ -11,17 +11,18 @@
 [[Management Group]]
 [[Region]]
 
-### Azure subscription purposes [[learn it]]
+### Azure subscription purposes [[-learn it]]
 - A legal agreement
 - A payment agreement
 - A boundary of scale
 - An administrative boundary
 
-### Azure subscription considerations [[learn it]]
+### Azure subscription considerations [[-learn it]]
 - Who is responsible for paying for the subscription?
 - Which Azure offer am I interested in?
 
 ### Azure Administrative Roles
+[[Roles]]
 
-![[Roles]]
+
 

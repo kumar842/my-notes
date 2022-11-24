@@ -38,7 +38,7 @@ Both versions are still used today.
 
 ----
 
-# [[Lab]]
+# [[-Lab]]
 
 ![[azure_ad_overview.png]]
 
@@ -77,8 +77,8 @@ Both versions are still used today.
 
 Membership type is grade out as it's a free tier, with default valued of **Assigned**. (**Dynamic User**, **Dynamic Device**)
 
-[[todo]] - add dynamic membership rules image.. form mobile
-[[learn it]]
+[[-todo]] - add dynamic membership rules image.. form mobile
+[[-learn it]]
 
 **Group List**
 ![[azure_ad_tenant_group_list.png]]
