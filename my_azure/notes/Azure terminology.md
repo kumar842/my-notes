@@ -21,11 +21,7 @@
 - Who is responsible for paying for the subscription?
 - Which Azure offer am I interested in?
 
-### Azure administrative roles [[learn it]]
-- Classic subscription administrator roles
-- Azure roles
-- [[Azure AD]] roles
+### Azure Administrative Roles
 
-
-
+![[Roles]]
 

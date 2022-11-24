@@ -6,7 +6,7 @@ management layer  ... [[Resource]]s in your [[Azure Account]]
 
 
 **Access management Features**
-- access control
+- [[Access Controls]]
 - [[Resource locks]]
 - [[Resource Tags]]
 - secure & organize the resoruces
@@ -26,7 +26,7 @@ Think of [[Resource Manager]] as a gate keeper. All requests flow through ARM an
 * deploy, manage, monitor all [[Resource]]s as a group
 * consistent way of deploying.. through out dev. lifecycle
 * define dependencies b/w [[Resource]]s to deploy them in correct order..
-* apply access control to all [[Resource]]s because [[Azure RBAC]] is natively integrated
+* apply access control to all [[Resource]]s because RBAC is natively integrated into Azure
 * apply tags to all [[Resource]]s to logically organize all the resources in your subscription.
 * clarify ur organization billing by viewing costs for a group of [[Resource]]s sharing same tag
 ----
@@ -61,7 +61,7 @@ scope is a boundary of control for Azure [[Resource]]s, It a way to govern your 
 ## Controls/Checks
 1. [[Resource Manager]] should have a trusted relationship with [[Azure AD]] to provide user identity functionality
 2. Each [[Subscription]] associated with a [[Tenant]], User should have an account in the associated [[Tenant]]
-3. User should have sufficient permission to make the request. Permissions are assigned to users using [[Azure RBAC]].  (Role is assigned to user; Role specifies set of permissions)
+3. User should have sufficient permission to make the request. Permissions are assigned to users using [[Azure Roles]] i.e. RBAC (Role is assigned to user; Role specifies set of permissions)
 4. Check whether the request/operation is allowed under the settings specified for Azure resource policy. Azure resource policied specify the operations allowed for a specific resource
 5. [[Subscription]] limit: ex: 980 resource groups per [[Subscription]]
 6. financial limit
