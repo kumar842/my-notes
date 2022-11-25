@@ -1,6 +1,13 @@
 # Storage Accounts
 Contains all of your Azure Storage data objects: **blobs, files, queues, tables & disks**. The storage account provides a unique namespace for your Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS. Data in your storage account is durable and highly available, secure, and massively scalable.
 
+# Benefits of Azure Storage
+-   Durable and highly available
+-   Secure
+-   Scalable
+-   Managed
+-   Accessible
+
 # Storage Accounts vary with the following features
 - **Supported Services** (What can I put in this storage account?)
      Blob, File, Queue, Table, Disk & Data Lake Gen2
@@ -42,6 +49,8 @@ several types of storage accounts with **different features** & **pricing models
 
 
 ![[Azure Disks#Azure Disks]]
+
+
 
 # Performance Tiers (Blog Storage)
 two types Premium & Standard
@@ -155,4 +164,128 @@ for **Disaster Recovery and Failures**
 for **Read Replicas**
 - Read-access geo-redundant Storage (RA- GRS)
 - Read-access geo-redundant Storage (RA- GZRS)
+[[-todo]]
+https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy
+
+# [[-Lab]]
+
+## Storage account
+### Create Storage account
+
+![[Pasted image 20221125200552.png]]
+
+
+![[Pasted image 20221125200629.png]]
+
+
+![[Pasted image 20221125200642.png]]
+
+
+![[Pasted image 20221125200703.png]]
+
+
+![[Pasted image 20221125200721.png]]
+
+
+![[Pasted image 20221125200732.png]]
+
+
+![[Pasted image 20221125200745.png]]
+
+
+### View Storage account
+
+![[Pasted image 20221125201049.png]]
+
+
+![[Pasted image 20221125201845.png]]
+
+![[Pasted image 20221125201911.png]]
+
+![[Pasted image 20221125201943.png]]
+
+![[Pasted image 20221125202008.png]]
+
+## Container
+
+### Create Container
+
+![[Pasted image 20221125202403.png]]
+
+### Container actions
+
+![[Pasted image 20221125204339.png]]
+
+
+### Change access level
+
+![[Pasted image 20221125203534.png]]
+
+### Delete Container
+
+![[Pasted image 20221125203610.png]]
+
+### Undelete Container
+
+![[Pasted image 20221125204220.png]]
+
+
+
+## Blob
+
+### Upload Blob
+
+![[Pasted image 20221125202806.png]]
+
+
+### View Blob
+
+![[Pasted image 20221125202828.png]]
+
+### Generate SAS
+
+![[Pasted image 20221125204028.png]]
+
+
+### Change access level
+
+![[Pasted image 20221125203028.png]]
+
+
+### Change Tier
+
+![[Pasted image 20221125203100.png]]
+
+
+### Acquire lease
+
+![[Pasted image 20221125203142.png]]
+
+
+### Break lease
+
+![[Pasted image 20221125203209.png]]
+
+
+### Delete Blob
+
+![[Pasted image 20221125203357.png]]
+
+
+###  Undelete Blob
+
+![[Pasted image 20221125203826.png]]
+
+![[Pasted image 20221125203845.png]]
+
+
+
+
+
+
+
+
+
+
+
 

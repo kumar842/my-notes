@@ -4,6 +4,11 @@ Blob storage is a **object-store** that is optimized for storing massive amounts
 
 Also includes support for big data analytics through [[Data Lake Storage Gen2]]
 
+# When to use
+- You want your application to support streaming and random access scenarios. 
+- You want to be able to access application data from anywhere.
+- You want to build an enterprise data lake on Azure and perform big data analytics.
+
 # About Blob Storage
 
 Blob Storage is designed for:
