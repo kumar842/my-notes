@@ -1,5 +1,5 @@
 # Storage Accounts
-Contains all of your Azure Storage data objects: **blobs, files, queues, tables & disks**.
+Contains all of your Azure Storage data objects: **blobs, files, queues, tables & disks**. The storage account provides a unique namespace for your Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS. Data in your storage account is durable and highly available, secure, and massively scalable.
 
 # Storage Accounts vary with the following features
 - **Supported Services** (What can I put in this storage account?)
@@ -112,6 +112,47 @@ you can create rule-based polices to transition data to different tiers
 ex: after 30days move to cool storage
 ![[azure_storage_accounts_blob_Lifecyle_Mangement.png]]
 
+## Moving Blob/Data to another Tier
 
+When a blog is uploaded or moved to another tier, It's charged at the new tier's rate immediately upon tier chage.
 
+### When moving from a cooler tier
+- the operation is billed as a **write operation** to the destination tier.
+- where the write operation(per 10,000) and data write(per GB) charges of the destination tier apply.
+
+### When moving from a hotter tier
+- the operation is billed as a read from the soruce tier
+- where read operation(per 10,000) and data retrieval (per GB) charges of the source tier apply. Early deletion charges for any blob moved out of the cool or archive tier may apply as well.
+
+### Cool and archive early deletion
+- Any blob that is moved into the cool tier (GPv2 accounts only) is subject to a cool early deletion period of 30days
+- Any blob that is moved into the archive tier is subject to an archive early deletion period of 180days. This charge is prorated.
+
+# Replication & Data Redundancy
+
+When you create a Storage Account you need to choose a Replication Type
+![[azure_storage_account_replication_type.png]]
+
+Replication stores multiple copies of ur data so that it is protected from:
+- planned events
+- transient hardware failures
+- network or power outages
+- massive natural disasters
+
+The greater level of redundancy the more expensive the cost of replication
+
+## Primary Region Redundancy
+for **Disaster Recovery and Failures**
+- Locally Redundant Storage (LRS)
+- Zone-redundant storage (ZRS)
+
+## Secondary Region Redundancy
+for **Disaster Recovery and Failures**
+- Geo Redundant Storage (GRS)
+- Geo-Zone-redundant Storage (GZRS)
+
+## Secondary Region Redundancy with Read Access
+for **Read Replicas**
+- Read-access geo-redundant Storage (RA- GRS)
+- Read-access geo-redundant Storage (RA- GZRS)
 

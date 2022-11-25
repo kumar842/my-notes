@@ -64,7 +64,7 @@ Both versions are still used today.
 ![[azure_ad_manage_tenants.png]]
 
 
-![[img/azure_ad_tenant_switch.png]]
+![[azure_ad_tenant_switch.png]]
 
 ![[azure_ad_tenant_switch 1.png]]
 

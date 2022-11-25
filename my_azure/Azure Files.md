@@ -1,3 +1,3 @@
 # Azure Files
 
-Managed fiel shares for cloud or on-premises deployments
+Managed file shares for cloud or on-premises deployments

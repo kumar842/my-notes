@@ -135,9 +135,9 @@
 - [ ] 2:45:30 LRS ZRS
 - [ ] 2:47:01 GRS GZRS
 - [ ] 2:49:02 RAGRS_RA GZRS
-- [ ] 2:49:44 Intro to Blob
-- [ ] 2:50:51 Blob Types
-- [ ] 2:51:45 Blob Moving Data
+- [x] 2:49:44 Intro to Blob
+- [x] 2:50:51 Blob Types
+- [x] 2:51:45 Blob Moving Data
 - [ ] 2:52:50 Intro to Files
 - [ ] 2:54:05 Files Use Cases
 - [ ] 2:57:31 Files Feature
