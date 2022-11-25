@@ -1,27 +1,28 @@
+# Resource Manager
 deployment & management service for Azure
 management layer  ... [[Resource]]s in your [[Azure Account]]
 * create
 * update
 * delete
 
+Resource Manager allows writing Infrastructure as Code(IaC) via JSON templates.
 
-**Access management Features**
+Think of [[Resource Manager]] as a gate keeper. All requests flow through ARM and it decides whether that request can be performed on a [[Resource]].
+
+
+# Access management Features
 - [[Access Controls]]
 - [[Resource locks]]
 - [[Resource Tags]]
 - secure & organize the resoruces
 
-[[Resource Manager]] allows writing Infrastructure as Code(IaC) via JSON templates.
 
-Think of [[Resource Manager]] as a gate keeper. All requests flow through ARM and it decides whether that request can be performed on a [[Resource]].
+# conistent management layer
 
----
-
-## conistent management layer
 ![[resource_manager_consistent_mangement_layer.png]]
 
----
-## Benefits of [[Resource Manager]]
+
+# Benefits of Resource Manager
 * manage infrastructure through declarative templates rather than scripts
 * deploy, manage, monitor all [[Resource]]s as a group
 * consistent way of deploying.. through out dev. lifecycle
@@ -29,8 +30,10 @@ Think of [[Resource Manager]] as a gate keeper. All requests flow through ARM an
 * apply access control to all [[Resource]]s because RBAC is natively integrated into Azure
 * apply tags to all [[Resource]]s to logically organize all the resources in your subscription.
 * clarify ur organization billing by viewing costs for a group of [[Resource]]s sharing same tag
-----
-### Understand scope
+
+
+# Understand scope
+
 ![[resource_manager_understanding_scope.png]]
 scope is a boundary of control for Azure [[Resource]]s, It a way to govern your [[Resource]]s by placing [[Resource]]s
 - with in a logical grouping
@@ -44,20 +47,19 @@ Scope Access Controls at the Management, [[Subscription]] or [[[Resource Group]]
 [[Resource Group]]
 [[Resource]]
 
-
 * lower levels inherit settings from upper level
 * You can deploy templates to [[Tenant]]s, [[Management Group]]s, [[Subscription]]s, or [[Resource Group]]s.
----
-### Resiliency of Azure [[Resource Manager]]
+
+# Resiliency of Azure [[Resource Manager]]
 - designed for resiliency & continuous availability
 - Resource Manager and control plane operations (requests sent to **management.azure.com**) in the REST API are:
 	- distributed accross [[Region]]s
 	- distributed accross [[Availability Zone]]s
 	- not dependent on a single logical data center
 	- never taken down for maintenance activities
----
 
-### Resource access management in Azure
+
+# Resource access management in Azure
 - Client should specify [[Subscription]] ID and [[Resource Group]] ID to manage the resources
 
 ![[Resource_access_management.png]]
@@ -69,6 +71,7 @@ Scope Access Controls at the Management, [[Subscription]] or [[[Resource Group]]
 4. Check whether the request/operation is allowed under the settings specified for Azure resource policy. Azure resource policied specify the operations allowed for a specific resource
 5. [[Subscription]] limit: ex: 980 resource groups per [[Subscription]]
 6. financial limit
+
 
 
 

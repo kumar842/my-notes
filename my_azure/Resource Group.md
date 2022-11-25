@@ -1,3 +1,5 @@
+# Resource Group
+
 - logical container that holds/groups the [[Resource]]s in a [[Subscription]] for an Azure solution
 - all [[Resource]]s should share same lifecyle: deploy, update, delete etc.
 - if 1 needs a different deployment lifecyle, it has to be in another [[Resource Group]]
@@ -22,20 +24,18 @@
 - 800 instances of a resource type in each resource group [[-learn it]]
 - Some [[Resource]]s can exist outside [[Resource Group]] ex: [[Subscription]], [[Management Group]], [[Tenant]]
 
-----
-**Locks**
-![[resource_group_lock.png]]
+## Properties
 
----
-**Properties**
 ![[resource_group_properties.png]]
 
----
-**Policies**
+
+## Policies
+
 ![[resource_group_policies.png]]
 
 ![[resource_group_policies__.png]]
 
----
+
+
 
 

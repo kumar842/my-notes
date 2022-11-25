@@ -1,4 +1,4 @@
-### Features  
+# Features
 -   Is temporary and requires a new or existing Azure Files share to be mounted.
 -   Offers an integrated graphical text editor based on the open-source Monaco Editor.
 -   Authenticates automatically for instant access to your resources.

@@ -1,3 +1,5 @@
+# Azure AD Directory
+
 - each [[Tenant]] has a single, dedicated, trusted directory
 - includes [[Tenant]]'s users, groups, applications
 - use [[Azure AD Directory]] to manage IAM fuctions for [[Tenant]]'s resources
@@ -19,7 +21,7 @@ All of your users have a single _home_ directory for authentication. Your user
 ![[azure_ad_directory_subscription_relationship.png]]
 
 
-## Associate or add an Azure subscription to your Azure Active Directory tenant
+# Associate or add an Azure subscription to your Azure Active Directory tenant
 
 ![[azure_ad_subscription_change_directory.png]]
 

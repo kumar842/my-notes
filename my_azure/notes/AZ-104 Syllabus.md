@@ -1,7 +1,7 @@
 [AZ-104 Exam link](https://learn.microsoft.com/en-us/certifications/exams/az-104)
 [AZ-104 study guide](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4pCWy)
 
-#### pattern
+# Pattern
 * 40-60 Questions (3hrs)
 * no penalty
 * 30-45 should be answered
@@ -13,16 +13,40 @@
 	* Hot Area
 	* Case Studies
 
-
-#### Skills measured
+# Skills measured
 -   Manage Azure identities and governance (15–20%)
 -   Implement and manage storage (15–20%)
 -   Deploy and manage Azure compute resources (20–25%)
 -   Configure and manage virtual networking (20-25%)
 -   Monitor and maintain Azure resources (10–15%)
 
+# High Level Syllabus
+ - [x] Azure AD
+ - [ ] AD Device Mangement
+ - [x] Roles
+ - [ ] Azure Policies
+ - [x] ARM
+ - [ ] ARM Templates
+ - [ ] Storage Accounts
+ - [ ] VMs
+ - [ ] Disks
+ - [ ] Application Gateway
+ - [ ] Scale Sets
+ - [ ] App Service
+ - [ ] Availability Follow Along
+ - [ ] Monitor
+ - [ ] Backup
+ - [ ] ACI
+ - [ ] ACR
+ - [ ] AKS
+ - [ ] DNS
+ - [ ] Networking
+ - [ ] NSG
+ - [ ] Virtaul WAN
+ - [ ] VNGs
 
 
+# Low Level Syllabus
 ### [[Azure AD]]
 - [ ] 19:45 Intro
 - [ ] 21:43 Use Cases
@@ -58,15 +82,15 @@
 - [ ] 1:12:19 Device Management Cheatsheet
 
 ### Roles
-- [ ] 1:13:38 Type of Roles
-- [ ] 1:14:32 IAM Access Controls
-- [ ] 1:16:04 Classic Administrator
-- [ ] 1:17:14 RBAC
-- [ ] 1:20:06 AD Roles
-- [ ] 1:21:30 Roles
-- [ ] 1:24:21 Policies vs RBAC
-- [ ] 1:25:35 AD Roles vs RBAC
-- [ ] 1:26:50 Roles CheatSheet
+- [x] 1:13:38 Type of Roles
+- [x] 1:14:32 IAM Access Controls
+- [x] 1:16:04 Classic Administrator
+- [x] 1:17:14 RBAC
+- [x] 1:20:06 AD Roles
+- [x] 1:21:30 Roles
+- [x] 1:24:21 Policies vs RBAC
+- [x] 1:25:35 AD Roles vs RBAC
+- [x] 1:26:50 Roles CheatSheet
 
 ### Azure Policies
 - [ ] 1:28:32 Intro
@@ -76,18 +100,18 @@
 - [ ] 1:41:06 Policies CheatSheet
 
 ### ARM
-- [ ] 1:41:54 Intro
-- [ ] 1:43:18 Use Case
-- [ ] 1:44:26 Scoping
-- [ ] 1:45:54 Subscriptions
-- [ ] 1:47:00 Management Groups
-- [ ] 1:48:05 Resource Groups
-- [ ] 1:48:40 Resource Providers
-- [ ] 1:49:49 Resource Tags
-- [ ] 1:51:24 Resource Locks
-- [ ] 1:52:04 Blueprints
-- [ ] 1:54:06 Moving Resources
-- [ ] 2:06:40 ARM CheatSheet
+- [x] 1:41:54 Intro
+- [x] 1:43:18 Use Case
+- [x] 1:44:26 Scoping
+- [x] 1:45:54 Subscriptions
+- [x] 1:47:00 Management Groups
+- [x] 1:48:05 Resource Groups
+- [x] 1:48:40 Resource Providers
+- [x] 1:49:49 Resource Tags
+- [x] 1:51:24 Resource Locks
+- [x] 1:52:04 Blueprints
+- [x] 1:54:06 Moving Resources
+- [x] 2:06:40 ARM CheatSheet
 
 
 ### ARM Templates
@@ -102,11 +126,11 @@
 - [ ] 2:30:12 ARM Template CheatSheet
 
 ### Storage Accounts
-- [ ] 2:32:04 Intro to Storage Accounts
-- [ ] 2:33:48 Storage Comparison
-- [ ] 2:35:49 Core Storage Services
-- [ ] 2:37:43 Performance Tiers
-- [ ] 2:39:51 Access Tiers
+- [x] 2:32:04 Intro to Storage Accounts
+- [x] 2:33:48 Storage Comparison
+- [x] 2:35:49 Core Storage Services
+- [x] 2:37:43 Performance Tiers
+- [x] 2:39:51 Access Tiers
 - [ ] 2:43:37 Replication Data Redundancy
 - [ ] 2:45:30 LRS ZRS
 - [ ] 2:47:01 GRS GZRS

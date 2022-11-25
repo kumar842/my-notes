@@ -1,9 +1,15 @@
+# Azure AD Roles
+
 used to manage [[Azure AD]] resources in a directory such as
 - create or edit users
 - assign administrative roles to others
 - reset user passwords
 - manager user licenses
 - manage domains
+
+# Built-In Roles
+
+![[azure_ad_roles_and_administrators.png]]
 
 a few important Built-in Azure AD roles you should know:
 - **Global Administrator**: full access to everything
