@@ -1,0 +1,13 @@
+Azure AI Studio
+Azure OpenAI
+Microsoft Fabric
+OneLake
+LLM Models
+Semantic kernel
+LangChain
+Prompt flow
+Retrieval Augmented Generation (RAG)
+
+Build your own copilot
+
+

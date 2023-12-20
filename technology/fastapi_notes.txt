@@ -1,0 +1,39 @@
+FastAPI is
+    - Very modern
+    - Asynchronous programming which is lacking in DJango framework
+
+Features:
+    - Automatic documentation
+    - ReDoc
+    - uses Python3.6 with type using Pydantic
+    - Based on Open standards
+        - JSON Schema
+        - Open API
+    - VScode/PyCharm editor support
+    - Security & Authentication
+        - HTTP Basic
+        - Oauth2(also with JWT tokens)
+        - API Keys in 
+            - Headers
+            - Query parameters
+            - Cookies etc.
+    - Dependency Injection
+    - Unlimited "plug-ins"
+    - Tested
+
+FastAPI uses starlette
+Starlette Features
+    - WebSocket support
+    - GraphQL support
+    - In-process background tasks
+    - Startup and shutdown events
+    - Test client built on requests
+    - CORS, GZip, Static Files, Streaming responses
+    - Session & Cookie support
+    - SQL databases
+    - NoSQL databases
+    - GraphQL
+
+Take care of the dynamic routing
+    - /blog/unpublished should be before /blog/{id}
+
