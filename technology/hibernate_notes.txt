@@ -1,0 +1,75 @@
+/** Bidirectional **/
+// Now, if Cart referenced Item, but Item didn’t in turn reference Cart, our relationship would be unidirectional. The objects would also have a natural consistency.
+// In our case though, the relationship is bidirectional, bringing in the possibility of inconsistency.
+
+public class Cart {  //inverse side
+    @OneToMany(mappedBy="cart", fetch = FetchType.LAZY) //mappedBy parameter to indicate that the given column is owned by another entity:
+    private Set<Item> items;
+}
+public class Item { //owning side
+    @ManyToOne
+    @JoinColumn(name="cart_id", nullable=false) //Email(Item) (the owner entity) has a join column employee_id that stores the id value and has a foreign key to the Employee entity.
+    private Cart cart;
+}
+
+// It’s also possible to mark the one-to-many side as the owning side, and the many-to-one side as the inverse side.
+// Although this is not a recommended practice, let’s go ahead and give it a try.
+public class CartOIO { // owning side
+    @OneToMany
+    @JoinColumn(name = "cart_id") // we need to duplicate the physical information
+    private Set<ItemOIO> items;
+}
+public class ItemOIO { //inverse side
+    @ManyToOne
+    @JoinColumn(name = "cart_id", insertable = false, updatable = false)
+    private CartOIO cart;
+}
+
+/** Unidirectional One-to-Many Relationship */
+public class Article {
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Comment> comments = new HashSet<>();
+}
+public class Comment {} //We can see no reference to the Article inside the Comment entity.
+// We looked at both CascasdeType.All and CascadeType.Remove to achieve the cascading deletion of associated child entities when the parent entity is deleted. Furthermore, we also highlighted the importance of using the OrphanRemoval option to ensure the database records are deleted as required.
+#-----------------------------------------------------------------------------------------
+#-------- One-to-One (Mandatory & Bidirectional)--------------
+//@JoinColumn needed it on the owning side of the foreign key relationship. 
+public class User { //owning side
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "id") //address_id is foreign key in users table
+    private Address address; //a given column in the owner entity refers to a primary key in the reference entity:
+}
+public class Address { //non-owning side
+    @OneToOne(mappedBy = "address")
+    private User user;
+}
+
+#Implementing With a Shared Primary Key in JPA
+public class User {
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private Address address;
+}
+public class Address {
+    @Id
+    @Column(name = "user_id") //user_id is the foreign_key in address table (no primary key in address table)
+    private Long id;
+
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "user_id")
+    private User user;
+}
+// the @PrimaryKeyJoinColumn annotation, which indicates that the primary key of the User entity is used as the foreign key value for the associated Address entity.
+// We still have to define an @Id field in the Address class. But note that this references the user_id column, and it no longer uses the @GeneratedValue annotation. Also, on the field that references the User, we’ve added the @MapsId annotation, which indicates that the primary key values will be copied from the User entity.
+#-------- One-to-One (Optioanl)--------------
+//let’s imagine that our employees get associated with a workstation. It’s one-to-one, but sometimes an employee might not have a workstation and vice versa.
+
+//The @JoinColumn annotation defines the actual physical mapping on the owning side. On the other hand, the referencing side is defined using the mappedBy attribute of the @OneToMany annotation.
+
+
+
+
+
+

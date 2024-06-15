@@ -1,0 +1,27 @@
+- Caused by: org.hibernate.HibernateException: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+    - added belo to properties file
+        spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+- docker The driver has not received any packets from the server.
+    - The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+
+    - changed localhost to ipaddress
+
+- Caused by: java.sql.SQLException: null,  message from server: "Host 'host.docker.internal' is not allowed to connect to this MySQL server"
+    - Create new user 'mysql' with '%' as host  
+    - GRANT ALL PRIVILEGES ON *.* TO 'mysql'@'%'
+
+Issues resolved.. service running.. and running in docker shell.. 
+wget http://docker-desktop:8080/v1/api/customers
+wget http://192.168.65.3:8080/v1/api/customers
+
+
+
+docker build -t test:latest .  
+docker run -d -p 127.0.0.1:8080:8080 --add-host host.docker.internal=host-gateway test:latest
+
+
+
+docker run -p 192.168.1.6:8080:8080 --net host --add-host host.docker.internal=host-gateway test:latest
+docker run -p 192.168.1.6:8080:8080 --net host test:latest
+
