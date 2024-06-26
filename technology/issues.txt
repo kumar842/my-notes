@@ -18,10 +18,10 @@ wget http://192.168.65.3:8080/v1/api/customers
 
 
 docker build -t test:latest .  
-docker run -d -p 127.0.0.1:8080:8080 --add-host host.docker.internal=host-gateway test:latest
+docker run -d -p 127.0.0.1:8080:8080 -e MYSQL_HOST="172.20.240.1" -e MYSQL_PORT="3306" -e MYSQL_DB="my_db" -e MYSQL_USERNAME="mysql" -e MYSQL_PASSWORD="mypassword" --add-host host.docker.internal=host-gateway test:latest
+
 
 
 
 docker run -p 192.168.1.6:8080:8080 --net host --add-host host.docker.internal=host-gateway test:latest
 docker run -p 192.168.1.6:8080:8080 --net host test:latest
-

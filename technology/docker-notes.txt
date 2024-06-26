@@ -1,0 +1,32 @@
+docker pull
+docker run -d -p6000:6379 -e USERNAME=raj .. --net=mongo-network --name redis-older redis:4.0
+docker images
+docker ps
+docker ps -a
+docker start/stop/logs <container_id>/<container_name>
+docker exec -it <container_id>/<container_name> /bin/bash
+docker network ls 
+docker network create mongo-network
+
+docker-componse.yaml
+version: '2'
+services:
+    mongodb:
+        image: mongo
+        ports:
+            - 27017:27017
+        environment:
+            - USERNAME=admin
+            ...
+    mongo-express:
+        ..
+        ..
+    
+    Docker componse takes care of creating a common network.
+    Waiting logic can be added  
+docker-compose -f mongo.yaml up -d 
+docker-compose -f mongo.yaml down
+
+
+
+
